@@ -1,0 +1,665 @@
+{%- liquid
+  assign section_anchor = section.settings.anchor_id | default: 'creative-zoo-ecosystem' | handleize
+-%}
+
+{%- style -%}
+  #{{ section_anchor }} {
+    --cz-eco-bg: {{ section.settings.background_color }};
+    --cz-eco-text: {{ section.settings.text_color }};
+    --cz-eco-muted: {{ section.settings.muted_color }};
+    --cz-eco-accent: {{ section.settings.accent_color }};
+    --cz-eco-surface: {{ section.settings.surface_color }};
+    --cz-eco-border: {{ section.settings.border_color }};
+    --cz-eco-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-eco-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #{{ section_anchor }} {
+      --cz-eco-padding-top: {{ section.settings.padding_top }}px;
+      --cz-eco-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="{{ section_anchor }}"
+  class="cz-ecosystem section-{{ section.id }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+>
+  <div class="cz-ecosystem__inner page-width">
+    <div class="cz-ecosystem__hero">
+      <div class="cz-ecosystem__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="cz-ecosystem__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="cz-ecosystem__heading">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="cz-ecosystem__subheading rte">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+
+        <div class="cz-ecosystem__actions">
+          {%- if section.settings.primary_label != blank -%}
+            <a
+              class="button button--primary cz-ecosystem__button"
+              {% if section.settings.primary_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.primary_link }}"
+              {% endif %}
+            >
+              {{ section.settings.primary_label | escape }}
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.secondary_label != blank -%}
+            <a
+              class="button button--secondary cz-ecosystem__button"
+              {% if section.settings.secondary_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.secondary_link }}"
+              {% endif %}
+            >
+              {{ section.settings.secondary_label | escape }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="cz-ecosystem__map" aria-label="{{ section.settings.map_label | escape }}">
+        <div class="cz-ecosystem__map-panel">
+          <div class="cz-ecosystem__map-core">
+            <span>{{ section.settings.core_label | escape }}</span>
+          </div>
+
+          <div class="cz-ecosystem__map-ring cz-ecosystem__map-ring--one"></div>
+          <div class="cz-ecosystem__map-ring cz-ecosystem__map-ring--two"></div>
+
+          {%- assign node_count = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'zone' -%}
+              {%- assign node_count = node_count | plus: 1 -%}
+              <div
+                class="cz-ecosystem__node cz-ecosystem__node--{{ node_count }}"
+                {{ block.shopify_attributes }}
+              >
+                <span class="cz-ecosystem__node-index">{{ block.settings.kicker | escape }}</span>
+                <span class="cz-ecosystem__node-title">{{ block.settings.title | escape }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="cz-ecosystem__zones">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'zone' -%}
+          <article class="cz-ecosystem__zone" {{ block.shopify_attributes }}>
+            {%- if block.settings.kicker != blank -%}
+              <p class="cz-ecosystem__zone-kicker">{{ block.settings.kicker | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <h2 class="cz-ecosystem__zone-title">{{ block.settings.title | escape }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="cz-ecosystem__zone-text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.link_label != blank -%}
+              <a
+                class="cz-ecosystem__zone-link"
+                {% if block.settings.link == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ block.settings.link }}"
+                {% endif %}
+              >
+                {{ block.settings.link_label | escape }}
+                <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footer_heading != blank or section.settings.footer_text != blank -%}
+      <div class="cz-ecosystem__footer">
+        {%- if section.settings.footer_heading != blank -%}
+          <h2>{{ section.settings.footer_heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.footer_text != blank -%}
+          <div class="rte">{{ section.settings.footer_text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-ecosystem {
+    color: var(--cz-eco-text);
+    background: var(--cz-eco-bg);
+    padding-block: var(--cz-eco-padding-top) var(--cz-eco-padding-bottom);
+  }
+
+  .cz-ecosystem__inner {
+    display: grid;
+    gap: clamp(3rem, 5vw, 7rem);
+  }
+
+  .cz-ecosystem__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 8rem);
+    min-height: min(760px, calc(100vh - 8rem));
+  }
+
+  .cz-ecosystem__copy {
+    max-width: 78rem;
+  }
+
+  .cz-ecosystem__eyebrow,
+  .cz-ecosystem__zone-kicker {
+    margin: 0 0 1.2rem;
+    color: var(--cz-eco-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-ecosystem__heading {
+    max-width: 11ch;
+    margin: 0;
+    color: var(--cz-eco-text);
+    font-family: var(--font-heading-family);
+    font-size: clamp(4.8rem, 9vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0;
+  }
+
+  .cz-ecosystem__subheading {
+    max-width: 66rem;
+    margin-top: 2.4rem;
+    color: var(--cz-eco-muted);
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+    line-height: 1.45;
+  }
+
+  .cz-ecosystem__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .cz-ecosystem__button {
+    min-width: 16rem;
+  }
+
+  .cz-ecosystem__map {
+    min-height: 34rem;
+  }
+
+  .cz-ecosystem__map-panel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: clamp(34rem, 48vw, 58rem);
+    overflow: hidden;
+    border: 1px solid var(--cz-eco-border);
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--cz-eco-border), transparent 72%) 1px, transparent 1px),
+      linear-gradient(0deg, color-mix(in srgb, var(--cz-eco-border), transparent 72%) 1px, transparent 1px),
+      var(--cz-eco-surface);
+    background-size: 4.8rem 4.8rem;
+  }
+
+  .cz-ecosystem__map-core {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: clamp(13rem, 18vw, 20rem);
+    aspect-ratio: 1;
+    border: 2px solid var(--cz-eco-text);
+    border-radius: 8px;
+    background: var(--cz-eco-bg);
+    color: var(--cz-eco-text);
+    box-shadow: 0 1.2rem 3rem color-mix(in srgb, var(--cz-eco-text), transparent 88%);
+    text-align: center;
+  }
+
+  .cz-ecosystem__map-core span {
+    max-width: 8ch;
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.2rem, 4vw, 4.6rem);
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .cz-ecosystem__map-ring {
+    position: absolute;
+    inset: 18%;
+    border: 1px solid color-mix(in srgb, var(--cz-eco-text), transparent 70%);
+    border-radius: 8px;
+    transform: rotate(8deg);
+  }
+
+  .cz-ecosystem__map-ring--two {
+    inset: 29%;
+    transform: rotate(-10deg);
+  }
+
+  .cz-ecosystem__node {
+    position: absolute;
+    z-index: 4;
+    display: grid;
+    gap: 0.4rem;
+    width: min(17rem, 38vw);
+    min-height: 8rem;
+    padding: 1.4rem;
+    border: 1px solid var(--cz-eco-border);
+    border-radius: 8px;
+    background: var(--cz-eco-bg);
+    color: var(--cz-eco-text);
+  }
+
+  .cz-ecosystem__node-index {
+    color: var(--cz-eco-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .cz-ecosystem__node-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .cz-ecosystem__node--1 {
+    top: 8%;
+    left: 8%;
+  }
+
+  .cz-ecosystem__node--2 {
+    top: 12%;
+    right: 7%;
+  }
+
+  .cz-ecosystem__node--3 {
+    right: 10%;
+    bottom: 10%;
+  }
+
+  .cz-ecosystem__node--4 {
+    bottom: 12%;
+    left: 10%;
+  }
+
+  .cz-ecosystem__node--5 {
+    top: 42%;
+    left: 2%;
+  }
+
+  .cz-ecosystem__node--6 {
+    top: 42%;
+    right: 2%;
+  }
+
+  .cz-ecosystem__zones {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+
+  .cz-ecosystem__zone {
+    display: flex;
+    min-height: 32rem;
+    flex-direction: column;
+    padding: clamp(2rem, 3vw, 3.2rem);
+    border: 1px solid var(--cz-eco-border);
+    border-radius: 8px;
+    background: var(--cz-eco-surface);
+  }
+
+  .cz-ecosystem__zone-title,
+  .cz-ecosystem__footer h2 {
+    margin: 0;
+    color: var(--cz-eco-text);
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.6rem, 4vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  .cz-ecosystem__zone-text {
+    margin-top: 1.8rem;
+    color: var(--cz-eco-muted);
+    line-height: 1.5;
+  }
+
+  .cz-ecosystem__zone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 2.4rem;
+    color: var(--cz-eco-text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .cz-ecosystem__zone-link span {
+    display: inline-flex;
+    width: 1.4rem;
+  }
+
+  .cz-ecosystem__zone-link svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .cz-ecosystem__footer {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 7rem);
+    padding-top: clamp(2rem, 4vw, 5rem);
+    border-top: 1px solid var(--cz-eco-border);
+  }
+
+  .cz-ecosystem__footer .rte {
+    max-width: 76rem;
+    color: var(--cz-eco-muted);
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    line-height: 1.55;
+  }
+
+  @media screen and (min-width: 990px) {
+    .cz-ecosystem__hero {
+      grid-template-columns: minmax(0, 0.86fr) minmax(42rem, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .cz-ecosystem__zones,
+    .cz-ecosystem__footer {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .cz-ecosystem__hero {
+      min-height: auto;
+    }
+
+    .cz-ecosystem__heading {
+      max-width: 9ch;
+    }
+
+    .cz-ecosystem__actions {
+      flex-direction: column;
+    }
+
+    .cz-ecosystem__button {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .cz-ecosystem__map-panel {
+      min-height: 48rem;
+    }
+
+    .cz-ecosystem__node {
+      width: 13rem;
+      min-height: 7rem;
+      padding: 1rem;
+    }
+
+    .cz-ecosystem__node--1,
+    .cz-ecosystem__node--4,
+    .cz-ecosystem__node--5 {
+      left: 1rem;
+    }
+
+    .cz-ecosystem__node--2,
+    .cz-ecosystem__node--3,
+    .cz-ecosystem__node--6 {
+      right: 1rem;
+    }
+
+    .cz-ecosystem__node-title {
+      font-size: 1.2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Creative Zoo ecosystem",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "default": "creative-zoo-ecosystem"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Creative Zoo Ecosystem"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The whole Zoo, connected."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>A living home for Creative Zoo drops, collections, stories, and community energy. Start with the world, then move through every corner of the brand.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop the ecosystem"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Explore collections"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "map_label",
+      "label": "Map accessibility label",
+      "default": "Creative Zoo ecosystem map"
+    },
+    {
+      "type": "text",
+      "id": "core_label",
+      "label": "Map core label",
+      "default": "Creative Zoo"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading",
+      "label": "Footer heading",
+      "default": "Built to expand."
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "<p>The ecosystem can grow with new chapters, seasonal campaigns, collaborations, and story-led collection pages while keeping the storefront path clear for shopping.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Surface",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "zone",
+      "name": "Ecosystem zone",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Creative Zoo Originals"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Foundational pieces built around the core Creative Zoo marks, made to be worn as the everyday uniform of the brand.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Enter this zone"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Creative Zoo ecosystem",
+      "blocks": [
+        {
+          "type": "zone",
+          "settings": {
+            "kicker": "01",
+            "title": "Creative Zoo Originals",
+            "text": "<p>The foundational pieces built around the iconic Creative Zoo marks. Everyday staples, unmistakably Zoo.</p>",
+            "link_label": "Shop OGs"
+          }
+        },
+        {
+          "type": "zone",
+          "settings": {
+            "kicker": "02",
+            "title": "Bars & Battle Cries",
+            "text": "<p>A collection fueled by hip-hop energy and anime storytelling, made for bold characters and louder fits.</p>",
+            "link_label": "Shop Bars"
+          }
+        },
+        {
+          "type": "zone",
+          "settings": {
+            "kicker": "03",
+            "title": "Where Creatures Rep Colors",
+            "text": "<p>Gear for the passionate and proud, built for everyone who reps their squad with heart and hustle.</p>",
+            "link_label": "Shop Rep"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
