@@ -1,0 +1,229 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-manifesto-bg: {{ section.settings.background_color }};
+    --cz-manifesto-text: {{ section.settings.text_color }};
+    --cz-manifesto-muted: {{ section.settings.muted_color }};
+    --cz-manifesto-accent: {{ section.settings.accent_color }};
+    --cz-manifesto-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-manifesto-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      --cz-manifesto-padding-top: {{ section.settings.padding_top }}px;
+      --cz-manifesto-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cz-manifesto section-{{ section.id }}">
+  <div class="page-width cz-manifesto__inner">
+    <div class="cz-manifesto__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1500
+          | image_tag:
+            loading: 'lazy',
+            widths: '550, 750, 990, 1100, 1500',
+            sizes: '(min-width: 990px) 42vw, 100vw',
+            class: 'cz-manifesto__image'
+        }}
+      {%- else -%}
+        {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg cz-manifesto__placeholder' }}
+      {%- endif -%}
+    </div>
+
+    <div class="cz-manifesto__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="cz-manifesto__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="cz-manifesto__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="button button--primary"
+          {% if section.settings.button_link == blank %}
+            role="link" aria-disabled="true"
+          {% else %}
+            href="{{ section.settings.button_link }}"
+          {% endif %}
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-manifesto {
+    color: var(--cz-manifesto-text);
+    background: var(--cz-manifesto-bg);
+    padding-block: var(--cz-manifesto-padding-top) var(--cz-manifesto-padding-bottom);
+  }
+
+  .cz-manifesto__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 8rem);
+  }
+
+  .cz-manifesto__media {
+    overflow: hidden;
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    aspect-ratio: 4 / 5;
+    background: #ffffff;
+  }
+
+  .cz-manifesto__image,
+  .cz-manifesto__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cz-manifesto__copy {
+    max-width: 72rem;
+  }
+
+  .cz-manifesto__eyebrow {
+    margin: 0 0 1.2rem;
+    color: var(--cz-manifesto-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-manifesto h2 {
+    margin: 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.8rem, 6vw, 7.6rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+
+  .cz-manifesto__text {
+    margin-top: 2.2rem;
+    color: var(--cz-manifesto-muted);
+    font-size: clamp(1.7rem, 2vw, 2.1rem);
+    line-height: 1.5;
+  }
+
+  .cz-manifesto .button {
+    margin-top: 2.8rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .cz-manifesto__inner {
+      grid-template-columns: minmax(28rem, 0.72fr) minmax(0, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ manifesto preview",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What is Creative Zoo?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A habitat for wild ideas."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Creative Zoo is a world for the ones who build their own language through clothes, stories, music, and community. It is part brand, part archive, part gathering place.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Read the manifesto"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "CZ manifesto preview"
+    }
+  ]
+}
+{% endschema %}

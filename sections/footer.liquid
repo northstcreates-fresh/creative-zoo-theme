@@ -101,6 +101,31 @@
                         {%- endfor -%}
                       </ul>
                     {%- endif -%}
+                  {%- when 'ecosystem_navigation' -%}
+                    <ul class="footer-block__details-content list-unstyled">
+                      {%- for index in (1..6) -%}
+                        {%- liquid
+                          assign label_key = 'link_' | append: index | append: '_label'
+                          assign url_key = 'link_' | append: index | append: '_url'
+                          assign link_label = block.settings[label_key]
+                          assign link_url = block.settings[url_key]
+                        -%}
+                        {%- if link_label != blank -%}
+                          <li>
+                            <a
+                              class="link link--text list-menu__item list-menu__item--link"
+                              {% if link_url == blank %}
+                                role="link" aria-disabled="true"
+                              {% else %}
+                                href="{{ link_url }}"
+                              {% endif %}
+                            >
+                              {{ link_label | escape }}
+                            </a>
+                          </li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
@@ -343,6 +368,84 @@
           "id": "menu",
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "ecosystem_navigation",
+      "name": "Ecosystem navigation",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Explore the Habitat",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "link_1_label",
+          "label": "Link 1 label",
+          "default": "Apparel"
+        },
+        {
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_2_label",
+          "label": "Link 2 label",
+          "default": "Manga"
+        },
+        {
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_3_label",
+          "label": "Link 3 label",
+          "default": "Music"
+        },
+        {
+          "type": "url",
+          "id": "link_3_url",
+          "label": "Link 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_4_label",
+          "label": "Link 4 label",
+          "default": "Journal"
+        },
+        {
+          "type": "url",
+          "id": "link_4_url",
+          "label": "Link 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_5_label",
+          "label": "Link 5 label",
+          "default": "Community"
+        },
+        {
+          "type": "url",
+          "id": "link_5_url",
+          "label": "Link 5 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_6_label",
+          "label": "Link 6 label",
+          "default": "Manifesto"
+        },
+        {
+          "type": "url",
+          "id": "link_6_url",
+          "label": "Link 6 URL"
         }
       ]
     },

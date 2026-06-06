@@ -1,0 +1,370 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-tiles-bg: {{ section.settings.background_color }};
+    --cz-tiles-card: {{ section.settings.card_color }};
+    --cz-tiles-text: {{ section.settings.text_color }};
+    --cz-tiles-muted: {{ section.settings.muted_color }};
+    --cz-tiles-accent: {{ section.settings.accent_color }};
+    --cz-tiles-border: {{ section.settings.border_color }};
+    --cz-tiles-columns: {{ section.settings.columns_desktop }};
+    --cz-tiles-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-tiles-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      --cz-tiles-padding-top: {{ section.settings.padding_top }}px;
+      --cz-tiles-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cz-featured-tiles section-{{ section.id }}">
+  <div class="page-width">
+    <div class="cz-featured-tiles__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p>{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="cz-featured-tiles__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tile' -%}
+          <article class="cz-featured-tiles__tile" {{ block.shopify_attributes }}>
+            <a
+              class="cz-featured-tiles__link"
+              {% if block.settings.link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ block.settings.link }}"
+              {% endif %}
+            >
+              <span class="cz-featured-tiles__media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '550, 750, 990, 1100, 1400',
+                      sizes: '(min-width: 990px) 45vw, 100vw',
+                      class: 'cz-featured-tiles__image'
+                  }}
+                {%- else -%}
+                  {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg cz-featured-tiles__placeholder' }}
+                {%- endif -%}
+              </span>
+
+              <span class="cz-featured-tiles__body">
+                <span class="cz-featured-tiles__kicker">{{ block.settings.kicker | escape }}</span>
+                <span class="cz-featured-tiles__title">{{ block.settings.title | escape }}</span>
+                <span class="cz-featured-tiles__text">{{ block.settings.text | strip_html | escape }}</span>
+                <span class="cz-featured-tiles__cta">
+                  {{ block.settings.link_label | escape }}
+                  <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                </span>
+              </span>
+            </a>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-featured-tiles {
+    color: var(--cz-tiles-text);
+    background: var(--cz-tiles-bg);
+    padding-block: var(--cz-tiles-padding-top) var(--cz-tiles-padding-bottom);
+  }
+
+  .cz-featured-tiles__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  .cz-featured-tiles__header p {
+    margin: 0 0 1.2rem;
+    color: var(--cz-tiles-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-featured-tiles__header h2 {
+    margin: 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.8rem, 6vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+
+  .cz-featured-tiles__header .rte {
+    max-width: 64rem;
+    color: var(--cz-tiles-muted);
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  .cz-featured-tiles__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cz-tiles-columns), minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+
+  .cz-featured-tiles__link {
+    display: grid;
+    min-height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--cz-tiles-border);
+    border-radius: 8px;
+    background: var(--cz-tiles-card);
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  .cz-featured-tiles__media {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid var(--cz-tiles-border);
+    aspect-ratio: 16 / 11;
+    background: #ffffff;
+  }
+
+  .cz-featured-tiles__image,
+  .cz-featured-tiles__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 180ms ease;
+  }
+
+  .cz-featured-tiles__link:hover .cz-featured-tiles__image {
+    transform: scale(1.04);
+  }
+
+  .cz-featured-tiles__body {
+    display: flex;
+    min-height: 25rem;
+    flex-direction: column;
+    padding: clamp(2rem, 3vw, 3.2rem);
+  }
+
+  .cz-featured-tiles__kicker {
+    margin-bottom: 1.2rem;
+    color: var(--cz-tiles-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .cz-featured-tiles__title {
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.8rem, 4vw, 4.8rem);
+    font-weight: 700;
+    line-height: 0.98;
+  }
+
+  .cz-featured-tiles__text {
+    margin-top: 1.6rem;
+    color: var(--cz-tiles-muted);
+    font-size: 1.6rem;
+    line-height: 1.45;
+  }
+
+  .cz-featured-tiles__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 2.6rem;
+    font-weight: 700;
+  }
+
+  .cz-featured-tiles__cta span {
+    display: inline-flex;
+    width: 1.4rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .cz-featured-tiles__header {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+      align-items: end;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .cz-featured-tiles__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ featured tiles",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Featured"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured tiles"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Use these tiles to guide visitors into the most important parts of the Creative Zoo world.</p>"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 3,
+      "step": 1,
+      "label": "Desktop columns",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Classics"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "A focused doorway into this Creative Zoo collection."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CZ featured tiles",
+      "blocks": [
+        {
+          "type": "tile"
+        },
+        {
+          "type": "tile",
+          "settings": {
+            "title": "Creative Zoo Golf"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
