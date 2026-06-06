@@ -1,0 +1,14 @@
+{
+  "name": "creative-zoo-theme",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "theme:check": "node scripts/theme-check-local.mjs --theme-path \"$PWD\" --files sections/cz-home-hero.liquid,sections/cz-manifesto-preview.liquid,sections/cz-habitat-grid.liquid,sections/cz-featured-tiles.liquid,sections/footer.liquid,templates/index.json,sections/footer-group.json --model gpt-5-codex --client-name codex --client-version 1 --artifact-id creative-zoo-theme --revision 1",
+    "theme:check:all": "node scripts/theme-check-local.mjs --theme-path \"$PWD\" --files sections/cz-home-hero.liquid,sections/cz-manifesto-preview.liquid,sections/cz-habitat-grid.liquid,sections/cz-featured-tiles.liquid,sections/cz-ecosystem.liquid,sections/footer.liquid,templates/index.json,templates/page.ecosystem.json,sections/footer-group.json --model gpt-5-codex --client-name codex --client-version 1 --artifact-id creative-zoo-theme-all --revision 1"
+  },
+  "devDependencies": {
+    "@shopify/theme-check-common": "3.24.0",
+    "@shopify/theme-check-docs-updater": "3.24.0",
+    "@shopify/theme-check-node": "3.24.0"
+  }
+}

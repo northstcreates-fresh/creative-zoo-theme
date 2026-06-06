@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "creative_zoo_ecosystem": {
+      "type": "cz-ecosystem",
+      "blocks": {
+        "zone_ogs": {
+          "type": "zone",
+          "settings": {
+            "kicker": "01",
+            "title": "Creative Zoo Originals",
+            "text": "<p>The foundational pieces built around the iconic Creative Zoo marks. Everyday staples, versatile fits, and the visual language that started the world.</p>",
+            "link_label": "Shop OGs",
+            "link": "shopify://collections/cz-originals"
+          }
+        },
+        "zone_bars": {
+          "type": "zone",
+          "settings": {
+            "kicker": "02",
+            "title": "Bars & Battle Cries",
+            "text": "<p>A collection fueled by hip-hop energy and anime storytelling, where big flows, fierce rivalries, and drawn heroes collide.</p>",
+            "link_label": "Shop Bars",
+            "link": "shopify://collections/bars-battle-cries"
+          }
+        },
+        "zone_rep": {
+          "type": "zone",
+          "settings": {
+            "kicker": "03",
+            "title": "Where Creatures Rep Colors",
+            "text": "<p>Gear for fans who carry their teams everywhere, from stadium noise to everyday movement, with pride built into the fit.</p>",
+            "link_label": "Shop Rep",
+            "link": "shopify://collections/where-creatures-rep-colors-all"
+          }
+        }
+      },
+      "block_order": [
+        "zone_ogs",
+        "zone_bars",
+        "zone_rep"
+      ],
+      "settings": {
+        "anchor_id": "creative-zoo-ecosystem",
+        "eyebrow": "Creative Zoo Ecosystem",
+        "heading": "The whole Zoo, connected.",
+        "subheading": "<p>A living home for Creative Zoo drops, collections, stories, and community energy. Start with the world, then move through every corner of the brand.</p>",
+        "primary_label": "Shop the ecosystem",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Explore collections",
+        "secondary_link": "/collections",
+        "map_label": "Creative Zoo ecosystem map",
+        "core_label": "Creative Zoo",
+        "footer_heading": "Built to expand.",
+        "footer_text": "<p>This page can grow with new chapters, seasonal campaigns, collaborations, and story-led collection pages while keeping the storefront path clear for shopping.</p>",
+        "background_color": "#f4f4f4",
+        "surface_color": "#ffffff",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "creative_zoo_ecosystem"
+  ]
+}
