@@ -15,7 +15,7 @@
           "type": "button",
           "settings": {
             "label": "Explore the Habitat",
-            "link": "#explore-the-habitat",
+            "link": "/pages/habitat",
             "style": "secondary"
           }
         }
@@ -92,7 +92,7 @@
             "title": "Journal",
             "text": "Notes, drops, releases, and behind-the-scenes field reports.",
             "link_label": "Open journal",
-            "link": "/blogs/news"
+            "link": "/pages/journal"
           }
         },
         "habitat_community": {

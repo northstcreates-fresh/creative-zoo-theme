@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "blocks": {
+        "blog": {
+          "type": "button",
+          "settings": {
+            "label": "Read Latest Posts",
+            "link": "/blogs/news",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "blog"
+      ],
+      "settings": {
+        "eyebrow": "Journal",
+        "heading": "Field notes from the Zoo.",
+        "text": "<p>A flexible hub for drop notes, behind-the-scenes entries, campaign stories, and ecosystem updates.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "modules": {
+      "type": "cz-page-modules",
+      "blocks": {
+        "drops": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Drops",
+            "title": "Release notes.",
+            "text": "<p>Use this for editorial notes about new collections, capsules, or featured products.</p>",
+            "link_label": "Read more"
+          }
+        },
+        "behind": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Behind the Scenes",
+            "title": "Process and proof.",
+            "text": "<p>Show sketches, shoots, campaign notes, and the thinking behind the work.</p>",
+            "link_label": "Open story"
+          }
+        },
+        "archive": {
+          "type": "text",
+          "settings": {
+            "kicker": "Archive",
+            "title": "Keep the record.",
+            "text": "<p>This page can point to blogs, featured articles, or seasonal editorial collections.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "drops",
+        "behind",
+        "archive"
+      ],
+      "settings": {
+        "eyebrow": "Journal Modules",
+        "heading": "Write the record.",
+        "text": "<p>Every block is editable, so this page can become a true editorial hub.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "modules"
+  ]
+}

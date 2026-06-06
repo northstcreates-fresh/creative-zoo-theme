@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "settings": {
+        "eyebrow": "Music",
+        "heading": "Signals from the Habitat.",
+        "text": "<p>A listening room for sounds, playlists, drops, and energy tied to the Creative Zoo world.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "modules": {
+      "type": "cz-page-modules",
+      "blocks": {
+        "release": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Release",
+            "title": "Featured sound.",
+            "text": "<p>Use this module for a featured track, playlist, video, or campaign soundtrack.</p>",
+            "link_label": "Listen now"
+          }
+        },
+        "playlist": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Playlist",
+            "title": "Zoo rotation.",
+            "text": "<p>Add a link to the sounds inspiring a drop, chapter, or collection.</p>",
+            "link_label": "Open playlist"
+          }
+        },
+        "note": {
+          "type": "text",
+          "settings": {
+            "kicker": "Energy",
+            "title": "The sound has a place.",
+            "text": "<p>Use music to connect the mood of the brand to the visuals, products, and community moments.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "release",
+        "playlist",
+        "note"
+      ],
+      "settings": {
+        "eyebrow": "Music Modules",
+        "heading": "Curate the sound.",
+        "text": "<p>Cards and links can point to streaming platforms, videos, blogs, or product stories.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "modules"
+  ]
+}

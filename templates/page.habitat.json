@@ -1,0 +1,98 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "settings": {
+        "eyebrow": "Habitat",
+        "heading": "Explore the Creative Zoo.",
+        "text": "<p>The habitat connects every lane: apparel, manga, music, journal entries, and community signals.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "habitat_grid": {
+      "type": "cz-habitat-grid",
+      "blocks": {
+        "apparel": {
+          "type": "card",
+          "settings": {
+            "kicker": "Shop",
+            "title": "Apparel",
+            "text": "Wearable pieces from the Creative Zoo world.",
+            "link_label": "Shop apparel",
+            "link": "/collections/all"
+          }
+        },
+        "manga": {
+          "type": "card",
+          "settings": {
+            "kicker": "Read",
+            "title": "Manga",
+            "text": "Character worlds, visual lore, and story drops from the Zoo.",
+            "link_label": "Read manga",
+            "link": "/pages/manga"
+          }
+        },
+        "music": {
+          "type": "card",
+          "settings": {
+            "kicker": "Listen",
+            "title": "Music",
+            "text": "Sounds and signals from the Creative Zoo universe.",
+            "link_label": "Hear music",
+            "link": "/pages/music"
+          }
+        },
+        "journal": {
+          "type": "card",
+          "settings": {
+            "kicker": "Archive",
+            "title": "Journal",
+            "text": "Notes, drops, releases, and behind-the-scenes field reports.",
+            "link_label": "Open journal",
+            "link": "/pages/journal"
+          }
+        },
+        "community": {
+          "type": "card",
+          "settings": {
+            "kicker": "Join",
+            "title": "Community",
+            "text": "Follow the pack, share the fits, and help shape the habitat.",
+            "link_label": "Join in",
+            "link": "/pages/community"
+          }
+        }
+      },
+      "block_order": [
+        "apparel",
+        "manga",
+        "music",
+        "journal",
+        "community"
+      ],
+      "settings": {
+        "eyebrow": "Explore the Habitat",
+        "heading": "Every zone has a doorway.",
+        "text": "<p>These cards are editable, reorderable, and linkable in the theme editor.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "habitat_grid"
+  ]
+}

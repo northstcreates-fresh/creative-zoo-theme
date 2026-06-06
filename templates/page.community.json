@@ -1,0 +1,121 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "blocks": {
+        "instagram": {
+          "type": "button",
+          "settings": {
+            "label": "Follow @creativzoo",
+            "link": "https://www.instagram.com/creativzoo/",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "instagram"
+      ],
+      "settings": {
+        "eyebrow": "Community",
+        "heading": "Join the Habitat.",
+        "text": "<p>Follow the pack, share the fits, and help shape the Creative Zoo ecosystem as it expands.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "modules": {
+      "type": "cz-page-modules",
+      "blocks": {
+        "share": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Share",
+            "title": "Show the fit.",
+            "text": "<p>Feature social tags, customer looks, or community prompts here.</p>",
+            "link_label": "Tag the Zoo",
+            "link": "https://www.instagram.com/creativzoo/"
+          }
+        },
+        "events": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Gather",
+            "title": "Moments and meetups.",
+            "text": "<p>Use this card for events, activations, launches, or community-led projects.</p>",
+            "link_label": "See what's next"
+          }
+        },
+        "signup": {
+          "type": "text",
+          "settings": {
+            "kicker": "Signals",
+            "title": "Stay close.",
+            "text": "<p>Connect this page to email signup, social, Discord, SMS, or whatever community channel comes next.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "share",
+        "events",
+        "signup"
+      ],
+      "settings": {
+        "eyebrow": "Community Modules",
+        "heading": "Make the Zoo visible.",
+        "text": "<p>Use editable cards to collect social energy, community calls, and participation points.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the Habitat.",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Get community updates, drops, and field notes first.</p>",
+            "text_style": "body"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "modules",
+    "newsletter"
+  ]
+}

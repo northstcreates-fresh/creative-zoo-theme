@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "blocks": {
+        "home": {
+          "type": "button",
+          "settings": {
+            "label": "Enter the Habitat",
+            "link": "/",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "home"
+      ],
+      "settings": {
+        "eyebrow": "Manifesto",
+        "heading": "What is Creative Zoo?",
+        "text": "<p>A living world for apparel, characters, stories, sound, and community. This is the field guide for why the Zoo exists and where it is going.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "modules": {
+      "type": "cz-page-modules",
+      "blocks": {
+        "origin": {
+          "type": "text",
+          "settings": {
+            "kicker": "Origin",
+            "title": "Built for the ones who make their own lane.",
+            "text": "<p>Creative Zoo is not just a clothing line. It is a habitat for ideas that move between fashion, manga, music, sport, and everyday identity.</p>"
+          }
+        },
+        "code": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Code",
+            "title": "Wear the world.",
+            "text": "<p>Every drop should feel like part of a larger story: symbols, crews, rivalries, field notes, and future chapters.</p>",
+            "link_label": "Explore the Habitat",
+            "link": "/pages/habitat"
+          }
+        },
+        "future": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Future",
+            "title": "Always expanding.",
+            "text": "<p>The ecosystem can grow through new collections, characters, music releases, journals, and community-led moments.</p>",
+            "link_label": "Join the Community",
+            "link": "/pages/community"
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "code",
+        "future"
+      ],
+      "settings": {
+        "eyebrow": "Field Notes",
+        "heading": "The Zoo is a system.",
+        "text": "<p>Use these editable blocks to shape the full Creative Zoo manifesto over time.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "modules"
+  ]
+}

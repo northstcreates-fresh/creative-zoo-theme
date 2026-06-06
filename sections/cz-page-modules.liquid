@@ -1,0 +1,388 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-modules-bg: {{ section.settings.background_color }};
+    --cz-modules-card: {{ section.settings.card_color }};
+    --cz-modules-text: {{ section.settings.text_color }};
+    --cz-modules-muted: {{ section.settings.muted_color }};
+    --cz-modules-accent: {{ section.settings.accent_color }};
+    --cz-modules-border: {{ section.settings.border_color }};
+    --cz-modules-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-modules-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      --cz-modules-padding-top: {{ section.settings.padding_top }}px;
+      --cz-modules-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cz-page-modules section-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank or section.settings.text != blank -%}
+      <div class="cz-page-modules__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p>{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="cz-page-modules__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'feature' -%}
+            <article class="cz-page-modules__card" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                <div class="cz-page-modules__media">
+                  {{
+                    block.settings.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '550, 750, 990, 1200',
+                      sizes: '(min-width: 990px) 33vw, 100vw',
+                      class: 'cz-page-modules__image'
+                  }}
+                </div>
+              {%- endif -%}
+
+              <div class="cz-page-modules__body">
+                {%- if block.settings.kicker != blank -%}
+                  <p class="cz-page-modules__kicker">{{ block.settings.kicker | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+
+                {%- if block.settings.link_label != blank -%}
+                  <a
+                    class="cz-page-modules__link"
+                    {% if block.settings.link == blank %}
+                      role="link" aria-disabled="true"
+                    {% else %}
+                      href="{{ block.settings.link }}"
+                    {% endif %}
+                  >
+                    {{ block.settings.link_label | escape }}
+                    <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                  </a>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- when 'text' -%}
+            <article class="cz-page-modules__card cz-page-modules__card--text" {{ block.shopify_attributes }}>
+              <div class="cz-page-modules__body">
+                {%- if block.settings.kicker != blank -%}
+                  <p class="cz-page-modules__kicker">{{ block.settings.kicker | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </article>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-page-modules {
+    color: var(--cz-modules-text);
+    background: var(--cz-modules-bg);
+    padding-block: var(--cz-modules-padding-top) var(--cz-modules-padding-bottom);
+  }
+
+  .cz-page-modules__header {
+    display: grid;
+    gap: 1.6rem;
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  .cz-page-modules__header p,
+  .cz-page-modules__kicker {
+    margin: 0;
+    color: var(--cz-modules-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-page-modules__header h2 {
+    margin: 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.6rem, 5vw, 6.8rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+
+  .cz-page-modules__header .rte {
+    max-width: 72rem;
+    color: var(--cz-modules-muted);
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  .cz-page-modules__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+
+  .cz-page-modules__card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--cz-modules-border);
+    border-radius: 8px;
+    background: var(--cz-modules-card);
+  }
+
+  .cz-page-modules__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 1px solid var(--cz-modules-border);
+  }
+
+  .cz-page-modules__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cz-page-modules__body {
+    display: flex;
+    min-height: 24rem;
+    flex: 1;
+    flex-direction: column;
+    padding: clamp(2rem, 3vw, 3.2rem);
+  }
+
+  .cz-page-modules__body h3 {
+    margin: 1.2rem 0 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.6rem, 4vw, 4.4rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  .cz-page-modules__body .rte {
+    margin-top: 1.6rem;
+    color: var(--cz-modules-muted);
+    line-height: 1.5;
+  }
+
+  .cz-page-modules__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 2.4rem;
+    color: currentColor;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .cz-page-modules__link span {
+    display: inline-flex;
+    width: 1.4rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .cz-page-modules__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ page modules",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Inside the Habitat"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Editable page modules"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Use cards, text panels, images, and links to shape this Creative Zoo page.</p>"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Feature"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Module title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add editable supporting copy for this module.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Explore"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text panel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Note"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Text panel"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add a flexible editorial block for this page.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CZ page modules",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

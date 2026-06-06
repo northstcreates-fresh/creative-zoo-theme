@@ -1,0 +1,292 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-page-hero-bg: {{ section.settings.background_color }};
+    --cz-page-hero-text: {{ section.settings.text_color }};
+    --cz-page-hero-muted: {{ section.settings.muted_color }};
+    --cz-page-hero-accent: {{ section.settings.accent_color }};
+    --cz-page-hero-border: {{ section.settings.border_color }};
+    --cz-page-hero-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-page-hero-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      --cz-page-hero-padding-top: {{ section.settings.padding_top }}px;
+      --cz-page-hero-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cz-page-hero section-{{ section.id }}">
+  <div class="page-width cz-page-hero__inner">
+    <div class="cz-page-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="cz-page-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1>{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="cz-page-hero__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      <div class="cz-page-hero__buttons">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'button' and block.settings.label != blank -%}
+            <a
+              class="button{% if block.settings.style == 'secondary' %} button--secondary{% else %} button--primary{% endif %}"
+              {% if block.settings.link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ block.settings.link }}"
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.label | escape }}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="cz-page-hero__media">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1400x' }}
+      {%- elsif section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1600
+          | image_tag:
+            loading: 'lazy',
+            widths: '550, 750, 990, 1200, 1600',
+            sizes: '(min-width: 990px) 44vw, 100vw',
+            class: 'cz-page-hero__image'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg cz-page-hero__placeholder' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-page-hero {
+    color: var(--cz-page-hero-text);
+    background: var(--cz-page-hero-bg);
+    padding-block: var(--cz-page-hero-padding-top) var(--cz-page-hero-padding-bottom);
+  }
+
+  .cz-page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 7rem);
+  }
+
+  .cz-page-hero__copy {
+    max-width: 74rem;
+  }
+
+  .cz-page-hero__eyebrow {
+    margin: 0 0 1.2rem;
+    color: var(--cz-page-hero-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-page-hero h1 {
+    margin: 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(4.8rem, 8vw, 9.6rem);
+    line-height: 0.9;
+    letter-spacing: 0;
+  }
+
+  .cz-page-hero__text {
+    margin-top: 2.2rem;
+    color: var(--cz-page-hero-muted);
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+    line-height: 1.5;
+  }
+
+  .cz-page-hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .cz-page-hero__media {
+    overflow: hidden;
+    border: 1px solid var(--cz-page-hero-border);
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    background: #ffffff;
+  }
+
+  .cz-page-hero__media video,
+  .cz-page-hero__image,
+  .cz-page-hero__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: 990px) {
+    .cz-page-hero__inner {
+      grid-template-columns: minmax(0, 0.92fr) minmax(36rem, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .cz-page-hero__buttons {
+      flex-direction: column;
+    }
+
+    .cz-page-hero__buttons .button {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ page hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Creative Zoo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Page heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add a flexible introduction for this part of the Creative Zoo ecosystem.</p>"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Explore"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CZ page hero",
+      "blocks": [
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
