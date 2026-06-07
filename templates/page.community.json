@@ -60,6 +60,51 @@
         "accent_color": "#C9A24D"
       }
     },
+    "community_spotlight": {
+      "type": "cz-community-spotlight",
+      "blocks": {
+        "spotlight_1": {
+          "type": "spotlight",
+          "settings": {
+            "name": "Habitat Member",
+            "handle": "@creativzoo",
+            "caption": "<p>Manual spotlight cards can hold featured posts until an Instagram feed app is connected.</p>",
+            "link_label": "View on Instagram"
+          }
+        },
+        "spotlight_2": {
+          "type": "spotlight",
+          "settings": {
+            "name": "Tagged Post",
+            "handle": "#CreativeZooHabitat",
+            "caption": "<p>Use this space for tagged community content, member fits, events, and shared moments.</p>",
+            "link_label": "View Spotlight"
+          }
+        },
+        "spotlight_3": {
+          "type": "spotlight",
+          "settings": {
+            "name": "Community Signal",
+            "handle": "@creativzoo",
+            "caption": "<p>Swap in real images, names, captions, and Instagram links from the theme editor.</p>",
+            "link_label": "Open Post"
+          }
+        }
+      },
+      "block_order": ["spotlight_1", "spotlight_2", "spotlight_3"],
+      "settings": {
+        "heading": "Community Spotlights",
+        "subheading": "<p>See how the Habitat shows up in the wild. Tag @creativzoo or use #CreativeZooHabitat for a chance to be featured.</p>",
+        "instagram_handle": "@creativzoo",
+        "hashtag": "#CreativeZooHabitat",
+        "display_mode": "manual",
+        "cta_text": "Follow @creativzoo",
+        "cta_link": "https://www.instagram.com/creativzoo/",
+        "background_color": "#F8F7F4",
+        "card_color": "#ffffff",
+        "accent_color": "#C9A24D"
+      }
+    },
     "newsletter": {
       "type": "cz-newsletter-habitat",
       "settings": {
@@ -70,5 +115,5 @@
       }
     }
   },
-  "order": ["hero", "community_cards", "newsletter"]
+  "order": ["hero", "community_cards", "community_spotlight", "newsletter"]
 }
