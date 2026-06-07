@@ -1,72 +1,39 @@
 {
   "sections": {
     "hero": {
-      "type": "cz-page-hero",
+      "type": "cz-hero-ecosystem",
       "settings": {
         "eyebrow": "Manga",
-        "heading": "Stories from the Zoo.",
-        "text": "<p>A home for characters, chapters, visual lore, and illustrated worlds connected to Creative Zoo drops.</p>",
-        "background_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "heading": "Discover the world behind the creatures.",
+        "text": "<p>A cinematic space for character art, manga panels, chapters, and visual lore connected to Creative Zoo.</p>",
+        "button_label": "Explore Manga",
+        "button_link": "/pages/manga",
+        "mode": "dark",
+        "background_color": "#111111",
+        "text_color": "#F8F7F4",
+        "accent_color": "#8E2F3F",
+        "overlay_opacity": 50,
+        "texture_enabled": true,
+        "texture_style": "sketch",
+        "texture_opacity": 4
       }
     },
-    "modules": {
-      "type": "cz-page-modules",
-      "blocks": {
-        "chapter": {
-          "type": "feature",
-          "settings": {
-            "kicker": "Chapter",
-            "title": "Start with the world.",
-            "text": "<p>Use this card for a featured manga chapter, character drop, or story preview.</p>",
-            "link_label": "Read more"
-          }
-        },
-        "characters": {
-          "type": "feature",
-          "settings": {
-            "kicker": "Characters",
-            "title": "Meet the creatures.",
-            "text": "<p>Introduce the figures, rivals, teams, and symbols that carry the story.</p>",
-            "link_label": "View characters"
-          }
-        },
-        "drops": {
-          "type": "text",
-          "settings": {
-            "kicker": "Connected Drops",
-            "title": "Story meets apparel.",
-            "text": "<p>Connect manga beats to apparel collections, product drops, or campaign pages.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "chapter",
-        "characters",
-        "drops"
-      ],
+    "preview": {
+      "type": "cz-manga-preview",
       "settings": {
-        "eyebrow": "Manga Modules",
-        "heading": "Build the archive.",
-        "text": "<p>Every module can be edited, moved, replaced, or linked in Shopify.</p>",
-        "background_color": "#ffffff",
-        "card_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "heading": "Build the visual archive.",
+        "text": "<p>Use this section for a featured chapter, character reveal, manga panel, or story preview.</p>",
+        "button_label": "Read More",
+        "button_link": "/pages/manga",
+        "background_color": "#111111",
+        "text_color": "#F8F7F4",
+        "accent_color": "#8E2F3F",
+        "mode": "dark",
+        "texture_enabled": true,
+        "texture_style": "sketch",
+        "texture_opacity": 4
       }
     }
   },
-  "order": [
-    "hero",
-    "modules"
-  ]
+  "order": ["hero", "preview"]
 }

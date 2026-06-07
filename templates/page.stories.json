@@ -1,43 +1,32 @@
 {
   "sections": {
     "hero": {
-      "type": "cz-page-hero",
+      "type": "cz-hero-ecosystem",
       "settings": {
         "eyebrow": "Stories",
         "heading": "Stories that shape the Zoo.",
-        "text": "<p>A home for the major Creative Zoo stories, from The Pack to Battle Cries and Rep Colors.</p>",
-        "background_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "text": "<p>A gallery-like space for The Pack, Battle Cries, Rep Colors, and the emotional worlds behind the drops.</p>",
+        "button_label": "Explore Featured Story",
+        "button_link": "/pages/stories",
+        "mode": "dark",
+        "overlay_opacity": 38,
+        "texture_enabled": true,
+        "texture_style": "sketch",
+        "texture_opacity": 3
       }
     },
     "featured_story": {
-      "type": "cz-story-feature",
+      "type": "cz-featured-story",
       "settings": {
-        "eyebrow": "Stories",
-        "heading": "Featured Story",
-        "story_label": "Major Story",
-        "story_title": "The Pack",
-        "story_description": "<p>A major Creative Zoo story spotlight for the creatures moving together, building signals, symbols, and shared energy.</p>",
+        "eyebrow": "Major Story",
+        "heading": "The Pack",
+        "text": "<p>A major Creative Zoo story spotlight for the ones moving together, building signals, symbols, and shared energy.</p>",
         "button_label": "Explore The Pack",
         "button_link": "/collections/sevierly-fresh",
         "background_color": "#ffffff",
-        "card_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "accent_color": "#B7653B"
       }
     }
   },
-  "order": [
-    "hero",
-    "featured_story"
-  ]
+  "order": ["hero", "featured_story"]
 }

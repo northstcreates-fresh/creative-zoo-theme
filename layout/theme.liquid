@@ -34,6 +34,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    {{ 'cz-visual-system.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -54,6 +55,7 @@
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
+      {% assign scheme_classes = '' %}
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
@@ -177,6 +179,14 @@
 
         --spacing-sections-desktop: {{ settings.spacing_sections }}px;
         --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+
+        --cz-primary-bg: {{ settings.cz_primary_background | default: '#F8F7F4' }};
+        --cz-primary-text: {{ settings.cz_primary_text | default: '#111111' }};
+        --cz-accent: {{ settings.cz_accent_color | default: '#C9A24D' }};
+        --cz-button: {{ settings.cz_button_color | default: '#111111' }};
+        --cz-button-text: {{ settings.cz_button_text_color | default: '#F8F7F4' }};
+        --cz-card-bg: {{ settings.cz_card_background | default: '#ffffff' }};
+        --cz-overlay-opacity: {{ settings.cz_overlay_opacity | default: 40 | divided_by: 100.0 }};
 
         --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
         --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;

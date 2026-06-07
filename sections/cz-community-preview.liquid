@@ -1,0 +1,82 @@
+{%- liquid
+  assign mode_class = 'cz-surface--light'
+  if section.settings.mode == 'dark'
+    assign mode_class = 'cz-surface--dark'
+  endif
+  assign texture_class = ''
+  if section.settings.texture_enabled
+    assign texture_class = 'cz-texture cz-texture--' | append: section.settings.texture_style
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-section-bg: {{ section.settings.background_color | default: settings.cz_primary_background }};
+    --cz-section-text: {{ section.settings.text_color | default: settings.cz_primary_text }};
+    --cz-section-accent: {{ section.settings.accent_color | default: settings.cz_accent_color }};
+    --cz-section-button: {{ section.settings.button_color | default: settings.cz_button_color }};
+    --cz-section-button-text: {{ section.settings.button_text_color | default: settings.cz_button_text_color }};
+    --cz-texture-opacity: {{ section.settings.texture_opacity | divided_by: 100.0 }};
+    padding-block: {{ section.settings.padding_top | times: 0.75 | round }}px {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} { padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px; }
+  }
+{%- endstyle -%}
+
+<section class="cz-community-preview cz-surface {{ mode_class }} {{ texture_class }} section-{{ section.id }}">
+  <div class="page-width cz-community-preview__inner">
+    <div class="cz-community-preview__content">
+      {%- if section.settings.eyebrow != blank -%}<p class="cz-section-kicker">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="cz-section-heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      {%- if section.settings.text != blank -%}<div class="cz-section-copy rte">{{ section.settings.text }}</div>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="cz-visual-button" {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}>{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+    <div class="cz-community-preview__media cz-visual-media">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1400x' }}
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '550, 750, 1100, 1400, 1600', sizes: '(min-width: 990px) 50vw, 100vw', alt: section.settings.image_alt }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-community-preview__inner { display: grid; grid-template-columns: minmax(28rem, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 7rem); align-items: center; }
+  .cz-community-preview__media { min-height: 34rem; aspect-ratio: 5 / 4; }
+  .cz-community-preview__content .cz-visual-button { margin-top: 3rem; }
+  @media screen and (max-width: 989px) { .cz-community-preview__inner { grid-template-columns: 1fr; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ community preview",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Community" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Different instincts. Shared purpose." },
+    { "type": "richtext", "id": "text", "label": "Body text", "default": "<p>A warm, human entry point for spotlights, events, and journal moments.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "video", "id": "video", "label": "Video" },
+    { "type": "text", "id": "button_label", "label": "CTA text", "default": "Explore Community" },
+    { "type": "url", "id": "button_link", "label": "CTA link" },
+    { "type": "select", "id": "mode", "label": "Mode", "options": [{ "value": "light", "label": "Light" }, { "value": "dark", "label": "Dark" }], "default": "light" },
+    { "type": "color", "id": "background_color", "label": "Background" },
+    { "type": "color", "id": "text_color", "label": "Text" },
+    { "type": "color", "id": "accent_color", "label": "Accent" },
+    { "type": "color", "id": "button_color", "label": "Button" },
+    { "type": "color", "id": "button_text_color", "label": "Button text" },
+    { "type": "checkbox", "id": "texture_enabled", "label": "Texture overlay", "default": false },
+    { "type": "select", "id": "texture_style", "label": "Texture style", "options": [{ "value": "paper", "label": "Paper grain" }, { "value": "fabric", "label": "Fabric" }, { "value": "sketch", "label": "Sketch" }], "default": "paper" },
+    { "type": "range", "id": "texture_opacity", "min": 0, "max": 10, "step": 1, "unit": "%", "label": "Texture opacity", "default": 3 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 140, "step": 4, "unit": "px", "label": "Top padding", "default": 88 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 140, "step": 4, "unit": "px", "label": "Bottom padding", "default": 88 }
+  ],
+  "presets": [{ "name": "CZ community preview" }]
+}
+{% endschema %}

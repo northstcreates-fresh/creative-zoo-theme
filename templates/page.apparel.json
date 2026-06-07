@@ -1,76 +1,76 @@
 {
   "sections": {
     "hero": {
-      "type": "cz-page-hero",
+      "type": "cz-hero-ecosystem",
       "settings": {
         "eyebrow": "Apparel",
         "heading": "Wear the ecosystem.",
-        "text": "<p>Explore Creative Zoo apparel through classics, golf-ready energy, and story-driven collections.</p>",
-        "background_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "text": "<p>Clean premium lifestyle lanes for classics, CZ Golf, and story-driven Creative Zoo collections.</p>",
+        "button_label": "View All Apparel",
+        "button_link": "/collections/all",
+        "mode": "dark",
+        "overlay_opacity": 35,
+        "texture_enabled": true,
+        "texture_style": "fabric",
+        "texture_opacity": 3
       }
     },
     "featured_apparel": {
-      "type": "cz-collection-cards",
+      "type": "cz-featured-apparel",
       "blocks": {
         "classics": {
-          "type": "collection_card",
+          "type": "collection",
           "settings": {
             "collection": "shopify://collections/cz-originals",
+            "kicker": "Core",
             "fallback_title": "Classics",
             "fallback_text": "<p>Core Creative Zoo staples built for everyday rotation.</p>",
-            "button_label": "Shop Classics",
-            "fallback_link": "/collections/cz-originals"
+            "fallback_link": "/collections/cz-originals",
+            "button_label": "Shop Classics"
           }
         },
         "cz_golf": {
-          "type": "collection_card",
+          "type": "collection",
           "settings": {
+            "collection": "shopify://collections/creative-zoo-golf",
+            "kicker": "Sport",
             "fallback_title": "CZ Golf",
-            "fallback_text": "<p>Golf-ready Creative Zoo pieces will appear here once the collection is selected.</p>",
-            "button_label": "Shop CZ Golf",
-            "fallback_link": "/collections/creative-zoo-golf"
+            "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
+            "fallback_link": "/collections/creative-zoo-golf",
+            "button_label": "Shop CZ Golf"
           }
         },
         "story_collection": {
-          "type": "collection_card",
+          "type": "collection",
           "settings": {
             "collection": "shopify://collections/bars-battle-cries",
-            "fallback_title": "Story Collection",
+            "kicker": "Story",
+            "fallback_title": "Story Collections",
             "fallback_text": "<p>Story-driven apparel from the Creative Zoo world.</p>",
-            "button_label": "Shop Story Collection",
-            "fallback_link": "/collections/bars-battle-cries"
+            "fallback_link": "/collections/bars-battle-cries",
+            "button_label": "Shop Story Collection"
           }
         }
       },
-      "block_order": [
-        "classics",
-        "cz_golf",
-        "story_collection"
-      ],
+      "block_order": ["classics", "cz_golf", "story_collection"],
       "settings": {
         "eyebrow": "Apparel",
         "heading": "Featured Apparel",
+        "text": "<p>Pull collection image, title, and description automatically, or override the visuals per card.</p>",
         "button_label": "View All Apparel",
         "button_link": "/collections/all",
         "background_color": "#ffffff",
-        "card_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "accent_color": "#5A4B3C"
+      }
+    },
+    "newsletter": {
+      "type": "cz-newsletter-habitat",
+      "settings": {
+        "heading": "Join The Habitat",
+        "background_color": "#F8F7F4",
+        "accent_color": "#C9A24D"
       }
     }
   },
-  "order": [
-    "hero",
-    "featured_apparel"
-  ]
+  "order": ["hero", "featured_apparel", "newsletter"]
 }

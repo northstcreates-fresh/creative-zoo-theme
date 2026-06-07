@@ -102,6 +102,63 @@
     ]
   },
   {
+    "name": "Creative Zoo brand",
+    "settings": [
+      {
+        "type": "color",
+        "id": "cz_primary_background",
+        "label": "Primary background color",
+        "default": "#F8F7F4"
+      },
+      {
+        "type": "color",
+        "id": "cz_primary_text",
+        "label": "Primary text color",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "cz_accent_color",
+        "label": "Accent color",
+        "default": "#C9A24D"
+      },
+      {
+        "type": "color",
+        "id": "cz_button_color",
+        "label": "Button color",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "cz_button_text_color",
+        "label": "Button text color",
+        "default": "#F8F7F4"
+      },
+      {
+        "type": "color",
+        "id": "cz_card_background",
+        "label": "Card background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "cz_overlay_opacity",
+        "min": 0,
+        "max": 90,
+        "step": 5,
+        "unit": "%",
+        "label": "Overlay opacity",
+        "default": 40
+      },
+      {
+        "type": "checkbox",
+        "id": "cz_texture_overlay_enabled",
+        "label": "Enable texture overlay by default",
+        "default": false
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.typography.name",
     "settings": [
       {

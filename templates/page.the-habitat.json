@@ -1,88 +1,150 @@
 {
   "sections": {
     "hero": {
-      "type": "cz-page-hero",
+      "type": "cz-hero-ecosystem",
       "settings": {
         "eyebrow": "The Habitat",
-        "heading": "Explore the Creative Zoo.",
-        "text": "<p>The habitat connects every lane: apparel, stories, manga, music, and community signals.</p>",
-        "background_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "heading": "The world hub of Creative Zoo.",
+        "text": "<p>Move through apparel, stories, manga, and music from one connected ecosystem.</p>",
+        "button_label": "Explore The Habitat",
+        "button_link": "/pages/the-habitat",
+        "mode": "dark",
+        "overlay_opacity": 45,
+        "texture_enabled": true,
+        "texture_style": "paper",
+        "texture_opacity": 3
       }
     },
-    "ecosystem_cards": {
-      "type": "cz-page-modules",
+    "intro": {
+      "type": "cz-community-preview",
+      "settings": {
+        "eyebrow": "Field Map",
+        "heading": "Every lane has its own instinct.",
+        "text": "<p>The Habitat is the central map for the Creative Zoo ecosystem: apparel you can wear, stories you can follow, manga worlds you can discover, and music you can feel.</p>",
+        "button_label": "Start Exploring",
+        "button_link": "/pages/apparel",
+        "background_color": "#F8F7F4",
+        "accent_color": "#C9A24D",
+        "texture_enabled": true,
+        "texture_style": "paper",
+        "texture_opacity": 3
+      }
+    },
+    "habitat_cards": {
+      "type": "cz-habitat-cards",
       "blocks": {
         "apparel": {
-          "type": "feature",
+          "type": "card",
           "settings": {
             "kicker": "Wear",
             "title": "Apparel",
             "text": "<p>Wear your instincts.</p>",
-            "link_label": "Explore Apparel",
-            "link": "/pages/apparel"
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
           }
         },
         "stories": {
-          "type": "feature",
+          "type": "card",
           "settings": {
             "kicker": "Read",
             "title": "Stories",
             "text": "<p>Explore the ideas that shape the Zoo.</p>",
-            "link_label": "Explore Stories",
-            "link": "/pages/stories"
+            "button_label": "Explore Stories",
+            "button_link": "/pages/stories"
           }
         },
         "manga": {
-          "type": "feature",
+          "type": "card",
           "settings": {
             "kicker": "Discover",
             "title": "Manga",
             "text": "<p>Discover the world behind the creatures.</p>",
-            "link_label": "Explore Manga",
-            "link": "/pages/manga"
+            "button_label": "Explore Manga",
+            "button_link": "/pages/manga"
           }
         },
         "music": {
-          "type": "feature",
+          "type": "card",
           "settings": {
             "kicker": "Listen",
             "title": "Music",
             "text": "<p>Listen to the soundtrack of creativity.</p>",
-            "link_label": "Explore Music",
-            "link": "/pages/music"
+            "button_label": "Explore Music",
+            "button_link": "/pages/music"
           }
         }
       },
-      "block_order": [
-        "apparel",
-        "stories",
-        "manga",
-        "music"
-      ],
+      "block_order": ["apparel", "stories", "manga", "music"],
       "settings": {
-        "eyebrow": "Explore the Habitat",
-        "heading": "Four ways into the ecosystem.",
-        "text": "<p>Each card is editable, image-ready, reorderable, and linkable from the Shopify theme editor.</p>",
+        "heading": "Explore The Habitat",
+        "text": "<p>Four large cards, each editable with image, video, description, and destination.</p>",
+        "columns_desktop": 4,
         "background_color": "#ffffff",
-        "card_color": "#f4f4f4",
-        "text_color": "#121212",
-        "muted_color": "#4a4a4a",
-        "accent_color": "#f50b0b",
-        "border_color": "#121212",
-        "columns_desktop": 2,
-        "padding_top": 72,
-        "padding_bottom": 72
+        "accent_color": "#5A4B3C"
+      }
+    },
+    "featured_story": {
+      "type": "cz-featured-story",
+      "settings": {
+        "heading": "Featured Story",
+        "text": "<p>Use this space to highlight The Pack, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
+        "button_label": "Explore Stories",
+        "button_link": "/pages/stories",
+        "background_color": "#F8F7F4",
+        "accent_color": "#B7653B"
+      }
+    },
+    "featured_apparel": {
+      "type": "cz-featured-apparel",
+      "blocks": {
+        "classics": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/cz-originals",
+            "fallback_title": "Classics",
+            "fallback_link": "/collections/cz-originals",
+            "button_label": "Shop Classics"
+          }
+        },
+        "golf": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/creative-zoo-golf",
+            "fallback_title": "CZ Golf",
+            "fallback_link": "/collections/creative-zoo-golf",
+            "button_label": "Shop CZ Golf"
+          }
+        },
+        "story": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/bars-battle-cries",
+            "fallback_title": "Story Collections",
+            "fallback_link": "/collections/bars-battle-cries",
+            "button_label": "Shop Stories"
+          }
+        }
+      },
+      "block_order": ["classics", "golf", "story"],
+      "settings": {
+        "heading": "Featured Apparel",
+        "button_label": "View All Apparel",
+        "button_link": "/collections/all",
+        "background_color": "#ffffff",
+        "accent_color": "#5A4B3C"
+      }
+    },
+    "newsletter": {
+      "type": "cz-newsletter-habitat",
+      "settings": {
+        "heading": "Join The Habitat",
+        "mode": "dark",
+        "background_color": "#111111",
+        "text_color": "#F8F7F4",
+        "button_color": "#C9A24D",
+        "button_text_color": "#111111"
       }
     }
   },
-  "order": [
-    "hero",
-    "ecosystem_cards"
-  ]
+  "order": ["hero", "intro", "habitat_cards", "featured_story", "featured_apparel", "newsletter"]
 }
