@@ -1,32 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "cz-hero-ecosystem",
+      "type": "cz-page-hero",
       "settings": {
         "eyebrow": "Stories",
         "heading": "Stories that shape the Zoo.",
-        "text": "<p>A gallery-like space for The Pack, Battle Cries, Rep Colors, and the emotional worlds behind the drops.</p>",
-        "button_label": "Explore Featured Story",
-        "button_link": "/pages/stories",
-        "mode": "dark",
-        "overlay_opacity": 38,
-        "texture_enabled": true,
-        "texture_style": "sketch",
-        "texture_opacity": 3
+        "text": "<p>A home for the major Creative Zoo stories, from The Pack to Battle Cries and Rep Colors.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "featured_story": {
-      "type": "cz-featured-story",
+      "type": "cz-story-feature",
       "settings": {
-        "eyebrow": "Major Story",
-        "heading": "The Pack",
-        "text": "<p>A major Creative Zoo story spotlight for the ones moving together, building signals, symbols, and shared energy.</p>",
+        "eyebrow": "Stories",
+        "heading": "Featured Story",
+        "story_label": "Major Story",
+        "story_title": "The Pack",
+        "story_description": "<p>A major Creative Zoo story spotlight for the creatures moving together, building signals, symbols, and shared energy.</p>",
         "button_label": "Explore The Pack",
         "button_link": "/collections/sevierly-fresh",
         "background_color": "#ffffff",
-        "accent_color": "#B7653B"
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     }
   },
-  "order": ["hero", "featured_story"]
+  "order": [
+    "hero",
+    "featured_story"
+  ]
 }

@@ -1,79 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "cz-hero-ecosystem",
+      "type": "cz-page-hero",
       "settings": {
         "eyebrow": "About",
         "heading": "Why the Zoo exists.",
-        "text": "<p>A reflective home for the manifesto, mission, vision, and promise behind Creative Zoo.</p>",
-        "button_label": "Read The Manifesto",
-        "button_link": "/pages/manifesto",
-        "mode": "dark",
-        "overlay_opacity": 42,
-        "texture_enabled": true,
-        "texture_style": "paper",
-        "texture_opacity": 4
+        "text": "<p>Learn the manifesto, mission, and vision behind Creative Zoo.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "about_cards": {
-      "type": "cz-habitat-cards",
+      "type": "cz-page-modules",
       "blocks": {
         "manifesto": {
-          "type": "card",
+          "type": "feature",
           "settings": {
             "kicker": "Belief",
             "title": "Manifesto",
             "text": "<p>The belief system behind Creative Zoo and the instinct to create.</p>",
-            "button_label": "Read Manifesto",
-            "button_link": "/pages/manifesto"
+            "link_label": "Read Manifesto",
+            "link": "/pages/manifesto"
           }
         },
         "mission": {
-          "type": "card",
+          "type": "feature",
           "settings": {
             "kicker": "Purpose",
             "title": "Mission",
             "text": "<p>The work Creative Zoo exists to do for creators, dreamers, and outsiders.</p>",
-            "button_label": "Read Mission",
-            "button_link": "/pages/mission"
+            "link_label": "Read Mission",
+            "link": "/pages/mission"
           }
         },
         "vision": {
-          "type": "card",
+          "type": "feature",
           "settings": {
             "kicker": "Future",
             "title": "Vision",
             "text": "<p>The future we are building through apparel, stories, music, and imagination.</p>",
-            "button_label": "Read Vision",
-            "button_link": "/pages/vision"
+            "link_label": "Read Vision",
+            "link": "/pages/vision"
           }
         }
       },
-      "block_order": ["manifesto", "mission", "vision"],
+      "block_order": [
+        "manifesto",
+        "mission",
+        "vision"
+      ],
       "settings": {
+        "eyebrow": "About",
         "heading": "Choose your entry point.",
-        "text": "<p>Editable cards for the core philosophical pages of Creative Zoo.</p>",
-        "columns_desktop": 3,
-        "background_color": "#F8F7F4",
-        "card_color": "#ffffff",
-        "accent_color": "#C9A24D",
-        "texture_enabled": true,
-        "texture_style": "paper",
-        "texture_opacity": 3
-      }
-    },
-    "promise": {
-      "type": "cz-community-preview",
-      "settings": {
-        "eyebrow": "Brand Promise",
-        "heading": "The parts you were told to hide may be the very things that make you extraordinary.",
-        "text": "<p>Creative Zoo exists to remind people that their instinct to create, explore, and become something uniquely their own is worth protecting.</p>",
-        "button_label": "Explore The Habitat",
-        "button_link": "/pages/the-habitat",
+        "text": "<p>Each card is editable, image-ready, reorderable, and linked to a core About page.</p>",
         "background_color": "#ffffff",
-        "accent_color": "#8E2F3F"
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "columns_desktop": 3,
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     }
   },
-  "order": ["hero", "about_cards", "promise"]
+  "order": [
+    "hero",
+    "about_cards"
+  ]
 }

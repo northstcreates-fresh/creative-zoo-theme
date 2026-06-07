@@ -1,21 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "cz-hero-ecosystem",
       "settings": {
-        "eyebrow": "Creative Zoo",
-        "heading": "The Wildest Thing You Can Be Is Yourself.",
+        "eyebrow": "The Wildest Thing You Can Be",
+        "heading": "Is Yourself",
         "text": "<p>Creative Zoo is a creative ecosystem built for people who refuse to tuck away what makes them different. Through apparel, stories, music, and imagination, we celebrate the instinct to create, explore, and become something uniquely your own.</p>",
+        "image_alt": "",
         "video": "shopify://files/videos/openart-video_eUQfR4SnkmSk1b41cU0N_1762130937195_1762130937330.mp4",
         "button_label": "Enter The Habitat",
         "button_link": "/pages/the-habitat",
         "secondary_button_label": "Explore the Community",
         "secondary_button_link": "/pages/community",
         "mode": "dark",
+        "background_color": "",
+        "text_color": "",
+        "accent_color": "",
+        "button_color": "",
+        "button_text_color": "",
         "overlay_opacity": 40,
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "height_desktop": 760,
+        "height_mobile": 560
       }
     },
     "manifesto_preview": {
@@ -24,15 +41,20 @@
         "eyebrow": "What is Creative Zoo?",
         "heading": "What Is Creative Zoo?",
         "text": "<p>Creative Zoo believes that every person is born with a wild instinct to create, explore, and become something uniquely their own.</p><p>The world teaches conformity.</p><p>We exist to remind people that the parts of themselves they were told to hide may be the very things that make them extraordinary.</p>",
+        "image_alt": "",
         "button_label": "Read The Manifesto",
         "button_link": "/pages/manifesto",
         "mode": "light",
-        "background_color": "#F8F7F4",
+        "background_color": "#f8f7f4",
         "text_color": "#111111",
-        "accent_color": "#C9A24D",
+        "accent_color": "#c9a24d",
+        "button_color": "",
+        "button_text_color": "",
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "habitat_cards": {
@@ -44,6 +66,7 @@
             "kicker": "Wear",
             "title": "Apparel",
             "text": "<p>Wear your instincts.</p>",
+            "image_alt": "",
             "button_label": "Explore Apparel",
             "button_link": "/pages/apparel"
           }
@@ -54,6 +77,7 @@
             "kicker": "Read",
             "title": "Stories",
             "text": "<p>Explore the ideas that shape the Zoo.</p>",
+            "image_alt": "",
             "button_label": "Explore Stories",
             "button_link": "/pages/stories"
           }
@@ -64,6 +88,7 @@
             "kicker": "Discover",
             "title": "Manga",
             "text": "<p>Discover the world behind the creatures.</p>",
+            "image_alt": "",
             "button_label": "Explore Manga",
             "button_link": "/pages/manga"
           }
@@ -74,20 +99,35 @@
             "kicker": "Listen",
             "title": "Music",
             "text": "<p>Listen to the soundtrack of creativity.</p>",
+            "image_alt": "",
             "button_label": "Explore Music",
             "button_link": "/pages/music"
           }
         }
       },
-      "block_order": ["apparel", "stories", "manga", "music"],
+      "block_order": [
+        "apparel",
+        "stories",
+        "manga",
+        "music"
+      ],
       "settings": {
         "eyebrow": "Explore the Habitat",
         "heading": "Move through the ecosystem.",
         "text": "<p>Each lane has its own look, energy, and story inside Creative Zoo.</p>",
-        "columns_desktop": 4,
-        "background_color": "#F8F7F4",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
         "card_color": "#ffffff",
-        "accent_color": "#C9A24D"
+        "accent_color": "#c9a24d",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "paper",
+        "texture_opacity": 4,
+        "columns_desktop": 4,
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "apparel": {
@@ -100,7 +140,9 @@
             "kicker": "Core",
             "fallback_title": "Classics",
             "fallback_text": "<p>Core Creative Zoo staples built for everyday rotation.</p>",
+            "link_override": "",
             "fallback_link": "/collections/cz-originals",
+            "image_alt": "",
             "button_label": "Shop Classics"
           }
         },
@@ -113,6 +155,7 @@
             "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
             "link_override": "/pages/cz-golf",
             "fallback_link": "/pages/cz-golf",
+            "image_alt": "",
             "button_label": "Shop CZ Golf"
           }
         },
@@ -123,19 +166,36 @@
             "kicker": "Story",
             "fallback_title": "Story Collections",
             "fallback_text": "<p>Apparel tied to the lore, symbols, and campaigns of the Zoo.</p>",
+            "link_override": "",
             "fallback_link": "/collections/bars-battle-cries",
+            "image_alt": "",
             "button_label": "Shop Stories"
           }
         }
       },
-      "block_order": ["classics", "golf", "story"],
+      "block_order": [
+        "classics",
+        "golf",
+        "story"
+      ],
       "settings": {
+        "eyebrow": "Apparel",
         "heading": "Featured Apparel",
         "text": "<p>Clean premium lifestyle lanes for everyday staples, golf, and story-led drops.</p>",
         "button_label": "View All Apparel",
         "button_link": "/collections/all",
+        "mode": "light",
         "background_color": "#ffffff",
-        "accent_color": "#5A4B3C"
+        "text_color": "",
+        "card_color": "",
+        "accent_color": "#5a4b3c",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "fabric",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "featured_story": {
@@ -144,13 +204,20 @@
         "eyebrow": "Featured Story",
         "heading": "The Pack",
         "text": "<p>A story-driven spotlight for the ones moving together, building symbols, signals, and shared energy.</p>",
+        "image_alt": "",
         "button_label": "Explore The Pack",
         "button_link": "/collections/sevierly-fresh",
-        "background_color": "#F8F7F4",
-        "accent_color": "#B7653B",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#b7653b",
+        "button_color": "",
+        "button_text_color": "",
         "texture_enabled": true,
         "texture_style": "sketch",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "community": {
@@ -159,25 +226,43 @@
         "eyebrow": "Community",
         "heading": "Different instincts. Shared purpose.",
         "text": "<p>Step into spotlights, events, journal notes, and the human side of the Creative Zoo ecosystem.</p>",
+        "image_alt": "",
         "button_label": "Explore Community",
         "button_link": "/pages/community",
+        "mode": "light",
         "background_color": "#ffffff",
-        "accent_color": "#C9A24D"
+        "text_color": "",
+        "accent_color": "#c9a24d",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "paper",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "newsletter": {
       "type": "cz-newsletter-habitat",
       "settings": {
+        "eyebrow": "Join",
         "heading": "Join The Habitat",
         "text": "<p>Get first access to drops, story releases, field notes, and community signals from Creative Zoo.</p>",
-        "background_color": "#111111",
-        "text_color": "#F8F7F4",
-        "button_color": "#C9A24D",
-        "button_text_color": "#111111",
+        "email_label": "Email address",
+        "button_label": "Join",
+        "success_text": "Welcome to the Habitat.",
+        "image_alt": "",
         "mode": "dark",
+        "background_color": "#111111",
+        "text_color": "#f8f7f4",
+        "accent_color": "",
+        "button_color": "#c9a24d",
+        "button_text_color": "#111111",
         "texture_enabled": true,
         "texture_style": "fabric",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     }
   },
