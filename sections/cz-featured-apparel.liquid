@@ -50,9 +50,12 @@
           if collection != blank and collection.description != blank
             assign description = collection.description
           endif
-          assign link = block.settings.fallback_link
-          if collection != blank
+          assign link = block.settings.link_override
+          if link == blank and collection != blank
             assign link = collection.url
+          endif
+          if link == blank
+            assign link = block.settings.fallback_link
           endif
           assign image = block.settings.image
           if image == blank and collection != blank
@@ -128,6 +131,7 @@
         { "type": "text", "id": "kicker", "label": "Kicker", "default": "Collection" },
         { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "Collection title" },
         { "type": "richtext", "id": "fallback_text", "label": "Fallback description", "default": "<p>Add collection description.</p>" },
+        { "type": "url", "id": "link_override", "label": "Card link override" },
         { "type": "url", "id": "fallback_link", "label": "Fallback link" },
         { "type": "image_picker", "id": "image", "label": "Override image" },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },

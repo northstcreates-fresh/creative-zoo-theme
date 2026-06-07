@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-hero-ecosystem",
+      "settings": {
+        "eyebrow": "CZ Golf",
+        "heading": "Premium sport lifestyle from Creative Zoo.",
+        "text": "<p>Course-ready energy, movement, and Creative Zoo instinct in a cleaner sport lane.</p>",
+        "button_label": "Shop CZ Golf",
+        "button_link": "/collections/creative-zoo-golf",
+        "secondary_button_label": "View All Apparel",
+        "secondary_button_link": "/pages/apparel",
+        "mode": "dark",
+        "overlay_opacity": 38,
+        "texture_enabled": true,
+        "texture_style": "fabric",
+        "texture_opacity": 3
+      }
+    },
+    "featured_apparel": {
+      "type": "cz-featured-apparel",
+      "blocks": {
+        "cz_golf": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/creative-zoo-golf",
+            "kicker": "Sport",
+            "fallback_title": "CZ Golf",
+            "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
+            "fallback_link": "/collections/creative-zoo-golf",
+            "button_label": "Shop CZ Golf"
+          }
+        }
+      },
+      "block_order": ["cz_golf"],
+      "settings": {
+        "eyebrow": "Apparel",
+        "heading": "Creative Zoo Golf",
+        "text": "<p>Course photography, movement, cream, black, earth tones, and a subtle sport edge.</p>",
+        "button_label": "View CZ Golf Collection",
+        "button_link": "/collections/creative-zoo-golf",
+        "background_color": "#ffffff",
+        "accent_color": "#5A4B3C",
+        "texture_enabled": true,
+        "texture_style": "fabric",
+        "texture_opacity": 3
+      }
+    },
+    "newsletter": {
+      "type": "cz-newsletter-habitat",
+      "settings": {
+        "heading": "Join The Habitat",
+        "text": "<p>Get first access to Creative Zoo Golf drops, field notes, and apparel signals.</p>",
+        "background_color": "#F8F7F4",
+        "accent_color": "#C9A24D"
+      }
+    }
+  },
+  "order": ["hero", "featured_apparel", "newsletter"]
+}
