@@ -17,7 +17,7 @@
                 class="header__menu-item list-menu__item link focus-inset"
               >
                 <a
-                  href="{{ link.url }}"
+                  href="{{ link.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
                   class="header__menu-item-link link link--text{% if link.child_active %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
@@ -37,7 +37,7 @@
                     <li>
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
+                        href="{{ childlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
                         class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
                         {% if childlink.current %}
                           aria-current="page"
@@ -51,7 +51,7 @@
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
+                                href="{{ grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
                                 class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
@@ -72,7 +72,7 @@
         {%- else -%}
           <a
             id="HeaderMenu-{{ link.handle }}"
-            href="{{ link.url }}"
+            href="{{ link.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
             class="header__menu-item list-menu__item link link--text focus-inset"
             {% if link.current %}
               aria-current="page"
