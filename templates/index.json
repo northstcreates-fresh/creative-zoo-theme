@@ -6,16 +6,16 @@
         "button_apparel": {
           "type": "button",
           "settings": {
-            "label": "Shop Apparel",
-            "link": "/collections/all",
+            "label": "Enter The Habitat",
+            "link": "/pages/habitat",
             "style": "primary"
           }
         },
         "button_habitat": {
           "type": "button",
           "settings": {
-            "label": "Explore the Habitat",
-            "link": "/pages/habitat",
+            "label": "Explore the Community",
+            "link": "/pages/community",
             "style": "secondary"
           }
         }
@@ -26,8 +26,8 @@
       ],
       "settings": {
         "eyebrow": "Creative Zoo",
-        "heading": "Enter the Habitat.",
-        "subheading": "<p>A world of apparel, stories, sound, and community built for the creatures who create their own lane.</p>",
+        "heading": "The Wildest Thing You Can Be Is Yourself.",
+        "subheading": "<p>Creative Zoo is a creative ecosystem built for people who refuse to tuck away what makes them different. Through apparel, stories, music, and imagination, we celebrate the instinct to create, explore, and become something uniquely your own.</p>",
         "video": "shopify://files/videos/openart-video_eUQfR4SnkmSk1b41cU0N_1762130937195_1762130937330.mp4",
         "text_color": "#ffffff",
         "overlay_color": "#121212",
