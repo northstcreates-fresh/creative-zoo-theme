@@ -112,7 +112,7 @@
             "fallback_title": "CZ Golf",
             "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
             "link_override": "/pages/cz-golf",
-            "fallback_link": "/collections/creative-zoo-golf",
+            "fallback_link": "/pages/cz-golf",
             "button_label": "Shop CZ Golf"
           }
         },

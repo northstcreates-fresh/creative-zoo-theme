@@ -7,7 +7,7 @@
         "heading": "Premium sport lifestyle from Creative Zoo.",
         "text": "<p>Course-ready energy, movement, and Creative Zoo instinct in a cleaner sport lane.</p>",
         "button_label": "Shop CZ Golf",
-        "button_link": "/collections/creative-zoo-golf",
+        "button_link": "/pages/cz-golf",
         "secondary_button_label": "View All Apparel",
         "secondary_button_link": "/pages/apparel",
         "mode": "dark",
@@ -27,7 +27,8 @@
             "kicker": "Sport",
             "fallback_title": "CZ Golf",
             "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
-            "fallback_link": "/collections/creative-zoo-golf",
+            "link_override": "/pages/cz-golf",
+            "fallback_link": "/pages/cz-golf",
             "button_label": "Shop CZ Golf"
           }
         }
@@ -37,8 +38,8 @@
         "eyebrow": "Apparel",
         "heading": "Creative Zoo Golf",
         "text": "<p>Course photography, movement, cream, black, earth tones, and a subtle sport edge.</p>",
-        "button_label": "View CZ Golf Collection",
-        "button_link": "/collections/creative-zoo-golf",
+        "button_label": "View All Apparel",
+        "button_link": "/pages/apparel",
         "background_color": "#ffffff",
         "accent_color": "#5A4B3C",
         "texture_enabled": true,

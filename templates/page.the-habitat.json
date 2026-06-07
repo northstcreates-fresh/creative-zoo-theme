@@ -112,7 +112,7 @@
             "collection": "shopify://collections/creative-zoo-golf",
             "fallback_title": "CZ Golf",
             "link_override": "/pages/cz-golf",
-            "fallback_link": "/collections/creative-zoo-golf",
+            "fallback_link": "/pages/cz-golf",
             "button_label": "Shop CZ Golf"
           }
         },
