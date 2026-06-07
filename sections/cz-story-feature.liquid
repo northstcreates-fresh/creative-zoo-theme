@@ -1,0 +1,293 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    --cz-story-bg: {{ section.settings.background_color }};
+    --cz-story-card: {{ section.settings.card_color }};
+    --cz-story-text: {{ section.settings.text_color }};
+    --cz-story-muted: {{ section.settings.muted_color }};
+    --cz-story-accent: {{ section.settings.accent_color }};
+    --cz-story-border: {{ section.settings.border_color }};
+    --cz-story-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --cz-story-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      --cz-story-padding-top: {{ section.settings.padding_top }}px;
+      --cz-story-padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cz-story-feature section-{{ section.id }}">
+  <div class="page-width">
+    <div class="cz-story-feature__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="cz-story-feature__card">
+      <div class="cz-story-feature__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              widths: '750, 990, 1200, 1500, 1800',
+              sizes: '(min-width: 990px) 50vw, 100vw',
+              class: 'cz-story-feature__image'
+          }}
+        {%- else -%}
+          {{ 'collection-apparel-2' | placeholder_svg_tag: 'placeholder-svg cz-story-feature__placeholder' }}
+        {%- endif -%}
+      </div>
+
+      <div class="cz-story-feature__body">
+        {%- if section.settings.story_label != blank -%}
+          <p class="cz-story-feature__label">{{ section.settings.story_label | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.story_title != blank -%}
+          <h3>{{ section.settings.story_title | escape }}</h3>
+        {%- endif -%}
+
+        {%- if section.settings.story_description != blank -%}
+          <div class="rte">{{ section.settings.story_description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            class="button button--primary"
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .cz-story-feature {
+    color: var(--cz-story-text);
+    background: var(--cz-story-bg);
+    padding-block: var(--cz-story-padding-top) var(--cz-story-padding-bottom);
+  }
+
+  .cz-story-feature__header {
+    display: grid;
+    gap: 1.4rem;
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  .cz-story-feature__header p,
+  .cz-story-feature__label {
+    margin: 0;
+    color: var(--cz-story-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .cz-story-feature__header h2 {
+    margin: 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.8rem, 6vw, 7.6rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+
+  .cz-story-feature__card {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--cz-story-border);
+    border-radius: 8px;
+    background: var(--cz-story-card);
+  }
+
+  .cz-story-feature__media {
+    min-height: 32rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--cz-story-border);
+    background: #ffffff;
+  }
+
+  .cz-story-feature__image,
+  .cz-story-feature__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cz-story-feature__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2.4rem, 5vw, 5.6rem);
+  }
+
+  .cz-story-feature__body h3 {
+    margin: 1.2rem 0 0;
+    color: currentColor;
+    font-family: var(--font-heading-family);
+    font-size: clamp(4rem, 7vw, 8rem);
+    line-height: 0.92;
+    letter-spacing: 0;
+  }
+
+  .cz-story-feature__body .rte {
+    margin-top: 2rem;
+    color: var(--cz-story-muted);
+    font-size: clamp(1.7rem, 2vw, 2.1rem);
+    line-height: 1.5;
+  }
+
+  .cz-story-feature__body .button {
+    align-self: flex-start;
+    margin-top: 3rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .cz-story-feature__card {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .cz-story-feature__media {
+      min-height: 58rem;
+      border-right: 1px solid var(--cz-story-border);
+      border-bottom: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "CZ story feature",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Stories"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section title",
+      "default": "Featured Story"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story image"
+    },
+    {
+      "type": "text",
+      "id": "story_label",
+      "label": "Story label",
+      "default": "Major Story"
+    },
+    {
+      "type": "text",
+      "id": "story_title",
+      "label": "Story title",
+      "default": "The Pack"
+    },
+    {
+      "type": "richtext",
+      "id": "story_description",
+      "label": "Story description",
+      "default": "<p>A major Creative Zoo story spotlight for the creatures moving together, building signals, symbols, and shared energy.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore Story"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#f50b0b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "CZ story feature"
+    }
+  ]
+}
+{% endschema %}

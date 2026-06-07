@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "settings": {
+        "eyebrow": "Stories",
+        "heading": "Stories that shape the Zoo.",
+        "text": "<p>A home for the major Creative Zoo stories, from The Pack to Battle Cries and Rep Colors.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "featured_story": {
+      "type": "cz-story-feature",
+      "settings": {
+        "eyebrow": "Stories",
+        "heading": "Featured Story",
+        "story_label": "Major Story",
+        "story_title": "The Pack",
+        "story_description": "<p>A major Creative Zoo story spotlight for the creatures moving together, building signals, symbols, and shared energy.</p>",
+        "button_label": "Explore The Pack",
+        "button_link": "/collections/sevierly-fresh",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured_story"
+  ]
+}
