@@ -35,27 +35,84 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "ecosystem_navigation": {
+        "habitat_navigation": {
           "type": "ecosystem_navigation",
           "settings": {
-            "heading": "Explore the Habitat",
+            "heading": "The Habitat",
             "link_1_label": "Apparel",
-            "link_1_url": "/collections/all",
-            "link_2_label": "Manga",
-            "link_2_url": "/pages/manga",
-            "link_3_label": "Music",
-            "link_3_url": "/pages/music",
-            "link_4_label": "Journal",
-            "link_4_url": "/pages/journal",
-            "link_5_label": "Community",
-            "link_5_url": "/pages/community",
-            "link_6_label": "Manifesto",
-            "link_6_url": "/pages/manifesto"
+            "link_1_url": "/pages/apparel",
+            "link_2_label": "Stories",
+            "link_2_url": "/pages/stories",
+            "link_3_label": "Manga",
+            "link_3_url": "/pages/manga",
+            "link_4_label": "Music",
+            "link_4_url": "/pages/music",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "community_navigation": {
+          "type": "ecosystem_navigation",
+          "settings": {
+            "heading": "Community",
+            "link_1_label": "Spotlights",
+            "link_1_url": "/pages/spotlights",
+            "link_2_label": "Events",
+            "link_2_url": "/pages/events",
+            "link_3_label": "Creative Journal",
+            "link_3_url": "/pages/journal",
+            "link_4_label": "",
+            "link_4_url": "",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "about_navigation": {
+          "type": "ecosystem_navigation",
+          "settings": {
+            "heading": "About",
+            "link_1_label": "Manifesto",
+            "link_1_url": "/pages/manifesto",
+            "link_2_label": "Mission",
+            "link_2_url": "/pages/mission",
+            "link_3_label": "Vision",
+            "link_3_url": "/pages/vision",
+            "link_4_label": "",
+            "link_4_url": "",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "social_navigation": {
+          "type": "ecosystem_navigation",
+          "settings": {
+            "heading": "Social Media",
+            "link_1_label": "Instagram",
+            "link_1_url": "https://www.instagram.com/creativzoo/",
+            "link_2_label": "",
+            "link_2_url": "",
+            "link_3_label": "",
+            "link_3_url": "",
+            "link_4_label": "",
+            "link_4_url": "",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
           }
         }
       },
       "block_order": [
-        "ecosystem_navigation"
+        "habitat_navigation",
+        "community_navigation",
+        "about_navigation",
+        "social_navigation"
       ],
       "custom_css": [],
       "settings": {
