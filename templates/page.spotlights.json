@@ -1,0 +1,213 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "blocks": {
+        "instagram": {
+          "type": "button",
+          "settings": {
+            "label": "Follow @creativzoo",
+            "link": "https://www.instagram.com/creativzoo/",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "instagram"
+      ],
+      "settings": {
+        "eyebrow": "Spotlights",
+        "heading": "Scout the Pack.",
+        "text": "<p>Creative Zoo spotlights collect looks, posts, signals, and community energy from the habitat.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "ss_instafeed_3_KchNNe": {
+      "type": "ss-instafeed-3",
+      "blocks": {
+        "instafeed_HphkEe": {
+          "type": "instafeed",
+          "settings": {
+            "place": "The OGs",
+            "image": "shopify://shop_images/Instagram_-_OG.png",
+            "time": "Aug 9th, 2024",
+            "url": "https://www.instagram.com/p/DQywe9zCFei/?utm_source=ig_web_copy_link&igsh=eHEyc2kwYnc2ajRv"
+          }
+        },
+        "instafeed_3aMX4F": {
+          "type": "instafeed",
+          "settings": {
+            "place": "Bars & Battle Cries",
+            "image": "shopify://shop_images/Instagram_-_barsnBC.png",
+            "time": "Sept 13, 2024",
+            "url": "https://www.instagram.com/p/DQyKE3miDIx/?utm_source=ig_web_copy_link&igsh=a200NjVvMTg4djBl"
+          }
+        },
+        "instafeed_j3ad9H": {
+          "type": "instafeed",
+          "settings": {
+            "place": "Where Creatures Rep Colors",
+            "image": "shopify://shop_images/Instagram_-_RepUM1.png",
+            "time": "Aug 31, 2025",
+            "url": "https://www.instagram.com/p/DQyaT2vCCYS/"
+          }
+        },
+        "instafeed_fG68qw": {
+          "type": "instafeed",
+          "settings": {
+            "place": "The Pack",
+            "image": "shopify://shop_images/Instagram_-_wethem.png",
+            "time": "Sept 27, 2025",
+            "url": "https://www.instagram.com/p/DQyrvs-CGMW/?utm_source=ig_web_copy_link&igsh=b3F2bDM1dDRvNDJz"
+          }
+        },
+        "instafeed_XWiqjq": {
+          "type": "instafeed",
+          "disabled": true,
+          "settings": {
+            "place": "Escapee",
+            "image": "shopify://shop_images/Instagram_-_BeCreative.png",
+            "time": "Nov 8th, 2025",
+            "url": ""
+          }
+        },
+        "instafeed_fh7f7Q": {
+          "type": "instafeed",
+          "disabled": true,
+          "settings": {
+            "place": "Copenhagen, Denmark",
+            "time": "Dec 29, 2023",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_HphkEe",
+        "instafeed_3aMX4F",
+        "instafeed_j3ad9H",
+        "instafeed_fG68qw",
+        "instafeed_XWiqjq",
+        "instafeed_fh7f7Q"
+      ],
+      "name": "SS - Instafeed #3",
+      "settings": {
+        "heading": "<h1>Scout the Pack <a href=\"https://www.instagram.com/creativzoo/\" target=\"_blank\" title=\"https://www.instagram.com/creativzoo/\"><em><strong>@CreativZoo</strong></em></a></h1>",
+        "heading_custom": true,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_size_mobile": 30,
+        "heading_height": 150,
+        "heading_align": "center",
+        "heading_align_mobile": "center",
+        "heading_row": true,
+        "items_width": 76,
+        "items_width_mobile": 100,
+        "items_row": 3,
+        "items_row_mobile": 1.3,
+        "items_gap": 48,
+        "items_gap_mobile": 20,
+        "items_margin": 20,
+        "items_margin_mobile": 20,
+        "card_padding_vertical": 12,
+        "card_padding_vertical_mobile": 12,
+        "card_padding_horizontal": 12,
+        "card_padding_horizontal_mobile": 12,
+        "card_radius": 0,
+        "card_border_thickness": 1,
+        "logo": "shopify://shop_images/fresh_83048_A_bold_vector-style_logo_featuring_the_letters_C__5c9400e0-ae64-4962-a37e-16f66613905e_2.png",
+        "logo_size": 42,
+        "logo_size_mobile": 32,
+        "hide_logo": false,
+        "author": "@creativzoo",
+        "author_custom": true,
+        "author_font": "josefin_sans_n4",
+        "author_size": 20,
+        "author_size_mobile": 20,
+        "author_height": 100,
+        "author_mt": 10,
+        "place_custom": true,
+        "place_font": "josefin_sans_n4",
+        "place_size": 12,
+        "place_size_mobile": 12,
+        "place_height": 100,
+        "place_mt": 10,
+        "image_radius": 0,
+        "image_border_thickness": 0,
+        "image_ratio": "original",
+        "image_ratio_mobile": "original",
+        "image_mt": 6,
+        "actions_icon_size": 26,
+        "actions_icon_size_mobile": 20,
+        "actions_gap": 16,
+        "actions_gap_mobile": 12,
+        "actions_mt": 10,
+        "time_custom": true,
+        "time_font": "josefin_sans_n4",
+        "time_size": 14,
+        "time_size_mobile": 14,
+        "time_height": 100,
+        "time_mt": 10,
+        "slider_width": 66,
+        "slider_width_mobile": 100,
+        "slider_view": 3,
+        "slider_view_mobile": 1.3,
+        "slider_gap": 16,
+        "slider_gap_mobile": 16,
+        "arrow_size": 50,
+        "arrow_size_mobile": 50,
+        "arrow_icon_size": 16,
+        "arrow_icon_size_mobile": 16,
+        "arrow_border_thickness": 0,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": true,
+        "scrollbar_height": 2,
+        "scrollbar_mt": 20,
+        "scrollbar_show_desktop": false,
+        "scrollbar_show_mobile": false,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#000000",
+        "author_color": "#1f1209",
+        "place_color": "#1f1209",
+        "dots_color": "#1f1209",
+        "image_border_color": "#000000",
+        "heart_color": "#1f1209",
+        "comment_color": "#1f1209",
+        "share_color": "#1f1209",
+        "save_color": "#1f1209",
+        "time_color": "#1f1209",
+        "arrow_color": "#ffffff",
+        "arrow_hover_color": "#ffffff",
+        "arrow_bg_color": "#111111",
+        "arrow_bg_hover_color": "#454545",
+        "arrow_border_color": "#111111",
+        "arrow_border_hover_color": "#454545",
+        "scrollbar_bg_color": "#d2d5d8",
+        "scrollbar_drag_bg_color": "#111111",
+        "heading_color": "#1f1209",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 150,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "ss_instafeed_3_KchNNe"
+  ]
+}
