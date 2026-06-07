@@ -1,0 +1,88 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-page-hero",
+      "settings": {
+        "eyebrow": "The Habitat",
+        "heading": "Explore the Creative Zoo.",
+        "text": "<p>The habitat connects every lane: apparel, stories, manga, music, and community signals.</p>",
+        "background_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "ecosystem_cards": {
+      "type": "cz-page-modules",
+      "blocks": {
+        "apparel": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Wear",
+            "title": "Apparel",
+            "text": "<p>Wear your instincts.</p>",
+            "link_label": "Explore Apparel",
+            "link": "/pages/apparel"
+          }
+        },
+        "stories": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Read",
+            "title": "Stories",
+            "text": "<p>Explore the ideas that shape the Zoo.</p>",
+            "link_label": "Explore Stories",
+            "link": "/pages/stories"
+          }
+        },
+        "manga": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Discover",
+            "title": "Manga",
+            "text": "<p>Discover the world behind the creatures.</p>",
+            "link_label": "Explore Manga",
+            "link": "/pages/manga"
+          }
+        },
+        "music": {
+          "type": "feature",
+          "settings": {
+            "kicker": "Listen",
+            "title": "Music",
+            "text": "<p>Listen to the soundtrack of creativity.</p>",
+            "link_label": "Explore Music",
+            "link": "/pages/music"
+          }
+        }
+      },
+      "block_order": [
+        "apparel",
+        "stories",
+        "manga",
+        "music"
+      ],
+      "settings": {
+        "eyebrow": "Explore the Habitat",
+        "heading": "Four ways into the ecosystem.",
+        "text": "<p>Each card is editable, image-ready, reorderable, and linkable from the Shopify theme editor.</p>",
+        "background_color": "#ffffff",
+        "card_color": "#f4f4f4",
+        "text_color": "#121212",
+        "muted_color": "#4a4a4a",
+        "accent_color": "#f50b0b",
+        "border_color": "#121212",
+        "columns_desktop": 2,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "ecosystem_cards"
+  ]
+}
