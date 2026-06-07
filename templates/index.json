@@ -39,10 +39,10 @@
     "cz_manifesto_preview": {
       "type": "cz-manifesto-preview",
       "settings": {
-        "eyebrow": "What is Creative Zoo?",
-        "heading": "A habitat for wild ideas.",
-        "text": "<p>Creative Zoo is a world for the ones who build their own language through clothes, stories, music, and community. It is part brand, part archive, part gathering place.</p>",
-        "button_label": "Read the manifesto",
+                "eyebrow": "What is Creative Zoo?",
+                "heading": "What Is Creative Zoo?",
+                "text": "<p>Creative Zoo believes that every person is born with a wild instinct to create, explore, and become something uniquely their own.</p><p>The world teaches conformity.</p><p>We exist to remind people that the parts of themselves they were told to hide may be the very things that make them extraordinary.</p>",
+                "button_label": "Read The Manifesto",
         "button_link": "/pages/manifesto",
         "background_color": "#ffffff",
         "text_color": "#121212",
