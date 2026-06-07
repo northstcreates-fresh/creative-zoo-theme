@@ -6,6 +6,7 @@
     --cz-modules-muted: {{ section.settings.muted_color }};
     --cz-modules-accent: {{ section.settings.accent_color }};
     --cz-modules-border: {{ section.settings.border_color }};
+    --cz-modules-columns: {{ section.settings.columns_desktop }};
     --cz-modules-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     --cz-modules-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
@@ -146,7 +147,7 @@
 
   .cz-page-modules__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--cz-modules-columns), minmax(0, 1fr));
     gap: 1.6rem;
   }
 
@@ -280,6 +281,15 @@
       "id": "border_color",
       "label": "Border",
       "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop columns",
+      "default": 3
     },
     {
       "type": "range",
