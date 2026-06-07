@@ -12,7 +12,7 @@
     "hero": {
       "type": "cz-hero-ecosystem",
       "settings": {
-        "eyebrow": "The Wildest Thing You Can Be",
+        "eyebrow": "The Wildest Thing You Can Be{{ metaobjects[\"shopify--color-pattern\"].red.label.value }}",
         "heading": "Is Yourself",
         "text": "<p>Creative Zoo is a creative ecosystem built for people who refuse to tuck away what makes them different. Through apparel, stories, music, and imagination, we celebrate the instinct to create, explore, and become something uniquely your own.</p>",
         "image_alt": "",
