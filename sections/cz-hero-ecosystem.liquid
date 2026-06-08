@@ -33,7 +33,7 @@
   }
 {%- endstyle -%}
 
-<section class="cz-hero-ecosystem cz-surface {{ mode_class }} {{ texture_class }} section-{{ section.id }}" data-cz-hero-id="{{ section.id }}">
+<section class="cz-hero-ecosystem{% if section.settings.frosted_cta_style %} cz-hero-ecosystem--frosted-ctas{% endif %} cz-surface {{ mode_class }} {{ texture_class }} section-{{ section.id }}" data-cz-hero-id="{{ section.id }}">
   <div class="cz-hero-ecosystem__media" aria-hidden="true">
     {%- if section.settings.video != blank -%}
       {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1800x', class: 'cz-hero-ecosystem__video', data-cz-hero-video: section.id }}
@@ -84,9 +84,21 @@
       class="cz-hero-ecosystem__sound"
       data-cz-hero-sound-toggle
       data-cz-hero-target="{{ section.id }}"
-      aria-label="Turn sound on"
+      aria-label="Unmute hero video"
     >
-      Sound On
+      <span class="cz-hero-ecosystem__sound-icon cz-hero-ecosystem__sound-icon--muted" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" fill="currentColor"/>
+          <path d="m17 9 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="cz-hero-ecosystem__sound-icon cz-hero-ecosystem__sound-icon--on" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" fill="currentColor"/>
+          <path d="M16.5 8.5c1 1 1.5 2.2 1.5 3.5s-.5 2.5-1.5 3.5M19.2 5.8A8.5 8.5 0 0 1 22 12a8.5 8.5 0 0 1-2.8 6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="visually-hidden" data-cz-hero-sound-text>Sound On</span>
     </button>
   {%- endif -%}
 </section>
@@ -139,45 +151,89 @@
   .cz-hero-ecosystem__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 3rem;
+    gap: 1.2rem;
+    margin-top: 3.2rem;
   }
-  .cz-visual-button--secondary {
-    background: transparent;
-    color: currentColor;
-    box-shadow: inset 0 0 0 1px currentColor;
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button,
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button--secondary {
+    min-height: 5.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    padding: 1.35rem 2.8rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8f7f4;
+    box-shadow: none;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, opacity 180ms ease;
   }
-  .cz-hero-ecosystem .cz-visual-button--secondary {
-    border-color: currentColor;
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button:hover,
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button--secondary:hover,
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button:focus-visible,
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button--secondary:focus-visible {
+    background: rgba(255, 255, 255, 0.32);
+    border-color: rgba(255, 255, 255, 1);
+    color: #ffffff;
+    opacity: 1;
+    transform: translateY(-0.1rem);
+  }
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button:focus-visible,
+  .cz-hero-ecosystem--frosted-ctas .cz-visual-button--secondary:focus-visible {
+    outline: 2px solid #f8f7f4;
+    outline-offset: 3px;
   }
   .cz-hero-ecosystem__sound {
     position: absolute;
     right: clamp(1.6rem, 3vw, 4rem);
     bottom: clamp(1.6rem, 3vw, 4rem);
     z-index: 2;
-    min-height: 4.2rem;
-    border: 1px solid rgba(248, 247, 244, 0.42);
-    border-radius: 8px;
-    padding: 0.9rem 1.4rem;
-    background: rgba(17, 17, 17, 0.72);
-    color: #f8f7f4;
-    font: inherit;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    min-height: 4.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
     cursor: pointer;
-    backdrop-filter: blur(12px);
-    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
   }
   .cz-hero-ecosystem__sound:hover {
-    background: rgba(17, 17, 17, 0.88);
-    border-color: #d8d6d0;
+    background: rgba(255, 255, 255, 0.34);
+    border-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-0.1rem);
   }
   .cz-hero-ecosystem__sound:focus-visible {
     outline: 2px solid #f8f7f4;
     outline-offset: 3px;
+  }
+  .cz-hero-ecosystem__sound-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cz-hero-ecosystem__sound-icon svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: block;
+  }
+  .cz-hero-ecosystem__sound-icon--on {
+    display: none;
+  }
+  .cz-hero-ecosystem__sound.is-unmuted .cz-hero-ecosystem__sound-icon--muted {
+    display: none;
+  }
+  .cz-hero-ecosystem__sound.is-unmuted .cz-hero-ecosystem__sound-icon--on {
+    display: flex;
   }
   @media screen and (max-width: 749px) {
     .cz-hero-ecosystem__overlay--gradient {
@@ -191,6 +247,17 @@
     .cz-hero-ecosystem__sound {
       right: 1.6rem;
       bottom: 1.6rem;
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+    .cz-hero-ecosystem__buttons {
+      align-items: stretch;
+      flex-direction: column;
+      max-width: min(100%, 34rem);
+    }
+    .cz-hero-ecosystem--frosted-ctas .cz-visual-button,
+    .cz-hero-ecosystem--frosted-ctas .cz-visual-button--secondary {
+      width: 100%;
     }
   }
 {% endstylesheet %}
@@ -220,11 +287,15 @@
       }
 
       if (video.muted) {
-        button.textContent = 'Sound On';
-        button.setAttribute('aria-label', 'Turn sound on');
+        button.classList.remove('is-unmuted');
+        button.setAttribute('aria-label', 'Unmute hero video');
+        var mutedText = button.querySelector('[data-cz-hero-sound-text]');
+        if (mutedText) mutedText.textContent = 'Sound On';
       } else {
-        button.textContent = 'Sound Off';
-        button.setAttribute('aria-label', 'Turn sound off');
+        button.classList.add('is-unmuted');
+        button.setAttribute('aria-label', 'Mute hero video');
+        var unmutedText = button.querySelector('[data-cz-hero-sound-text]');
+        if (unmutedText) unmutedText.textContent = 'Sound Off';
       }
     });
   })();
@@ -245,6 +316,7 @@
     { "type": "url", "id": "button_link", "label": "CTA link" },
     { "type": "text", "id": "secondary_button_label", "label": "Secondary CTA text" },
     { "type": "url", "id": "secondary_button_link", "label": "Secondary CTA link" },
+    { "type": "checkbox", "id": "frosted_cta_style", "label": "Use frosted CTA style", "default": false },
     { "type": "select", "id": "mode", "label": "Mode", "options": [{ "value": "light", "label": "Light" }, { "value": "dark", "label": "Dark" }], "default": "dark" },
     { "type": "color", "id": "background_color", "label": "Background" },
     { "type": "color", "id": "text_color", "label": "Text" },
