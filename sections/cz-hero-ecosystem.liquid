@@ -7,6 +7,7 @@
   if section.settings.texture_enabled
     assign texture_class = 'cz-texture cz-texture--' | append: section.settings.texture_style
   endif
+  assign overlay_color = section.settings.overlay_color | default: '#111111'
 -%}
 
 {%- style -%}
@@ -17,12 +18,16 @@
     --cz-section-button: {{ section.settings.button_color | default: settings.cz_button_color }};
     --cz-section-button-text: {{ section.settings.button_text_color | default: settings.cz_button_text_color }};
     --cz-texture-opacity: {{ section.settings.texture_opacity | divided_by: 100.0 }};
-    --cz-hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --cz-hero-overlay-color: {{ overlay_color }};
+    --cz-hero-overlay-rgb: {{ overlay_color.red }}, {{ overlay_color.green }}, {{ overlay_color.blue }};
+    --cz-hero-overlay-opacity: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
+    --cz-hero-overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     min-height: {{ section.settings.height_mobile }}px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }} {
+      --cz-hero-overlay-opacity: var(--cz-hero-overlay-opacity-desktop);
       min-height: {{ section.settings.height_desktop }}px;
     }
   }
@@ -45,7 +50,7 @@
       }}
     {%- endif -%}
   </div>
-  <div class="cz-hero-ecosystem__overlay"></div>
+  <div class="cz-hero-ecosystem__overlay{% if section.settings.gradient_overlay_enabled %} cz-hero-ecosystem__overlay--gradient{% endif %}"></div>
 
   <div class="page-width cz-hero-ecosystem__inner">
     {%- if section.settings.eyebrow != blank -%}
@@ -86,7 +91,7 @@
     inset: 0;
   }
   .cz-hero-ecosystem__media {
-    z-index: -3;
+    z-index: -1;
     background: var(--cz-black);
   }
   .cz-hero-ecosystem__media img,
@@ -96,11 +101,22 @@
     object-fit: cover;
   }
   .cz-hero-ecosystem__overlay {
-    z-index: -2;
-    background: var(--cz-black);
+    z-index: 0;
+    background: var(--cz-hero-overlay-color, var(--cz-black));
     opacity: var(--cz-hero-overlay-opacity);
   }
+  .cz-hero-ecosystem__overlay--gradient {
+    opacity: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), var(--cz-hero-overlay-opacity)) 0%,
+      rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), calc(var(--cz-hero-overlay-opacity) * 0.82)) 38%,
+      rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), calc(var(--cz-hero-overlay-opacity) * 0.32)) 100%
+    );
+  }
   .cz-hero-ecosystem__inner {
+    position: relative;
+    z-index: 1;
     width: 100%;
     padding-block: clamp(6rem, 10vw, 12rem);
   }
@@ -118,6 +134,19 @@
     background: transparent;
     color: currentColor;
     box-shadow: inset 0 0 0 1px currentColor;
+  }
+  .cz-hero-ecosystem .cz-visual-button--secondary {
+    border-color: currentColor;
+  }
+  @media screen and (max-width: 749px) {
+    .cz-hero-ecosystem__overlay--gradient {
+      background: linear-gradient(
+        180deg,
+        rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), calc(var(--cz-hero-overlay-opacity) * 0.78)) 0%,
+        rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), var(--cz-hero-overlay-opacity)) 62%,
+        rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), calc(var(--cz-hero-overlay-opacity) * 0.9)) 100%
+      );
+    }
   }
 {% endstylesheet %}
 
@@ -141,7 +170,10 @@
     { "type": "color", "id": "accent_color", "label": "Accent" },
     { "type": "color", "id": "button_color", "label": "Button" },
     { "type": "color", "id": "button_text_color", "label": "Button text" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#111111" },
+    { "type": "checkbox", "id": "gradient_overlay_enabled", "label": "Use gradient overlay", "default": true },
     { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Overlay opacity", "default": 40 },
+    { "type": "range", "id": "overlay_opacity_mobile", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Mobile overlay opacity", "default": 55 },
     { "type": "checkbox", "id": "texture_enabled", "label": "Texture overlay", "default": false },
     { "type": "select", "id": "texture_style", "label": "Texture style", "options": [{ "value": "paper", "label": "Paper grain" }, { "value": "fabric", "label": "Fabric" }, { "value": "sketch", "label": "Sketch" }], "default": "paper" },
     { "type": "range", "id": "texture_opacity", "min": 0, "max": 10, "step": 1, "unit": "%", "label": "Texture opacity", "default": 4 },
