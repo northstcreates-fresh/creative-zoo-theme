@@ -27,6 +27,16 @@
     "community_cards": {
       "type": "cz-habitat-cards",
       "blocks": {
+        "the_pack": {
+          "type": "card",
+          "settings": {
+            "kicker": "Belonging",
+            "title": "The Pack",
+            "text": "<p>The Creative Zoo community: shared purpose, field notes, spotlights, and future member access.</p>",
+            "button_label": "Enter The Pack",
+            "button_link": "/pages/community"
+          }
+        },
         "spotlights": {
           "type": "card",
           "settings": {
@@ -58,12 +68,12 @@
           }
         }
       },
-      "block_order": ["spotlights", "events", "journal"],
+      "block_order": ["the_pack", "spotlights", "events", "journal"],
       "settings": {
         "eyebrow": "The Community",
         "heading": "Human, warm, and connected.",
-        "text": "<p>Cards can be edited with icons, images, descriptions, and links in the theme editor.</p>",
-        "columns_desktop": 3,
+        "text": "<p>The Pack is the community identity for everyone moving through the Creative Zoo ecosystem.</p>",
+        "columns_desktop": 4,
         "background_color": "#F8F7F4",
         "card_color": "#ffffff",
         "accent_color": "#C9A24D"

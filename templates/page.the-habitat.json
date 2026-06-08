@@ -96,7 +96,7 @@
       "type": "cz-featured-story",
       "settings": {
         "heading": "Featured Story",
-        "text": "<p>Use this space to highlight The Pack, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
+        "text": "<p>Use this space to highlight Instincts, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
         "button_label": "Explore Stories",
         "button_link": "/pages/stories",
         "background_color": "#F8F7F4",
@@ -129,9 +129,10 @@
           "type": "collection",
           "settings": {
             "collection": "shopify://collections/bars-battle-cries",
-            "fallback_title": "Story Collections",
-            "fallback_link": "/collections/bars-battle-cries",
-            "button_label": "Shop Stories"
+            "fallback_title": "Instincts",
+            "link_override": "/pages/apparel",
+            "fallback_link": "/pages/apparel",
+            "button_label": "Explore Instincts"
           }
         }
       },

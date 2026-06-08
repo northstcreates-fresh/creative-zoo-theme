@@ -17,10 +17,10 @@
           "type": "zone",
           "settings": {
             "kicker": "02",
-            "title": "Bars & Battle Cries",
-            "text": "<p>A collection fueled by hip-hop energy and anime storytelling, where big flows, fierce rivalries, and drawn heroes collide.</p>",
-            "link_label": "Shop Bars",
-            "link": "shopify://collections/bars-battle-cries"
+            "title": "Instincts",
+            "text": "<p>Animal identity apparel and story signals for Panda, Lion, Wolf, Rabbit, Goat, Capybara, and future Creative Zoo identities.</p>",
+            "link_label": "Explore Instincts",
+            "link": "/pages/apparel"
           }
         },
         "zone_rep": {

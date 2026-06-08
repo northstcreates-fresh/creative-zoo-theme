@@ -1,0 +1,106 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cz-hero-ecosystem",
+      "settings": {
+        "eyebrow": "Instincts",
+        "heading": "Animal identity inside the Creative Zoo ecosystem.",
+        "text": "<p>Instincts is the home for Panda, Lion, Wolf, Rabbit, Goat, Capybara, and future animal identities.</p>",
+        "button_label": "Explore Apparel",
+        "button_link": "/pages/apparel",
+        "secondary_button_label": "Enter The Habitat",
+        "secondary_button_link": "/pages/the-habitat",
+        "mode": "dark",
+        "overlay_opacity": 45,
+        "texture_enabled": true,
+        "texture_style": "paper",
+        "texture_opacity": 3
+      }
+    },
+    "identity_cards": {
+      "type": "cz-habitat-cards",
+      "blocks": {
+        "panda": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Panda",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        },
+        "lion": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Lion",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        },
+        "wolf": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Wolf",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        },
+        "rabbit": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Rabbit",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        },
+        "goat": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Goat",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        },
+        "capybara": {
+          "type": "card",
+          "settings": {
+            "kicker": "Identity",
+            "title": "Capybara",
+            "text": "<p>A future animal identity lane inside Instincts.</p>",
+            "button_label": "Explore Apparel",
+            "button_link": "/pages/apparel"
+          }
+        }
+      },
+      "block_order": ["panda", "lion", "wolf", "rabbit", "goat", "capybara"],
+      "settings": {
+        "eyebrow": "Animal Identity",
+        "heading": "Instincts",
+        "text": "<p>Use these editable cards for animal identity product lines as the ecosystem expands.</p>",
+        "columns_desktop": 3,
+        "background_color": "#F8F7F4",
+        "card_color": "#ffffff",
+        "accent_color": "#C9A24D"
+      }
+    },
+    "newsletter": {
+      "type": "cz-newsletter-habitat",
+      "settings": {
+        "heading": "Join The Habitat",
+        "text": "<p>Get first access to future Instincts releases and ecosystem updates.</p>",
+        "background_color": "#ffffff",
+        "accent_color": "#C9A24D"
+      }
+    }
+  },
+  "order": ["hero", "identity_cards", "newsletter"]
+}

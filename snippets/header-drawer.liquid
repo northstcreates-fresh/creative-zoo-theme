@@ -62,6 +62,25 @@
                                 View {{ link.title | escape }}
                               </a>
                             </li>
+                            {%- liquid
+                              assign has_pack_link = false
+                              for childlink in link.links
+                                if childlink.title == 'The Pack'
+                                  assign has_pack_link = true
+                                endif
+                              endfor
+                            -%}
+                            {%- if link.title == 'Community' and has_pack_link == false -%}
+                              <li>
+                                <a
+                                  id="HeaderDrawer-{{ link.handle }}-the-pack"
+                                  href="/pages/community"
+                                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
+                                >
+                                  The Pack
+                                </a>
+                              </li>
+                            {%- endif -%}
                             {%- for childlink in link.links -%}
                               <li>
                                 {%- if childlink.links == blank -%}
@@ -108,17 +127,32 @@
                                         tabindex="-1"
                                       >
                                         {%- for grandchildlink in childlink.links -%}
+                                          {%- liquid
+                                            assign grandchild_title = grandchildlink.title
+                                            assign grandchild_url = grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf'
+                                            assign show_instinct_links = false
+                                            if childlink.title == 'Apparel'
+                                              if grandchildlink.title contains 'Story Collection' or grandchildlink.title == 'The Pack' or grandchildlink.title == 'Instincts'
+                                                assign grandchild_title = 'Instincts'
+                                                assign grandchild_url = '/pages/apparel'
+                                                assign show_instinct_links = true
+                                              endif
+                                            endif
+                                          -%}
                                           <li>
                                             <a
                                               id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                              href="{{ grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
+                                              href="{{ grandchild_url }}"
                                               class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
                                               {% if grandchildlink.current %}
                                                 aria-current="page"
                                               {% endif %}
                                             >
-                                              {{ grandchildlink.title | escape }}
+                                              {{ grandchild_title | escape }}
                                             </a>
+                                            {%- if show_instinct_links -%}
+                                              {% render 'cz-instinct-identity-links', class: 'menu-drawer__menu list-menu' %}
+                                            {%- endif -%}
                                           </li>
                                         {%- endfor -%}
                                       </ul>

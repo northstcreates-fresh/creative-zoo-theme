@@ -33,6 +33,25 @@
                   class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
                 >
+                  {%- liquid
+                    assign has_pack_link = false
+                    for childlink in link.links
+                      if childlink.title == 'The Pack'
+                        assign has_pack_link = true
+                      endif
+                    endfor
+                  -%}
+                  {%- if link.title == 'Community' and has_pack_link == false -%}
+                    <li>
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-the-pack"
+                        href="/pages/community"
+                        class="mega-menu__link mega-menu__link--level-2 link"
+                      >
+                        The Pack
+                      </a>
+                    </li>
+                  {%- endif -%}
                   {%- for childlink in link.links -%}
                     <li>
                       <a
@@ -48,17 +67,32 @@
                       {%- if childlink.links != blank -%}
                         <ul class="list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
+                            {%- liquid
+                              assign grandchild_title = grandchildlink.title
+                              assign grandchild_url = grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf'
+                              assign show_instinct_links = false
+                              if childlink.title == 'Apparel'
+                                if grandchildlink.title contains 'Story Collection' or grandchildlink.title == 'The Pack' or grandchildlink.title == 'Instincts'
+                                  assign grandchild_title = 'Instincts'
+                                  assign grandchild_url = '/pages/apparel'
+                                  assign show_instinct_links = true
+                                endif
+                              endif
+                            -%}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
+                                href="{{ grandchild_url }}"
                                 class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
                               >
-                                {{ grandchildlink.title | escape }}
+                                {{ grandchild_title | escape }}
                               </a>
+                              {%- if show_instinct_links -%}
+                                {% render 'cz-instinct-identity-links', class: 'list-unstyled' %}
+                              {%- endif -%}
                             </li>
                           {%- endfor -%}
                         </ul>

@@ -30,6 +30,25 @@
                 role="list"
                 tabindex="-1"
               >
+                {%- liquid
+                  assign has_pack_link = false
+                  for childlink in link.links
+                    if childlink.title == 'The Pack'
+                      assign has_pack_link = true
+                    endif
+                  endfor
+                -%}
+                {%- if link.title == 'Community' and has_pack_link == false -%}
+                  <li>
+                    <a
+                      id="HeaderMenu-{{ link.handle }}-the-pack"
+                      href="/pages/community"
+                      class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+                    >
+                      The Pack
+                    </a>
+                  </li>
+                {%- endif -%}
                 {%- for childlink in link.links -%}
                   <li>
                     {%- if childlink.links == blank -%}
@@ -57,17 +76,32 @@
                           class="header__submenu list-menu motion-reduce"
                         >
                           {%- for grandchildlink in childlink.links -%}
+                            {%- liquid
+                              assign grandchild_title = grandchildlink.title
+                              assign grandchild_url = grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf'
+                              assign show_instinct_links = false
+                              if childlink.title == 'Apparel'
+                                if grandchildlink.title contains 'Story Collection' or grandchildlink.title == 'The Pack' or grandchildlink.title == 'Instincts'
+                                  assign grandchild_title = 'Instincts'
+                                  assign grandchild_url = '/pages/apparel'
+                                  assign show_instinct_links = true
+                                endif
+                              endif
+                            -%}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf' }}"
+                                href="{{ grandchild_url }}"
                                 class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
                               >
-                                {{ grandchildlink.title | escape }}
+                                {{ grandchild_title | escape }}
                               </a>
+                              {%- if show_instinct_links -%}
+                                {% render 'cz-instinct-identity-links', class: 'list-unstyled' %}
+                              {%- endif -%}
                             </li>
                           {%- endfor -%}
                         </ul>
