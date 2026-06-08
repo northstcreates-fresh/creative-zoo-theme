@@ -130,12 +130,10 @@
                                           {%- liquid
                                             assign grandchild_title = grandchildlink.title
                                             assign grandchild_url = grandchildlink.url | replace: '/collections/creative-zoo-golf', '/pages/cz-golf'
-                                            assign show_instinct_links = false
                                             if childlink.title == 'Apparel'
                                               if grandchildlink.title contains 'Story Collection' or grandchildlink.title == 'The Pack' or grandchildlink.title == 'Instincts'
                                                 assign grandchild_title = 'Instincts'
-                                                assign grandchild_url = '/pages/apparel'
-                                                assign show_instinct_links = true
+                                                assign grandchild_url = '/pages/instincts'
                                               endif
                                             endif
                                           -%}
@@ -150,9 +148,6 @@
                                             >
                                               {{ grandchild_title | escape }}
                                             </a>
-                                            {%- if show_instinct_links -%}
-                                              {% render 'cz-instinct-identity-links', class: 'menu-drawer__menu list-menu' %}
-                                            {%- endif -%}
                                           </li>
                                         {%- endfor -%}
                                       </ul>
