@@ -57,8 +57,8 @@
             "kicker": "Animal Identity",
             "fallback_title": "Instincts",
             "fallback_text": "<p>Animal identity apparel lines for Panda, Lion, Wolf, Rabbit, Goat, Capybara, and future Creative Zoo identities.</p>",
-            "link_override": "/pages/apparel",
-            "fallback_link": "/pages/apparel",
+            "link_override": "/pages/instincts",
+            "fallback_link": "/pages/instincts",
             "button_label": "Explore Instincts"
           }
         }
