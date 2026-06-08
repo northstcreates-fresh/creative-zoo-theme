@@ -12,11 +12,12 @@
     "hero": {
       "type": "cz-hero-ecosystem",
       "settings": {
-        "eyebrow": "Creative Zoo is built for people who refuse to tuck away what makes them different.",
+        "eyebrow": "",
         "heading": "The Wildest Thing You Can Be Is Yourself.",
         "text": "",
         "image_alt": "",
         "video": "shopify://files/videos/Creative Zoo Header ArtDesignGOlf.mp4",
+        "show_sound_control": true,
         "button_label": "Enter The Habitat",
         "button_link": "/pages/the-habitat",
         "secondary_button_label": "Explore the Community",
@@ -25,12 +26,12 @@
         "background_color": "",
         "text_color": "#F8F7F4",
         "accent_color": "",
-        "button_color": "#111111",
-        "button_text_color": "#F8F7F4",
+        "button_color": "",
+        "button_text_color": "",
         "overlay_color": "#111111",
         "gradient_overlay_enabled": true,
-        "overlay_opacity": 72,
-        "overlay_opacity_mobile": 82,
+        "overlay_opacity": 50,
+        "overlay_opacity_mobile": 55,
         "texture_enabled": true,
         "texture_style": "paper",
         "texture_opacity": 3,
@@ -201,28 +202,6 @@
         "padding_bottom": 88
       }
     },
-    "featured_story": {
-      "type": "cz-featured-story",
-      "settings": {
-        "eyebrow": "Featured Story",
-        "heading": "The Pack",
-        "text": "<p>A story-driven spotlight for the ones moving together, building symbols, signals, and shared energy.</p>",
-        "image_alt": "",
-        "button_label": "Explore The Pack",
-        "button_link": "/collections/sevierly-fresh",
-        "mode": "light",
-        "background_color": "#f8f7f4",
-        "text_color": "",
-        "accent_color": "#b7653b",
-        "button_color": "",
-        "button_text_color": "",
-        "texture_enabled": true,
-        "texture_style": "sketch",
-        "texture_opacity": 3,
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
     "community": {
       "type": "cz-community-preview",
       "settings": {
@@ -240,6 +219,28 @@
         "button_text_color": "",
         "texture_enabled": false,
         "texture_style": "paper",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "featured_story": {
+      "type": "cz-featured-story",
+      "settings": {
+        "eyebrow": "Featured Story",
+        "heading": "The Pack",
+        "text": "<p>A story-driven spotlight for the ones moving together, building symbols, signals, and shared energy.</p>",
+        "image_alt": "",
+        "button_label": "Explore The Pack",
+        "button_link": "/collections/sevierly-fresh",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#b7653b",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": true,
+        "texture_style": "sketch",
         "texture_opacity": 3,
         "padding_top": 88,
         "padding_bottom": 88
