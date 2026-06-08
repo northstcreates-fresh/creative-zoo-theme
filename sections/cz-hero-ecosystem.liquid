@@ -33,10 +33,10 @@
   }
 {%- endstyle -%}
 
-<section class="cz-hero-ecosystem cz-surface {{ mode_class }} {{ texture_class }} section-{{ section.id }}">
+<section class="cz-hero-ecosystem cz-surface {{ mode_class }} {{ texture_class }} section-{{ section.id }}" data-cz-hero-id="{{ section.id }}">
   <div class="cz-hero-ecosystem__media" aria-hidden="true">
     {%- if section.settings.video != blank -%}
-      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1800x' }}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1800x', class: 'cz-hero-ecosystem__video', data-cz-hero-video: section.id }}
     {%- elsif section.settings.image != blank -%}
       {{
         section.settings.image
@@ -77,6 +77,18 @@
       </div>
     {%- endif -%}
   </div>
+
+  {%- if section.settings.video != blank and section.settings.show_sound_control -%}
+    <button
+      type="button"
+      class="cz-hero-ecosystem__sound"
+      data-cz-hero-sound-toggle
+      data-cz-hero-target="{{ section.id }}"
+      aria-label="Turn sound on"
+    >
+      Sound On
+    </button>
+  {%- endif -%}
 </section>
 
 {% stylesheet %}
@@ -138,6 +150,35 @@
   .cz-hero-ecosystem .cz-visual-button--secondary {
     border-color: currentColor;
   }
+  .cz-hero-ecosystem__sound {
+    position: absolute;
+    right: clamp(1.6rem, 3vw, 4rem);
+    bottom: clamp(1.6rem, 3vw, 4rem);
+    z-index: 2;
+    min-height: 4.2rem;
+    border: 1px solid rgba(248, 247, 244, 0.42);
+    border-radius: 8px;
+    padding: 0.9rem 1.4rem;
+    background: rgba(17, 17, 17, 0.72);
+    color: #f8f7f4;
+    font: inherit;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+  .cz-hero-ecosystem__sound:hover {
+    background: rgba(17, 17, 17, 0.88);
+    border-color: #d8d6d0;
+    transform: translateY(-0.1rem);
+  }
+  .cz-hero-ecosystem__sound:focus-visible {
+    outline: 2px solid #f8f7f4;
+    outline-offset: 3px;
+  }
   @media screen and (max-width: 749px) {
     .cz-hero-ecosystem__overlay--gradient {
       background: linear-gradient(
@@ -147,8 +188,47 @@
         rgba(var(--cz-hero-overlay-rgb, 17, 17, 17), calc(var(--cz-hero-overlay-opacity) * 0.9)) 100%
       );
     }
+    .cz-hero-ecosystem__sound {
+      right: 1.6rem;
+      bottom: 1.6rem;
+    }
   }
 {% endstylesheet %}
+
+<script>
+  (function () {
+    if (window.CZHeroSoundToggleReady) return;
+    window.CZHeroSoundToggleReady = true;
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-cz-hero-sound-toggle]');
+      if (!button) return;
+
+      var sectionId = button.getAttribute('data-cz-hero-target');
+      var hero = document.querySelector('[data-cz-hero-id="' + sectionId + '"]');
+      if (!hero) return;
+
+      var video = hero.querySelector('[data-cz-hero-video]');
+      if (!video) return;
+
+      video.muted = !video.muted;
+      video.defaultMuted = video.muted;
+      if (!video.paused) {
+        video.play().catch(function () {});
+      } else {
+        video.play().catch(function () {});
+      }
+
+      if (video.muted) {
+        button.textContent = 'Sound On';
+        button.setAttribute('aria-label', 'Turn sound on');
+      } else {
+        button.textContent = 'Sound Off';
+        button.setAttribute('aria-label', 'Turn sound off');
+      }
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -160,6 +240,7 @@
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "image_alt", "label": "Image alt text" },
     { "type": "video", "id": "video", "label": "Video" },
+    { "type": "checkbox", "id": "show_sound_control", "label": "Show sound control", "default": true },
     { "type": "text", "id": "button_label", "label": "CTA text", "default": "Enter The Habitat" },
     { "type": "url", "id": "button_link", "label": "CTA link" },
     { "type": "text", "id": "secondary_button_label", "label": "Secondary CTA text" },
