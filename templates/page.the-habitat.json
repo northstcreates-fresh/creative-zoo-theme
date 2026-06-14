@@ -15,13 +15,28 @@
         "eyebrow": "The Habitat",
         "heading": "The world hub of Creative Zoo.",
         "text": "<p>Move through apparel, stories, manga, and music from one connected ecosystem.</p>",
+        "image_alt": "",
+        "show_sound_control": true,
         "button_label": "",
         "button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "frosted_cta_style": false,
         "mode": "dark",
+        "background_color": "",
+        "text_color": "",
+        "accent_color": "",
+        "button_color": "",
+        "button_text_color": "",
+        "overlay_color": "#111111",
+        "gradient_overlay_enabled": true,
         "overlay_opacity": 45,
+        "overlay_opacity_mobile": 55,
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "height_desktop": 760,
+        "height_mobile": 560
       }
     },
     "intro": {
@@ -30,13 +45,42 @@
         "eyebrow": "Field Map",
         "heading": "Every lane has its own instinct.",
         "text": "<p>The Habitat is the central map for the Creative Zoo ecosystem: apparel you can wear, stories you can follow, manga worlds you can discover, and music you can feel.</p>",
+        "image_alt": "",
         "button_label": "Start Exploring",
         "button_link": "/pages/apparel",
-        "background_color": "#F8F7F4",
-        "accent_color": "#C9A24D",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#c9a24d",
+        "button_color": "",
+        "button_text_color": "",
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "featured_story": {
+      "type": "cz-featured-story",
+      "settings": {
+        "eyebrow": "Featured Story",
+        "heading": "Featured Story",
+        "text": "<p>Use this space to highlight Instincts, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
+        "image_alt": "",
+        "button_label": "Explore Stories",
+        "button_link": "/pages/stories",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#b7653b",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "sketch",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "manga_feature": {
@@ -46,17 +90,18 @@
         "eyebrow": "Manga",
         "heading": "Read the Manga",
         "text": "<p>Step into the world of Creative Zoo through character arcs, visual storytelling, and the stories behind each instinct.</p>",
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png",
         "image_alt": "Creative Zoo manga feature",
         "placeholder": "collection-apparel-4",
         "button_label": "Read the Manga",
         "button_link": "/pages/manga",
         "frosted_cta_style": true,
         "mode": "light",
-        "background_color": "#F8F7F4",
+        "background_color": "#f8f7f4",
         "text_color": "#111111",
-        "accent_color": "#C9A24D",
+        "accent_color": "#c9a24d",
         "button_color": "#111111",
-        "button_text_color": "#F8F7F4",
+        "button_text_color": "#f8f7f4",
         "texture_enabled": true,
         "texture_style": "paper",
         "texture_opacity": 3,
@@ -78,9 +123,9 @@
         "frosted_cta_style": true,
         "mode": "dark",
         "background_color": "#111111",
-        "text_color": "#F8F7F4",
-        "accent_color": "#35485C",
-        "button_color": "#F8F7F4",
+        "text_color": "#f8f7f4",
+        "accent_color": "#35485c",
+        "button_color": "#f8f7f4",
         "button_text_color": "#111111",
         "texture_enabled": true,
         "texture_style": "fabric",
@@ -89,28 +134,36 @@
         "padding_bottom": 104
       }
     },
-    "featured_story": {
-      "type": "cz-featured-story",
-      "settings": {
-        "heading": "Featured Story",
-        "text": "<p>Use this space to highlight Instincts, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
-        "button_label": "Explore Stories",
-        "button_link": "/pages/stories",
-        "background_color": "#F8F7F4",
-        "accent_color": "#B7653B"
-      }
-    },
     "newsletter": {
       "type": "cz-newsletter-habitat",
       "settings": {
+        "eyebrow": "Join",
         "heading": "Join The Habitat",
+        "text": "<p>Get first access to drops, story releases, field notes, and community signals.</p>",
+        "email_label": "Email address",
+        "button_label": "Join",
+        "success_text": "Welcome to the Habitat.",
+        "image_alt": "",
         "mode": "dark",
         "background_color": "#111111",
-        "text_color": "#F8F7F4",
-        "button_color": "#C9A24D",
-        "button_text_color": "#111111"
+        "text_color": "#f8f7f4",
+        "accent_color": "",
+        "button_color": "#c9a24d",
+        "button_text_color": "#111111",
+        "texture_enabled": false,
+        "texture_style": "paper",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     }
   },
-  "order": ["hero", "intro", "featured_story", "manga_feature", "music_feature", "newsletter"]
+  "order": [
+    "hero",
+    "intro",
+    "featured_story",
+    "manga_feature",
+    "music_feature",
+    "newsletter"
+  ]
 }
