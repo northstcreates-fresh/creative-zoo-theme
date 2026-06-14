@@ -15,28 +15,50 @@
         "eyebrow": "The Habitat",
         "heading": "The world hub of Creative Zoo.",
         "text": "<p>Move through apparel, stories, manga, and music from one connected ecosystem.</p>",
+        "image_alt": "",
+        "show_sound_control": true,
         "button_label": "Explore The Habitat",
         "button_link": "/pages/the-habitat",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "frosted_cta_style": false,
         "mode": "dark",
+        "background_color": "",
+        "text_color": "",
+        "accent_color": "",
+        "button_color": "",
+        "button_text_color": "",
+        "overlay_color": "#111111",
+        "gradient_overlay_enabled": true,
         "overlay_opacity": 45,
+        "overlay_opacity_mobile": 55,
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "height_desktop": 760,
+        "height_mobile": 560
       }
     },
     "intro": {
       "type": "cz-community-preview",
       "settings": {
-        "eyebrow": "Field Map",
-        "heading": "Every lane has its own instinct.",
+        "eyebrow": "Story Collections",
+        "heading": "Every creative  has their own instinct.",
         "text": "<p>The Habitat is the central map for the Creative Zoo ecosystem: apparel you can wear, stories you can follow, manga worlds you can discover, and music you can feel.</p>",
+        "image_alt": "",
         "button_label": "Start Exploring",
-        "button_link": "/pages/apparel",
-        "background_color": "#F8F7F4",
-        "accent_color": "#C9A24D",
+        "button_link": "shopify://pages/stories",
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#c9a24d",
+        "button_color": "",
+        "button_text_color": "",
         "texture_enabled": true,
         "texture_style": "paper",
-        "texture_opacity": 3
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "habitat_cards": {
@@ -48,6 +70,7 @@
             "kicker": "Wear",
             "title": "Apparel",
             "text": "<p>Wear your instincts.</p>",
+            "image_alt": "",
             "button_label": "Explore Apparel",
             "button_link": "/pages/apparel"
           }
@@ -58,6 +81,7 @@
             "kicker": "Read",
             "title": "Stories",
             "text": "<p>Explore the ideas that shape the Zoo.</p>",
+            "image_alt": "",
             "button_label": "Explore Stories",
             "button_link": "/pages/stories"
           }
@@ -68,6 +92,7 @@
             "kicker": "Discover",
             "title": "Manga",
             "text": "<p>Discover the world behind the creatures.</p>",
+            "image_alt": "",
             "button_label": "Explore Manga",
             "button_link": "/pages/manga"
           }
@@ -78,84 +103,88 @@
             "kicker": "Listen",
             "title": "Music",
             "text": "<p>Listen to the soundtrack of creativity.</p>",
+            "image_alt": "",
             "button_label": "Explore Music",
             "button_link": "/pages/music"
           }
         }
       },
-      "block_order": ["apparel", "stories", "manga", "music"],
+      "block_order": [
+        "apparel",
+        "stories",
+        "manga",
+        "music"
+      ],
       "settings": {
+        "eyebrow": "Explore",
         "heading": "Explore The Habitat",
         "text": "<p>Four large cards, each editable with image, video, description, and destination.</p>",
-        "columns_desktop": 4,
+        "mode": "light",
         "background_color": "#ffffff",
-        "accent_color": "#5A4B3C"
+        "text_color": "",
+        "card_color": "",
+        "accent_color": "#5a4b3c",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "paper",
+        "texture_opacity": 4,
+        "columns_desktop": 4,
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "featured_story": {
       "type": "cz-featured-story",
       "settings": {
+        "eyebrow": "Featured Story",
         "heading": "Featured Story",
         "text": "<p>Use this space to highlight Instincts, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
+        "image_alt": "",
         "button_label": "Explore Stories",
         "button_link": "/pages/stories",
-        "background_color": "#F8F7F4",
-        "accent_color": "#B7653B"
-      }
-    },
-    "featured_apparel": {
-      "type": "cz-featured-apparel",
-      "blocks": {
-        "classics": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/cz-originals",
-            "fallback_title": "Classics",
-            "fallback_link": "/collections/cz-originals",
-            "button_label": "Shop Classics"
-          }
-        },
-        "golf": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/creative-zoo-golf",
-            "fallback_title": "CZ Golf",
-            "link_override": "/pages/cz-golf",
-            "fallback_link": "/pages/cz-golf",
-            "button_label": "Shop CZ Golf"
-          }
-        },
-        "story": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/bars-battle-cries",
-            "fallback_title": "Instincts",
-            "link_override": "/pages/instincts",
-            "fallback_link": "/pages/instincts",
-            "button_label": "Explore Instincts"
-          }
-        }
-      },
-      "block_order": ["classics", "golf", "story"],
-      "settings": {
-        "heading": "Featured Apparel",
-        "button_label": "View All Apparel",
-        "button_link": "/collections/all",
-        "background_color": "#ffffff",
-        "accent_color": "#5A4B3C"
+        "mode": "light",
+        "background_color": "#f8f7f4",
+        "text_color": "",
+        "accent_color": "#b7653b",
+        "button_color": "",
+        "button_text_color": "",
+        "texture_enabled": false,
+        "texture_style": "sketch",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "newsletter": {
       "type": "cz-newsletter-habitat",
       "settings": {
+        "eyebrow": "Join",
         "heading": "Join The Habitat",
+        "text": "<p>Get first access to drops, story releases, field notes, and community signals.</p>",
+        "email_label": "Email address",
+        "button_label": "Join",
+        "success_text": "Welcome to the Habitat.",
+        "image_alt": "",
         "mode": "dark",
         "background_color": "#111111",
-        "text_color": "#F8F7F4",
-        "button_color": "#C9A24D",
-        "button_text_color": "#111111"
+        "text_color": "#f8f7f4",
+        "accent_color": "",
+        "button_color": "#c9a24d",
+        "button_text_color": "#111111",
+        "texture_enabled": false,
+        "texture_style": "paper",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     }
   },
-  "order": ["hero", "intro", "habitat_cards", "featured_story", "featured_apparel", "newsletter"]
+  "order": [
+    "hero",
+    "intro",
+    "habitat_cards",
+    "featured_story",
+    "newsletter"
+  ]
 }
