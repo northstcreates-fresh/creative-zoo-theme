@@ -42,6 +42,7 @@
     },
     "manifesto_preview": {
       "type": "cz-community-preview",
+      "name": "Home Page - What is CZ",
       "settings": {
         "eyebrow": "What is Creative Zoo?",
         "heading": "What Is Creative Zoo?",
