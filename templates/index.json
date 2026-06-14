@@ -135,74 +135,6 @@
         "padding_bottom": 72
       }
     },
-    "apparel": {
-      "type": "cz-featured-apparel",
-      "blocks": {
-        "classics": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/cz-originals",
-            "kicker": "Core",
-            "fallback_title": "Classics",
-            "fallback_text": "<p>Core Creative Zoo staples built for everyday rotation.</p>",
-            "link_override": "",
-            "fallback_link": "/collections/cz-originals",
-            "image_alt": "",
-            "button_label": "Shop Classics"
-          }
-        },
-        "golf": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/creative-zoo-golf",
-            "kicker": "Sport",
-            "fallback_title": "CZ Golf",
-            "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
-            "link_override": "/pages/cz-golf",
-            "fallback_link": "/pages/cz-golf",
-            "image_alt": "",
-            "button_label": "Shop CZ Golf"
-          }
-        },
-        "story": {
-          "type": "collection",
-          "settings": {
-            "collection": "shopify://collections/bars-battle-cries",
-            "kicker": "Animal Identity",
-            "fallback_title": "Instincts",
-            "fallback_text": "<p>Animal identity apparel lines for Panda, Lion, Wolf, Rabbit, Goat, Capybara, and future Creative Zoo identities.</p>",
-            "link_override": "/pages/instincts",
-            "fallback_link": "/pages/instincts",
-            "image_alt": "",
-            "button_label": "Explore Instincts"
-          }
-        }
-      },
-      "block_order": [
-        "classics",
-        "golf",
-        "story"
-      ],
-      "settings": {
-        "eyebrow": "Apparel",
-        "heading": "Featured Apparel",
-        "text": "<p>Clean premium lifestyle lanes for everyday staples, golf, and story-led drops.</p>",
-        "button_label": "View All Apparel",
-        "button_link": "/collections/all",
-        "mode": "light",
-        "background_color": "#ffffff",
-        "text_color": "",
-        "card_color": "",
-        "accent_color": "#5a4b3c",
-        "button_color": "",
-        "button_text_color": "",
-        "texture_enabled": false,
-        "texture_style": "fabric",
-        "texture_opacity": 3,
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
     "community": {
       "type": "cz-community-preview",
       "settings": {
@@ -220,28 +152,6 @@
         "button_text_color": "",
         "texture_enabled": false,
         "texture_style": "paper",
-        "texture_opacity": 3,
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
-    "featured_story": {
-      "type": "cz-featured-story",
-      "settings": {
-        "eyebrow": "Featured Story",
-        "heading": "Instincts",
-        "text": "<p>A story-driven look at animal identity, creative symbols, and the instincts that shape the Zoo.</p>",
-        "image_alt": "",
-        "button_label": "Explore Instincts",
-        "button_link": "/pages/instincts",
-        "mode": "light",
-        "background_color": "#f8f7f4",
-        "text_color": "",
-        "accent_color": "#b7653b",
-        "button_color": "",
-        "button_text_color": "",
-        "texture_enabled": true,
-        "texture_style": "sketch",
         "texture_opacity": 3,
         "padding_top": 88,
         "padding_bottom": 88
@@ -275,9 +185,7 @@
     "hero",
     "manifesto_preview",
     "habitat_cards",
-    "apparel",
     "community",
-    "featured_story",
     "newsletter"
   ]
 }
