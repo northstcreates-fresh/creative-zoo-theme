@@ -112,6 +112,7 @@
     },
     "music_feature": {
       "type": "cz-habitat-feature-row",
+      "name": "CZ habitat Music row",
       "settings": {
         "media_position": "right",
         "eyebrow": "Music",
