@@ -86,15 +86,15 @@
     "manga_feature": {
       "type": "cz-habitat-feature-row",
       "settings": {
-        "media_position": "left",
+        "media_position": "right",
         "eyebrow": "Manga",
-        "heading": "Read the Manga",
+        "heading": "Chapter 1:",
         "text": "<p>Step into the world of Creative Zoo through character arcs, visual storytelling, and the stories behind each instinct.</p>",
         "image": "shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png",
         "image_alt": "Creative Zoo manga feature",
         "media_fit": "contain",
-        "media_scale": 70,
-        "placeholder": "hero-apparel-2",
+        "media_scale": 80,
+        "placeholder": "collection-apparel-4",
         "button_label": "Read the Manga",
         "button_link": "/pages/manga",
         "cta_position": "media",
@@ -108,7 +108,7 @@
         "texture_enabled": true,
         "texture_style": "paper",
         "texture_opacity": 3,
-        "padding_top": 104,
+        "padding_top": 28,
         "padding_bottom": 96
       }
     },
