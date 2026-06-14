@@ -1,1 +1,76 @@
-PLACEHOLDER
+{%- liquid
+  assign tone = 'cz-surface--light'
+  if section.settings.mode == 'dark'
+    assign tone = 'cz-surface--dark'
+  endif
+-%}
+{%- style -%}.section-{{ section.id }}{padding-block:{{ section.settings.padding_top | times: 0.75 | round }}px {{ section.settings.padding_bottom | times: 0.75 | round }}px}@media screen and (min-width:750px){.section-{{ section.id }}{padding-block:{{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px}}{%- endstyle -%}
+<section class="cz-instincts-carousel cz-surface {{ tone }} section-{{ section.id }}" data-instincts="{{ section.id }}">
+  <div class="page-width">
+    <div class="cz-instincts-carousel__intro">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="cz-section-kicker">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="cz-section-heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      </div>
+      {%- if section.settings.text != blank -%}<div class="cz-section-copy rte">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+    <div class="cz-instincts-carousel__track" id="Instincts-{{ section.id }}" tabindex="0" aria-label="{{ section.settings.heading | escape }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign collection = block.settings.collection
+          assign link = block.settings.link_override
+          if link == blank and collection != blank
+            assign link = collection.url
+          endif
+          if link == blank
+            assign link = block.settings.fallback_link
+          endif
+          assign image = block.settings.image
+          if image == blank and collection != blank
+            assign image = collection.image
+          endif
+        -%}
+        <article class="cz-instincts-carousel__card" {{ block.shopify_attributes }}>
+          <a class="cz-instincts-carousel__media" {% if link == blank %}role="link" aria-disabled="true"{% else %}href="{{ link }}"{% endif %}>
+            {%- if image != blank -%}
+              {{ image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 640, 720', sizes: '(min-width: 990px) 28vw, 82vw', alt: block.settings.image_alt }}
+            {%- else -%}
+              <span aria-hidden="true">{{ block.settings.animal | slice: 0 | upcase }}</span>
+            {%- endif -%}
+          </a>
+          <div class="cz-instincts-carousel__body">
+            {%- if block.settings.trait != blank -%}<p class="cz-section-kicker">{{ block.settings.trait | escape }}</p>{%- endif -%}
+            {%- if block.settings.animal != blank -%}<h3>{{ block.settings.animal | escape }}</h3>{%- endif -%}
+            {%- if block.settings.text != blank -%}<div class="rte">{{ block.settings.text }}</div>{%- endif -%}
+            {%- if block.settings.button_label != blank -%}<a class="cz-instincts-carousel__link" {% if link == blank %}role="link" aria-disabled="true"{% else %}href="{{ link }}"{% endif %}>{{ block.settings.button_label | escape }}</a>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    <div class="cz-instincts-carousel__controls">
+      <button type="button" data-instincts-prev aria-controls="Instincts-{{ section.id }}" aria-label="Previous">{{ 'icon-caret.svg' | inline_asset_content }}</button>
+      <button type="button" data-instincts-next aria-controls="Instincts-{{ section.id }}" aria-label="Next">{{ 'icon-caret.svg' | inline_asset_content }}</button>
+    </div>
+  </div>
+</section>
+{% stylesheet %}
+  .cz-instincts-carousel__intro{display:grid;grid-template-columns:minmax(24rem,.7fr) 1fr;gap:clamp(2.4rem,6vw,8rem);align-items:end;margin-bottom:clamp(3rem,5vw,6rem)}
+  .cz-instincts-carousel .cz-section-heading{font-size:clamp(4.2rem,7vw,9rem)}
+  .cz-instincts-carousel__track{display:grid;grid-auto-columns:minmax(26rem,31vw);grid-auto-flow:column;gap:1.6rem;overflow-x:auto;padding-bottom:1.2rem;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:thin}
+  .cz-instincts-carousel__track:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+  .cz-instincts-carousel__card{display:grid;overflow:hidden;border:1px solid rgba(248,247,244,.24);border-radius:8px;background:var(--cz-card-background,#111);color:var(--cz-primary-text,#fff);scroll-snap-align:start}
+  .cz-surface--light .cz-instincts-carousel__card{border-color:rgba(17,17,17,.18);background:var(--cz-card-background,#fff);color:var(--cz-primary-text,#111)}
+  .cz-instincts-carousel__media{display:grid;aspect-ratio:1;min-height:25rem;place-items:center;overflow:hidden;background:linear-gradient(135deg,rgba(183,101,59,.34),rgba(53,72,92,.42));color:currentColor;text-decoration:none}
+  .cz-instincts-carousel__media img{width:100%;height:100%;object-fit:cover;transition:transform .26s ease}.cz-instincts-carousel__media:hover img{transform:scale(1.035)}
+  .cz-instincts-carousel__media span{display:grid;width:min(52%,15rem);aspect-ratio:1;place-items:center;border:1px solid currentColor;border-radius:999px;color:rgba(248,247,244,.92);font-family:var(--font-heading-family);font-size:clamp(6rem,10vw,11rem);line-height:1}
+  .cz-instincts-carousel__body{padding:clamp(2rem,3vw,3rem)}.cz-instincts-carousel__body h3{margin:0;color:currentColor;font-size:clamp(2.8rem,4vw,4.6rem);line-height:.95;letter-spacing:0}
+  .cz-instincts-carousel__body .rte{margin-top:1.4rem;line-height:1.5}.cz-instincts-carousel__link{display:inline-flex;margin-top:2.2rem;color:currentColor;font-weight:700;text-decoration:underline;text-underline-offset:.32rem}
+  .cz-instincts-carousel__controls{display:flex;justify-content:flex-end;gap:.8rem;margin-top:2rem}.cz-instincts-carousel__controls button{display:inline-flex;align-items:center;justify-content:center;width:4.8rem;height:4.8rem;border:1px solid currentColor;border-radius:999px;padding:0;background:transparent;color:currentColor;cursor:pointer}
+  .cz-instincts-carousel__controls button:hover,.cz-instincts-carousel__controls button:focus-visible{background:currentColor}.cz-instincts-carousel__controls svg{width:1.8rem;height:1.8rem}.cz-instincts-carousel__controls button:hover svg,.cz-instincts-carousel__controls button:focus-visible svg{filter:invert(1)}
+  [data-instincts-prev] svg{transform:rotate(90deg)}[data-instincts-next] svg{transform:rotate(-90deg)}
+  @media screen and (max-width:989px){.cz-instincts-carousel__intro{grid-template-columns:1fr;align-items:start}.cz-instincts-carousel__track{grid-auto-columns:minmax(26rem,82vw)}.cz-instincts-carousel__controls{justify-content:flex-start}}
+{% endstylesheet %}
+<script>(()=>{const s=document.querySelector('[data-instincts="{{ section.id }}"]');if(!s)return;const v=s.querySelector('.cz-instincts-carousel__track'),go=d=>{const c=v.querySelector('.cz-instincts-carousel__card'),g=parseFloat(getComputedStyle(v).gap||0);v.scrollBy({left:(c?c.getBoundingClientRect().width+g:v.clientWidth)*d,behavior:'smooth'})};s.querySelector('[data-instincts-prev]')?.addEventListener('click',()=>go(-1));s.querySelector('[data-instincts-next]')?.addEventListener('click',()=>go(1));v.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}if(e.key==='ArrowRight'){e.preventDefault();go(1)}})})();</script>
+{% schema %}
+{"name":"CZ instincts carousel","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Animal identities"},{"type":"text","id":"heading","label":"Heading","default":"Instincts"},{"type":"richtext","id":"text","label":"Body text","default":"<p>Every Creative Zoo character carries a different instinct: a way of moving, creating, questioning, and becoming.</p>"},{"type":"select","id":"mode","label":"Mode","options":[{"value":"light","label":"Light"},{"value":"dark","label":"Dark"}],"default":"dark"},{"type":"range","id":"padding_top","min":0,"max":160,"step":4,"unit":"px","label":"Top padding","default":104},{"type":"range","id":"padding_bottom","min":0,"max":160,"step":4,"unit":"px","label":"Bottom padding","default":104}],"blocks":[{"type":"instinct","name":"Instinct","settings":[{"type":"text","id":"trait","label":"Trait","default":"Focus"},{"type":"text","id":"animal","label":"Name","default":"Panda"},{"type":"richtext","id":"text","label":"Description","default":"<p>A Creative Zoo identity.</p>"},{"type":"collection","id":"collection","label":"Collection"},{"type":"url","id":"link_override","label":"Link override"},{"type":"url","id":"fallback_link","label":"Fallback link"},{"type":"image_picker","id":"image","label":"Image or icon"},{"type":"text","id":"image_alt","label":"Image alt text"},{"type":"text","id":"button_label","label":"CTA text","default":"Shop this instinct"}]}],"presets":[{"name":"CZ instincts carousel"}]}
+{% endschema %}
