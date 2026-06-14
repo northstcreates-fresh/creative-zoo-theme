@@ -85,6 +85,7 @@
     },
     "manga_feature": {
       "type": "cz-habitat-feature-row",
+      "name": "CZ habitat Manga row",
       "settings": {
         "media_position": "left",
         "eyebrow": "Manga",
