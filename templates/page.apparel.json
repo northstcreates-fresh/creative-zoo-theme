@@ -12,76 +12,142 @@
     "hero": {
       "type": "cz-hero-ecosystem",
       "settings": {
-        "eyebrow": "Apparel",
-        "heading": "Wear the ecosystem.",
-        "text": "<p>Clean premium lifestyle lanes for classics, CZ Golf, and story-driven Creative Zoo collections.</p>",
-        "button_label": "View All Apparel",
+        "eyebrow": "Shop",
+        "heading": "Shop Creative Zoo",
+        "text": "<p>Apparel built for instinct, individuality, and self-expression.</p>",
+        "video": "shopify://files/videos/Creative Zoo Header ArtDesignGOlf.mp4",
+        "show_sound_control": false,
+        "button_label": "Shop All Products",
         "button_link": "/collections/all",
+        "frosted_cta_style": true,
         "mode": "dark",
-        "overlay_opacity": 35,
-        "texture_enabled": true,
-        "texture_style": "fabric",
-        "texture_opacity": 3
+        "text_color": "#F8F7F4",
+        "overlay_color": "#111111",
+        "gradient_overlay_enabled": true,
+        "overlay_opacity": 55,
+        "overlay_opacity_mobile": 65,
+        "height_desktop": 660,
+        "height_mobile": 520
       }
     },
-    "featured_apparel": {
-      "type": "cz-featured-apparel",
+    "classics": {
+      "type": "cz-shop-featured-collection-row",
+      "settings": {
+        "eyebrow": "Core essentials",
+        "heading": "Classics",
+        "text": "<p>Everyday Creative Zoo essentials made for people who move through the world their own way.</p>",
+        "collection": "shopify://collections/classics",
+        "products_to_show": 4,
+        "button_label": "Shop The Classics",
+        "button_link": "/collections/classics",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "mode": "light",
+        "padding_top": 88,
+        "padding_bottom": 84
+      }
+    },
+    "golf": {
+      "type": "cz-shop-featured-collection-row",
+      "settings": {
+        "eyebrow": "Sport lifestyle",
+        "heading": "Creative Zoo Golf",
+        "text": "<p>The course is another place to express yourself.</p>",
+        "products_to_show": 4,
+        "button_label": "Shop Creative Zoo Golf",
+        "button_link": "/collections/creative-zoo-golf",
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
+        "mode": "light",
+        "padding_top": 84,
+        "padding_bottom": 88
+      }
+    },
+    "instincts": {
+      "type": "cz-instincts-carousel",
       "blocks": {
-        "classics": {
-          "type": "collection",
+        "panda": {
+          "type": "instinct",
           "settings": {
-            "collection": "shopify://collections/cz-originals",
-            "kicker": "Core",
-            "fallback_title": "Classics",
-            "fallback_text": "<p>Core Creative Zoo staples built for everyday rotation.</p>",
-            "fallback_link": "/collections/cz-originals",
-            "button_label": "Shop Classics"
+            "trait": "Focus",
+            "animal": "Panda",
+            "text": "<p>Quiet discipline, clear aim, and deep attention.</p>",
+            "collection": "shopify://collections/focus-panda",
+            "fallback_link": "/collections/focus-panda",
+            "image_alt": "Focus Panda instinct",
+            "button_label": "Focus Panda"
           }
         },
-        "cz_golf": {
-          "type": "collection",
+        "lion": {
+          "type": "instinct",
           "settings": {
-            "collection": "shopify://collections/creative-zoo-golf",
-            "kicker": "Sport",
-            "fallback_title": "CZ Golf",
-            "fallback_text": "<p>Premium sport lifestyle pieces with course-ready energy.</p>",
-            "link_override": "/pages/cz-golf",
-            "fallback_link": "/pages/cz-golf",
-            "button_label": "Shop CZ Golf"
+            "trait": "Unapologetic",
+            "animal": "Lion",
+            "text": "<p>Confidence without apology. Presence without permission.</p>",
+            "collection": "shopify://collections/unapologetic-lion",
+            "fallback_link": "/collections/unapologetic-lion",
+            "image_alt": "Unapologetic Lion instinct",
+            "button_label": "Unapologetic Lion"
           }
         },
-        "story_collection": {
-          "type": "collection",
+        "wolf": {
+          "type": "instinct",
           "settings": {
-            "collection": "shopify://collections/bars-battle-cries",
-            "kicker": "Animal Identity",
-            "fallback_title": "Instincts",
-            "fallback_text": "<p>Animal identity apparel lines for Panda, Lion, Wolf, Rabbit, Goat, Capybara, and future Creative Zoo identities.</p>",
-            "link_override": "/pages/instincts",
-            "fallback_link": "/pages/instincts",
-            "button_label": "Explore Instincts"
+            "trait": "Relentless",
+            "animal": "Wolf",
+            "text": "<p>Forward motion, sharp senses, and the refusal to quit.</p>",
+            "collection": "shopify://collections/relentless-wolf",
+            "fallback_link": "/collections/relentless-wolf",
+            "image_alt": "Relentless Wolf instinct",
+            "button_label": "Relentless Wolf"
+          }
+        },
+        "bunny": {
+          "type": "instinct",
+          "settings": {
+            "trait": "Wonder",
+            "animal": "Bunny",
+            "text": "<p>Curiosity, openness, and the spark that keeps discovery alive.</p>",
+            "collection": "shopify://collections/wonder-bunny",
+            "fallback_link": "/collections/wonder-bunny",
+            "image_alt": "Wonder Bunny instinct",
+            "button_label": "Wonder Bunny"
+          }
+        },
+        "goat": {
+          "type": "instinct",
+          "settings": {
+            "trait": "Standard",
+            "animal": "Goat",
+            "text": "<p>Standard-setting greatness and the drive to raise the bar.</p>",
+            "collection": "shopify://collections/standard-goat",
+            "fallback_link": "/collections/standard-goat",
+            "image_alt": "Standard Goat instinct",
+            "button_label": "Standard Goat"
           }
         }
       },
-      "block_order": ["classics", "cz_golf", "story_collection"],
+      "block_order": [
+        "panda",
+        "lion",
+        "wolf",
+        "bunny",
+        "goat"
+      ],
       "settings": {
-        "eyebrow": "Apparel",
-        "heading": "Featured Apparel",
-        "text": "<p>Pull collection image, title, and description automatically, or override the visuals per card.</p>",
-        "button_label": "View All Apparel",
-        "button_link": "/collections/all",
-        "background_color": "#ffffff",
-        "accent_color": "#5A4B3C"
-      }
-    },
-    "newsletter": {
-      "type": "cz-newsletter-habitat",
-      "settings": {
-        "heading": "Join The Habitat",
-        "background_color": "#F8F7F4",
-        "accent_color": "#C9A24D"
+        "eyebrow": "Animal identities",
+        "heading": "Instincts",
+        "text": "<p>Every Creative Zoo character carries a different instinct: a way of moving, creating, questioning, and becoming.</p>",
+        "mode": "dark",
+        "padding_top": 104,
+        "padding_bottom": 104
       }
     }
   },
-  "order": ["hero", "featured_apparel", "newsletter"]
+  "order": [
+    "hero",
+    "classics",
+    "golf",
+    "instincts"
+  ]
 }
