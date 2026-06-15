@@ -45,6 +45,7 @@
         "eyebrow": "Field Map",
         "heading": "Every lane has its own instinct.",
         "text": "<p>The Habitat is the central map for the Creative Zoo ecosystem: apparel you can wear, stories you can follow, manga worlds you can discover, and music you can feel.</p>",
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png",
         "image_alt": "",
         "button_label": "Start Exploring",
         "button_link": "/pages/apparel",
@@ -67,6 +68,7 @@
         "eyebrow": "Featured Story",
         "heading": "Featured Story",
         "text": "<p>Use this space to highlight Instincts, Battle Cries, Rep Colors, or the next major Creative Zoo story.</p>",
+        "image": "shopify://shop_images/The_Notorious_Prince_T-Shirts.png",
         "image_alt": "",
         "button_label": "Explore Stories",
         "button_link": "/pages/stories",
@@ -83,10 +85,54 @@
         "padding_bottom": 88
       }
     },
+    "17814813423f78740d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ef17046_wMHPkh": {
+          "type": "ai_gen_block_ef17046",
+          "settings": {
+            "cover_image": "shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png",
+            "image_width": "wide",
+            "image_height": "800",
+            "mobile_image_height": "auto",
+            "image_fit": "contain",
+            "eyebrow": "Arc One",
+            "heading": "The First Arc",
+            "description": "<p>Discover the beginning of an extraordinary journey. This first arc introduces the foundation of our story, setting the stage for what's to come with compelling narratives and stunning visuals.</p>",
+            "content_padding": 40,
+            "button_text": "Read the 1st Arc",
+            "button_link": "/pages/manga",
+            "button_text_size": 14,
+            "button_radius": 0,
+            "gap": 40,
+            "desktop_width_percent": 100,
+            "content_background": "#F8F7F4",
+            "eyebrow_color": "#C9A24D",
+            "heading_color": "#111111",
+            "description_color": "#111111",
+            "button_background": "#111111",
+            "button_hover_background": "#C9A24D",
+            "button_text_color": "#F8F7F4",
+            "eyebrow_size": 12,
+            "heading_size": 48,
+            "description_size": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ef17046_wMHPkh"
+      ],
+      "settings": {}
+    },
+    "1781481003dca2a999": {
+      "type": "_blocks",
+      "settings": {}
+    },
     "manga_feature": {
       "type": "cz-habitat-feature-row",
       "settings": {
-        "media_position": "right",
+        "media_position": "left",
         "eyebrow": "Manga",
         "heading": "Read the Manga",
         "text": "<p>Step into the world of Creative Zoo through character arcs, visual storytelling, and the stories behind each instinct.</p>",
@@ -125,10 +171,10 @@
         "button_link": "/pages/music",
         "cta_position": "media",
         "frosted_cta_style": true,
-        "mode": "dark",
-        "background_color": "#111111",
-        "text_color": "#f8f7f4",
-        "accent_color": "#35485c",
+        "mode": "light",
+        "background_color": "#F8F7F4",
+        "text_color": "#111111",
+        "accent_color": "#C9A24D",
         "button_color": "#f8f7f4",
         "button_text_color": "#111111",
         "texture_enabled": true,
@@ -166,6 +212,8 @@
     "hero",
     "intro",
     "featured_story",
+    "17814813423f78740d",
+    "1781481003dca2a999",
     "manga_feature",
     "music_feature",
     "newsletter"
