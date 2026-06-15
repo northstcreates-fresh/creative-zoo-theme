@@ -19,6 +19,8 @@
     --cz-section-button-text: {{ section.settings.button_text_color | default: settings.cz_button_text_color }};
     --cz-texture-opacity: {{ section.settings.texture_opacity | divided_by: 100.0 }};
     --cz-grid-columns: {{ section.settings.columns_desktop }};
+    --cz-card-media-fit: {{ section.settings.media_fit }};
+    --cz-card-media-position: {{ section.settings.media_position }};
     padding-block: {{ section.settings.padding_top | times: 0.75 | round }}px {{ section.settings.padding_bottom | times: 0.75 | round }}px;
   }
   @media screen and (min-width: 750px) {
@@ -38,7 +40,7 @@
         <article class="cz-visual-card cz-habitat-cards__card" {{ block.shopify_attributes }}>
           <div class="cz-visual-media cz-habitat-cards__media">
             {%- if block.settings.video != blank -%}
-              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1000x' }}
+              {{ block.settings.video | video_tag: autoplay: section.settings.video_autoplay, loop: section.settings.video_loop, muted: section.settings.video_muted, playsinline: true, controls: false, image_size: '1000x' }}
             {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '450, 700, 900, 1200', sizes: '(min-width: 990px) 25vw, 100vw', alt: block.settings.image_alt }}
             {%- else -%}
@@ -64,6 +66,9 @@
   .cz-habitat-cards__grid { display: grid; grid-template-columns: repeat(var(--cz-grid-columns), minmax(0, 1fr)); gap: 1.6rem; }
   .cz-habitat-cards__card { display: flex; flex-direction: column; }
   .cz-habitat-cards__media { aspect-ratio: 4 / 3; border-bottom: 1px solid rgba(17, 17, 17, 0.22); }
+  .cz-habitat-cards__media img,
+  .cz-habitat-cards__media video,
+  .cz-habitat-cards__media svg { object-fit: var(--cz-card-media-fit, cover); object-position: var(--cz-card-media-position, center center); }
   .cz-habitat-cards__body { display: flex; flex: 1; flex-direction: column; min-height: 24rem; padding: clamp(2rem, 3vw, 3.2rem); }
   .cz-habitat-cards__body h3 { margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(3rem, 4vw, 5rem); line-height: 0.98; letter-spacing: 0; }
   .cz-habitat-cards__body .rte { margin-top: 1.5rem; color: var(--cz-section-muted); line-height: 1.5; }
@@ -85,6 +90,11 @@
     { "type": "color", "id": "accent_color", "label": "Accent" },
     { "type": "color", "id": "button_color", "label": "Button" },
     { "type": "color", "id": "button_text_color", "label": "Button text" },
+    { "type": "select", "id": "media_fit", "label": "Card media fit", "options": [{ "value": "cover", "label": "Cover" }, { "value": "contain", "label": "Contain" }, { "value": "fill", "label": "Fill" }], "default": "cover" },
+    { "type": "select", "id": "media_position", "label": "Card media focal point", "options": [{ "value": "center center", "label": "Center center" }, { "value": "top center", "label": "Top center" }, { "value": "bottom center", "label": "Bottom center" }, { "value": "left center", "label": "Left center" }, { "value": "right center", "label": "Right center" }], "default": "center center" },
+    { "type": "checkbox", "id": "video_autoplay", "label": "Autoplay card videos", "default": true },
+    { "type": "checkbox", "id": "video_muted", "label": "Mute card videos by default", "default": true },
+    { "type": "checkbox", "id": "video_loop", "label": "Loop card videos", "default": true },
     { "type": "checkbox", "id": "texture_enabled", "label": "Texture overlay", "default": false },
     { "type": "select", "id": "texture_style", "label": "Texture style", "options": [{ "value": "paper", "label": "Paper grain" }, { "value": "fabric", "label": "Fabric" }, { "value": "sketch", "label": "Sketch" }], "default": "paper" },
     { "type": "range", "id": "texture_opacity", "min": 0, "max": 10, "step": 1, "unit": "%", "label": "Texture opacity", "default": 4 },
