@@ -17,10 +17,19 @@
     --cz-section-button: {{ section.settings.button_color | default: settings.cz_primary_background }};
     --cz-section-button-text: {{ section.settings.button_text_color | default: settings.cz_primary_text }};
     --cz-texture-opacity: {{ section.settings.texture_opacity | divided_by: 100.0 }};
+    --cz-preview-media-fit: {{ section.settings.media_fit }};
+    --cz-preview-media-position: {{ section.settings.mobile_media_position }};
+    --cz-preview-media-height: {{ section.settings.mobile_media_height }}rem;
+    --cz-preview-gap: {{ section.settings.mobile_gap }}rem;
     padding-block: {{ section.settings.padding_top | times: 0.75 | round }}px {{ section.settings.padding_bottom | times: 0.75 | round }}px;
   }
   @media screen and (min-width: 750px) {
-    .section-{{ section.id }} { padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px; }
+    .section-{{ section.id }} {
+      --cz-preview-media-position: {{ section.settings.media_position }};
+      --cz-preview-media-height: {{ section.settings.media_height }}rem;
+      --cz-preview-gap: {{ section.settings.desktop_gap }}rem;
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    }
   }
 {%- endstyle -%}
 
@@ -37,7 +46,7 @@
     </div>
     <div class="cz-music-preview__media cz-visual-media">
       {%- if section.settings.video != blank -%}
-        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1400x' }}
+        {{ section.settings.video | video_tag: autoplay: section.settings.video_autoplay, loop: section.settings.video_loop, muted: section.settings.video_muted, playsinline: true, controls: false, image_size: '1400x' }}
       {%- elsif section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', widths: '550, 750, 1100, 1400, 1500', sizes: '(min-width: 990px) 42vw, 100vw', alt: section.settings.image_alt }}
       {%- else -%}
@@ -48,8 +57,11 @@
 </section>
 
 {% stylesheet %}
-  .cz-music-preview__inner { display: grid; grid-template-columns: minmax(28rem, 1fr) minmax(0, 0.85fr); gap: clamp(2rem, 5vw, 7rem); align-items: center; }
-  .cz-music-preview__media { aspect-ratio: 1 / 1; min-height: 32rem; border-radius: 0; }
+  .cz-music-preview__inner { display: grid; grid-template-columns: minmax(28rem, 1fr) minmax(0, 0.85fr); gap: var(--cz-preview-gap, clamp(2rem, 5vw, 7rem)); align-items: center; }
+  .cz-music-preview__media { aspect-ratio: 1 / 1; min-height: var(--cz-preview-media-height, 32rem); border-radius: 0; }
+  .cz-music-preview__media img,
+  .cz-music-preview__media video,
+  .cz-music-preview__media svg { object-fit: var(--cz-preview-media-fit, cover); object-position: var(--cz-preview-media-position, center center); }
   .cz-music-preview__embed { margin-top: 2.4rem; overflow: hidden; border: 1px solid color-mix(in srgb, currentColor 22%, transparent); background: rgba(255,255,255,0.06); }
   .cz-music-preview__embed iframe { display: block; width: 100%; max-width: 100%; }
   .cz-music-preview__content .cz-visual-button { margin-top: 3rem; }
@@ -67,6 +79,16 @@
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "image_alt", "label": "Image alt text" },
     { "type": "video", "id": "video", "label": "Video" },
+    { "type": "select", "id": "media_fit", "label": "Media fit", "options": [{ "value": "cover", "label": "Cover" }, { "value": "contain", "label": "Contain" }, { "value": "fill", "label": "Fill" }], "default": "cover" },
+    { "type": "select", "id": "media_position", "label": "Desktop media focal point", "options": [{ "value": "center center", "label": "Center center" }, { "value": "top center", "label": "Top center" }, { "value": "bottom center", "label": "Bottom center" }, { "value": "left center", "label": "Left center" }, { "value": "right center", "label": "Right center" }], "default": "center center" },
+    { "type": "select", "id": "mobile_media_position", "label": "Mobile media focal point", "options": [{ "value": "center center", "label": "Center center" }, { "value": "top center", "label": "Top center" }, { "value": "bottom center", "label": "Bottom center" }, { "value": "left center", "label": "Left center" }, { "value": "right center", "label": "Right center" }], "default": "center center" },
+    { "type": "range", "id": "media_height", "min": 24, "max": 72, "step": 4, "unit": "rem", "label": "Desktop media height", "default": 32 },
+    { "type": "range", "id": "mobile_media_height", "min": 20, "max": 56, "step": 4, "unit": "rem", "label": "Mobile media height", "default": 32 },
+    { "type": "range", "id": "desktop_gap", "min": 2, "max": 10, "step": 1, "unit": "rem", "label": "Desktop media/text gap", "default": 7 },
+    { "type": "range", "id": "mobile_gap", "min": 2, "max": 8, "step": 1, "unit": "rem", "label": "Mobile media/text gap", "default": 3 },
+    { "type": "checkbox", "id": "video_autoplay", "label": "Autoplay video", "default": true },
+    { "type": "checkbox", "id": "video_muted", "label": "Mute video by default", "default": true },
+    { "type": "checkbox", "id": "video_loop", "label": "Loop video", "default": true },
     { "type": "text", "id": "button_label", "label": "CTA text", "default": "Explore Music" },
     { "type": "url", "id": "button_link", "label": "CTA link" },
     { "type": "select", "id": "mode", "label": "Mode", "options": [{ "value": "dark", "label": "Dark" }, { "value": "light", "label": "Light" }], "default": "dark" },
