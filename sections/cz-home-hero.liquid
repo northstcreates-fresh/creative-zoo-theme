@@ -4,11 +4,14 @@
     --cz-hero-overlay: {{ section.settings.overlay_color }};
     --cz-hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --cz-hero-min-height: {{ section.settings.min_height_mobile }}px;
+    --cz-hero-media-fit: {{ section.settings.media_fit }};
+    --cz-hero-media-position: {{ section.settings.mobile_media_position }};
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }} {
       --cz-hero-min-height: {{ section.settings.min_height_desktop }}px;
+      --cz-hero-media-position: {{ section.settings.media_position }};
     }
   }
 {%- endstyle -%}
@@ -16,7 +19,7 @@
 <section class="cz-home-hero section-{{ section.id }}">
   <div class="cz-home-hero__media" aria-hidden="true">
     {%- if section.settings.video != blank -%}
-      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1800x' }}
+      {{ section.settings.video | video_tag: autoplay: section.settings.video_autoplay, loop: section.settings.video_loop, muted: section.settings.video_muted, playsinline: true, controls: false, image_size: '1800x' }}
     {%- elsif section.settings.image != blank -%}
       {{
         section.settings.image
@@ -89,7 +92,8 @@
   .cz-home-hero__placeholder {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: var(--cz-hero-media-fit, cover);
+    object-position: var(--cz-hero-media-position, center center);
   }
 
   .cz-home-hero__overlay {
@@ -188,6 +192,61 @@
       "type": "image_picker",
       "id": "image",
       "label": "Fallback image"
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "Media fit",
+      "options": [
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" },
+        { "value": "fill", "label": "Fill" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Desktop media focal point",
+      "options": [
+        { "value": "center center", "label": "Center center" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "left center", "label": "Left center" },
+        { "value": "right center", "label": "Right center" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_media_position",
+      "label": "Mobile media focal point",
+      "options": [
+        { "value": "center center", "label": "Center center" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "left center", "label": "Left center" },
+        { "value": "right center", "label": "Right center" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_muted",
+      "label": "Mute video by default",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop video",
+      "default": true
     },
     {
       "type": "color",
