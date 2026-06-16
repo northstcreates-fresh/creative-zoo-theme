@@ -150,8 +150,8 @@
         "bunny": {
           "type": "instinct",
           "settings": {
-            "trait": "Wonder",
-            "animal": "Bunny",
+            "trait": "Forever",
+            "animal": "Wonder",
             "text": "<p>Curiosity, openness, and the spark that keeps discovery alive.</p>",
             "collection": "shopify://collections/wonder-bunny",
             "link_override": "",
