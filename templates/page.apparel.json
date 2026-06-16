@@ -55,7 +55,7 @@
         "products_to_show": 4,
         "button_label": "Shop The Classics",
         "button_link": "/collections/classics",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
