@@ -122,8 +122,8 @@
         "lion": {
           "type": "instinct",
           "settings": {
-            "trait": "Unapologetic",
-            "animal": "Lion",
+            "trait": "Be",
+            "animal": "Unapologetic",
             "text": "<p>Confidence without apology. Presence without permission.</p>",
             "collection": "shopify://collections/unapologetic-lion",
             "link_override": "",
