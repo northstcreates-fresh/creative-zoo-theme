@@ -12,11 +12,10 @@
     "hero": {
       "type": "cz-hero-ecosystem",
       "settings": {
-        "eyebrow": "Shop",
-        "heading": "Shop Creative Zoo",
+        "eyebrow": "",
+        "heading": "The Zoo",
         "text": "<p>Apparel built for instinct, individuality, and self-expression.</p>",
         "image_alt": "",
-        "video": "shopify://files/videos/Creative Zoo Header ArtDesignGOlf.mp4",
         "media_fit": "cover",
         "media_position": "center center",
         "mobile_media_position": "center center",
@@ -187,7 +186,7 @@
         "eyebrow": "Animal identities",
         "heading": "Instincts",
         "text": "<p>Every Creative Zoo character carries a different instinct: a way of moving, creating, questioning, and becoming.</p>",
-        "mode": "dark",
+        "mode": "light",
         "padding_top": 104,
         "padding_bottom": 104
       }
