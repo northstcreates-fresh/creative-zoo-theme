@@ -183,12 +183,12 @@
         "goat"
       ],
       "settings": {
-        "eyebrow": "Animal identities",
+        "eyebrow": "What defines You?",
         "heading": "Instincts",
         "text": "<p>Every Creative Zoo character carries a different instinct: a way of moving, creating, questioning, and becoming.</p>",
         "mode": "light",
         "padding_top": 80,
-        "padding_bottom": 104
+        "padding_bottom": 80
       }
     }
   },
