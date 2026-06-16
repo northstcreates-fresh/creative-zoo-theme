@@ -17,6 +17,12 @@
         "text": "<p>Apparel built for instinct, individuality, and self-expression.</p>",
         "image_alt": "",
         "video": "shopify://files/videos/Creative Zoo Header ArtDesignGOlf.mp4",
+        "media_fit": "cover",
+        "media_position": "center center",
+        "mobile_media_position": "center center",
+        "video_autoplay": true,
+        "video_muted": true,
+        "video_loop": true,
         "show_sound_control": false,
         "button_label": "Shop All Products",
         "button_link": "/collections/all",
@@ -108,7 +114,7 @@
             "collection": "shopify://collections/focus-panda",
             "link_override": "",
             "fallback_link": "/collections/focus-panda",
-            "image": "shopify://shop_images/Panda_Taco.png",
+            "image": "shopify://shop_images/Focus_Panda.png",
             "image_alt": "Focus Panda instinct",
             "button_label": "Focus Panda"
           }
@@ -122,6 +128,7 @@
             "collection": "shopify://collections/unapologetic-lion",
             "link_override": "",
             "fallback_link": "/collections/unapologetic-lion",
+            "image": "shopify://shop_images/Unapologetic_Lion.png",
             "image_alt": "Unapologetic Lion instinct",
             "button_label": "Unapologetic Lion"
           }
@@ -135,6 +142,7 @@
             "collection": "shopify://collections/relentless-wolf",
             "link_override": "",
             "fallback_link": "/collections/relentless-wolf",
+            "image": "shopify://shop_images/Relentless_Wolf.png",
             "image_alt": "Relentless Wolf instinct",
             "button_label": "Relentless Wolf"
           }
@@ -148,6 +156,7 @@
             "collection": "shopify://collections/wonder-bunny",
             "link_override": "",
             "fallback_link": "/collections/wonder-bunny",
+            "image": "shopify://shop_images/Wonder_Bunny.png",
             "image_alt": "Wonder Bunny instinct",
             "button_label": "Wonder Bunny"
           }
@@ -161,6 +170,7 @@
             "collection": "shopify://collections/standard-goat",
             "link_override": "",
             "fallback_link": "/collections/standard-goat",
+            "image": "shopify://shop_images/Standard_Goat.png",
             "image_alt": "Standard Goat instinct",
             "button_label": "Standard Goat"
           }
