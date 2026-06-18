@@ -122,8 +122,8 @@
         "lion": {
           "type": "instinct",
           "settings": {
-            "trait": "Be",
-            "animal": "Unapologetic",
+            "trait": "Move",
+            "animal": "Unapologetically",
             "text": "<p>Confidence without apology. Presence without permission.</p>",
             "collection": "shopify://collections/unapologetic-lion",
             "link_override": "",
@@ -136,8 +136,8 @@
         "wolf": {
           "type": "instinct",
           "settings": {
-            "trait": "Stay",
-            "animal": "Relentless",
+            "trait": "Live",
+            "animal": "Relentlessly",
             "text": "<p>Forward motion, sharp senses, and the refusal to quit.</p>",
             "collection": "shopify://collections/relentless-wolf",
             "link_override": "",
@@ -164,8 +164,8 @@
         "goat": {
           "type": "instinct",
           "settings": {
-            "trait": "Standard",
-            "animal": "Goat",
+            "trait": "",
+            "animal": "Standard",
             "text": "<p>Standard-setting greatness and the drive to raise the bar.</p>",
             "collection": "shopify://collections/standard-goat",
             "link_override": "",
