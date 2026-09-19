@@ -1,3 +1,4 @@
+{% if collection.handle == 'headwear' %}
 {{ 'section-cz-headwear-hero.css' | asset_url | stylesheet_tag }}
 
 <section class="cz-headwear-hero color-{{ section.settings.color_scheme }} gradient" aria-labelledby="CzHeadwearTitle-{{ section.id }}">
@@ -31,6 +32,7 @@
   </div>
   <p class="cz-headwear-hero__note" aria-hidden="true">{{ section.settings.note | escape }}</p>
 </section>
+{% endif %}
 
 {% schema %}
 {

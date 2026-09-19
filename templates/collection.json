@@ -1,5 +1,14 @@
 {
   "sections": {
+    "headwear-hero": {
+      "type": "cz-headwear-hero",
+      "settings": {
+        "eyebrow": "TOP OFF THE ORDINARY",
+        "copy": "<p>Performance-built headwear for people who refuse to blend in.</p>",
+        "button_label": "SHOP HEADWEAR",
+        "note": "BUILT FOR THE WILD."
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "settings": {
@@ -26,6 +35,7 @@
     }
   },
   "order": [
+    "headwear-hero",
     "banner",
     "product-grid"
   ]
