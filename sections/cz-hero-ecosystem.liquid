@@ -46,6 +46,7 @@
         | image_url: width: 2400
         | image_tag:
           loading: 'eager',
+          fetchpriority: 'high',
           widths: '750, 1100, 1500, 1800, 2200, 2400',
           sizes: '100vw',
           alt: section.settings.image_alt,
@@ -146,11 +147,23 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    padding-block: clamp(6rem, 10vw, 12rem);
+    padding-block: clamp(7rem, 11vw, 13rem) clamp(6rem, 8vw, 10rem);
   }
+  .cz-hero-ecosystem__inner > * { max-width: 76rem; }
   .cz-hero-ecosystem .cz-section-heading {
-    max-width: 12ch;
-    font-size: clamp(5rem, 10vw, 12rem);
+    max-width: 11ch;
+    font-size: clamp(5.4rem, 8.8vw, 11.2rem);
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    text-shadow: 0 0.05em 0.22em rgba(0, 0, 0, 0.24);
+  }
+  .cz-hero-ecosystem .cz-section-copy {
+    max-width: 58rem;
+    margin-top: 2.4rem;
+    color: rgba(248, 247, 244, 0.86);
+    font-size: clamp(1.65rem, 1.6vw, 2.1rem);
+    text-wrap: pretty;
   }
   .cz-hero-ecosystem__buttons {
     display: flex;
@@ -240,6 +253,18 @@
     display: flex;
   }
   @media screen and (max-width: 749px) {
+    .cz-hero-ecosystem__inner {
+      padding-block: 7.2rem 8.8rem;
+    }
+    .cz-hero-ecosystem .cz-section-heading {
+      max-width: 10ch;
+      font-size: clamp(5rem, 16vw, 7.2rem);
+      line-height: 0.88;
+    }
+    .cz-hero-ecosystem .cz-section-copy {
+      max-width: 34rem;
+      font-size: 1.65rem;
+    }
     .cz-hero-ecosystem__overlay--gradient {
       background: linear-gradient(
         180deg,

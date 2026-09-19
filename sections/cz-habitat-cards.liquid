@@ -48,7 +48,10 @@
             {%- endif -%}
           </div>
           <div class="cz-habitat-cards__body">
-            {%- if block.settings.kicker != blank -%}<p class="cz-section-kicker">{{ block.settings.kicker | escape }}</p>{%- endif -%}
+            <div class="cz-habitat-cards__meta">
+              {%- if block.settings.kicker != blank -%}<p class="cz-section-kicker">{{ block.settings.kicker | escape }}</p>{%- endif -%}
+              <span class="cz-habitat-cards__number" aria-hidden="true">0{{ forloop.index }}</span>
+            </div>
             {%- if block.settings.title != blank -%}<h3>{{ block.settings.title | escape }}</h3>{%- endif -%}
             {%- if block.settings.text != blank -%}<div class="rte">{{ block.settings.text }}</div>{%- endif -%}
             {%- if block.settings.button_label != blank -%}
@@ -62,18 +65,60 @@
 </section>
 
 {% stylesheet %}
-  .cz-habitat-cards__header { margin-bottom: clamp(3rem, 5vw, 5rem); }
-  .cz-habitat-cards__grid { display: grid; grid-template-columns: repeat(var(--cz-grid-columns), minmax(0, 1fr)); gap: 1.6rem; }
-  .cz-habitat-cards__card { display: flex; flex-direction: column; }
-  .cz-habitat-cards__media { aspect-ratio: 4 / 3; border-bottom: 1px solid rgba(17, 17, 17, 0.22); }
+  .cz-habitat-cards__header { max-width: 84rem; margin-bottom: clamp(4rem, 6vw, 7rem); }
+  .cz-habitat-cards__header .cz-section-copy { max-width: 58rem; }
+  .cz-habitat-cards__grid { display: grid; grid-template-columns: repeat(var(--cz-grid-columns), minmax(0, 1fr)); gap: clamp(1.4rem, 2vw, 2.4rem); }
+  .cz-habitat-cards__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: 0 1.2rem 3rem rgba(17, 17, 17, 0.06);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+  .cz-habitat-cards__card:hover,
+  .cz-habitat-cards__card:focus-within {
+    box-shadow: 0 1.8rem 4rem rgba(17, 17, 17, 0.13);
+    transform: translateY(-0.6rem);
+  }
+  .cz-habitat-cards__media { aspect-ratio: 4 / 5; border-bottom: 1px solid rgba(17, 17, 17, 0.22); }
   .cz-habitat-cards__media img,
   .cz-habitat-cards__media video,
-  .cz-habitat-cards__media svg { object-fit: var(--cz-card-media-fit, cover); object-position: var(--cz-card-media-position, center center); }
-  .cz-habitat-cards__body { display: flex; flex: 1; flex-direction: column; min-height: 24rem; padding: clamp(2rem, 3vw, 3.2rem); }
-  .cz-habitat-cards__body h3 { margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(3rem, 4vw, 5rem); line-height: 0.98; letter-spacing: 0; }
+  .cz-habitat-cards__media svg { object-fit: var(--cz-card-media-fit, cover); object-position: var(--cz-card-media-position, center center); transition: transform 600ms cubic-bezier(0.2, 0.7, 0, 1); }
+  .cz-habitat-cards__card:hover .cz-habitat-cards__media img,
+  .cz-habitat-cards__card:hover .cz-habitat-cards__media video,
+  .cz-habitat-cards__card:hover .cz-habitat-cards__media svg,
+  .cz-habitat-cards__card:focus-within .cz-habitat-cards__media img,
+  .cz-habitat-cards__card:focus-within .cz-habitat-cards__media video,
+  .cz-habitat-cards__card:focus-within .cz-habitat-cards__media svg { transform: scale(1.035); }
+  .cz-habitat-cards__body { display: flex; flex: 1; flex-direction: column; min-height: 25rem; padding: clamp(2rem, 2.6vw, 3rem); }
+  .cz-habitat-cards__meta { display: flex; align-items: start; justify-content: space-between; gap: 1.6rem; }
+  .cz-habitat-cards__number { color: var(--cz-section-muted); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; }
+  .cz-habitat-cards__body h3 { margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(3.2rem, 3.4vw, 4.8rem); line-height: 0.94; letter-spacing: -0.02em; text-wrap: balance; }
   .cz-habitat-cards__body .rte { margin-top: 1.5rem; color: var(--cz-section-muted); line-height: 1.5; }
-  .cz-habitat-cards__link { margin-top: auto; padding-top: 2.4rem; color: currentColor; font-weight: 700; text-decoration: underline; text-underline-offset: 0.3rem; }
-  @media screen and (max-width: 989px) { .cz-habitat-cards__grid { grid-template-columns: 1fr; } }
+  .cz-habitat-cards__link { margin-top: auto; padding-top: 2.4rem; color: currentColor; font-weight: 700; text-decoration-thickness: 0.1rem; text-underline-offset: 0.45rem; }
+  .cz-habitat-cards__link:focus-visible { outline: 2px solid currentColor; outline-offset: 0.5rem; }
+  @media screen and (max-width: 1100px) {
+    .cz-habitat-cards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media screen and (max-width: 599px) {
+    .cz-habitat-cards__grid { grid-template-columns: 1fr; }
+    .cz-habitat-cards__media { aspect-ratio: 5 / 4; }
+    .cz-habitat-cards__body { min-height: 21rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cz-habitat-cards__card,
+    .cz-habitat-cards__media img,
+    .cz-habitat-cards__media video,
+    .cz-habitat-cards__media svg { transition: none; }
+    .cz-habitat-cards__card:hover,
+    .cz-habitat-cards__card:focus-within,
+    .cz-habitat-cards__card:hover .cz-habitat-cards__media img,
+    .cz-habitat-cards__card:hover .cz-habitat-cards__media video,
+    .cz-habitat-cards__card:hover .cz-habitat-cards__media svg,
+    .cz-habitat-cards__card:focus-within .cz-habitat-cards__media img,
+    .cz-habitat-cards__card:focus-within .cz-habitat-cards__media video,
+    .cz-habitat-cards__card:focus-within .cz-habitat-cards__media svg { transform: none; }
+  }
 {% endstylesheet %}
 
 {% schema %}
