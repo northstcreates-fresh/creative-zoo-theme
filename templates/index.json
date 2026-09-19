@@ -15,7 +15,7 @@
         "social_6": {"type":"social","settings":{"alt":"Creative Zoo community"}}
       },
       "block_order":["classics","headwear","apparel","customs","social_1","social_2","social_3","social_4","social_5","social_6"],
-      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image":"shopify://shop_images/The_Notorious_Prince_T-Shirts.png","lab_alt":"Creative Zoo custom anime-inspired apparel artwork","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
+      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image_1":"shopify://shop_images/The_Notorious_Prince_T-Shirts.png","lab_image_1_alt":"Anime-inspired Creative Zoo custom artwork","lab_image_2":"shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png","lab_image_2_alt":"Colorful Creative Zoo custom artwork","lab_image_3":"shopify://shop_images/Instagram_-_barsnBC.png","lab_image_3_alt":"Creative Zoo illustration and design process","lab_alt":"A collage of Creative Zoo custom artwork","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
     }
   },
   "order":["new_vision_home"]
