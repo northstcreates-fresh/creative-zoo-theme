@@ -80,7 +80,7 @@
 
   <div class="cz-social cz-wrap">
     <header class="cz-section-head"><div><h2>{{ section.settings.social_heading | escape }}</h2><p>{{ section.settings.social_text | escape }}</p></div><a href="{{ section.settings.social_link }}">{{ section.settings.social_label | escape }} →</a></header>
-    <div class="cz-social__grid">{%- for block in section.blocks -%}{%- if block.type == 'social' -%}<a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '240, 400, 700', sizes: '(min-width: 750px) 16.66vw, 45vw', loading: 'lazy', alt: block.settings.alt }}{%- else -%}{{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}{%- endif -%}</a>{%- endif -%}{%- endfor -%}</div>
+    <div class="cz-social__grid">{%- for block in section.blocks -%}{%- if block.type == 'social' -%}<a href="{{ block.settings.link | default: section.settings.social_link }}" aria-label="View {{ block.settings.alt | default: 'Creative Zoo community post' | escape }}" {{ block.shopify_attributes }}>{%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '240, 400, 700', sizes: '(min-width: 750px) 16.66vw, 45vw', loading: 'lazy', alt: block.settings.alt }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}{%- endif -%}</a>{%- endif -%}{%- endfor -%}</div>
   </div>
 </section>
 

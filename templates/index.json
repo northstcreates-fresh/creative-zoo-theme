@@ -7,15 +7,15 @@
         "headwear": {"type":"category","settings":{"title":"Headwear","caption":"Top off the ordinary.","link":"/collections/all"}},
         "apparel": {"type":"category","settings":{"title":"Apparel","caption":"Wear your instinct.","link":"/collections/all"}},
         "customs": {"type":"category","settings":{"title":"Customs","caption":"Your idea. Our instinct.","link":"#custom-lab"}},
-        "social_1": {"type":"social","settings":{"alt":"Creative Zoo community"}},
-        "social_2": {"type":"social","settings":{"alt":"Creative Zoo community"}},
-        "social_3": {"type":"social","settings":{"alt":"Creative Zoo community"}},
-        "social_4": {"type":"social","settings":{"alt":"Creative Zoo community"}},
-        "social_5": {"type":"social","settings":{"alt":"Creative Zoo community"}},
-        "social_6": {"type":"social","settings":{"alt":"Creative Zoo community"}}
+        "social_1": {"type":"social","settings":{"image":"shopify://shop_images/Instagram_-_OG.png","alt":"Creative Zoo originals in the wild","link":"https://www.instagram.com/p/DQywe9zCFei/"}},
+        "social_2": {"type":"social","settings":{"image":"shopify://shop_images/Instagram_-_barsnBC.png","alt":"Creative Zoo Bars and Battle Cries","link":"https://www.instagram.com/p/DQyKE3miDIx/"}},
+        "social_3": {"type":"social","settings":{"image":"shopify://shop_images/Instagram_-_RepUM1.png","alt":"Creative Zoo community colors","link":"https://www.instagram.com/p/DQyaT2vCCYS/"}},
+        "social_4": {"type":"social","settings":{"image":"shopify://shop_images/Instagram_-_wethem.png","alt":"Creative Zoo community moment","link":"https://www.instagram.com/p/DQyrvs-CGMW/"}},
+        "social_5": {"type":"social","settings":{"image":"shopify://shop_images/Instagram_-_BeCreative.png","alt":"Be Creative with Creative Zoo","link":"https://www.instagram.com/creativzoo/"}},
+        "social_6": {"type":"social","settings":{"image":"shopify://shop_images/IMG_1241.jpg","alt":"Creative Zoo apparel in the wild","link":"https://www.instagram.com/creativzoo/"}}
       },
       "block_order":["classics","headwear","apparel","customs","social_1","social_2","social_3","social_4","social_5","social_6"],
-      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image_1":"shopify://shop_images/The_Notorious_Prince_T-Shirts.png","lab_image_1_alt":"Anime-inspired Creative Zoo custom artwork","lab_image_2":"shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png","lab_image_2_alt":"Colorful Creative Zoo custom artwork","lab_image_3":"shopify://shop_images/Instagram_-_barsnBC.png","lab_image_3_alt":"Creative Zoo illustration and design process","lab_alt":"A collage of Creative Zoo custom artwork","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
+      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image_1":"shopify://shop_images/The_Notorious_Prince_T-Shirts.png","lab_image_1_alt":"Anime-inspired Creative Zoo custom artwork","lab_image_2":"shopify://shop_images/ChatGPT_Image_Jun_14_2026_at_06_41_14_PM.png","lab_image_2_alt":"Colorful Creative Zoo custom artwork","lab_image_3":"shopify://shop_images/Instagram_-_barsnBC.png","lab_image_3_alt":"Creative Zoo illustration and design process","lab_alt":"A collage of Creative Zoo custom artwork","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/creativzoo/"}
     }
   },
   "order":["new_vision_home"]
