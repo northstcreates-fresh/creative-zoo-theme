@@ -511,6 +511,37 @@
       "expired": "Expired"
     }
   },
+  "cz_lab": {
+    "process": {
+      "idea_title": "Tell us your idea",
+      "idea_copy": "Start in Instagram DMs or send the brief below. References are welcome.",
+      "product_title": "Choose the product",
+      "product_copy": "Shirts, hoodies, mugs, bags, and more. The blank product shapes the quote.",
+      "refine_title": "Refine it together",
+      "refine_copy": "We will revise the design with you until it feels right.",
+      "make_title": "Approve and make",
+      "make_copy": "Approve the final artwork, complete payment, and production begins."
+    },
+    "policy": {
+      "title": "Built around your idea",
+      "copy": "Pricing and timing depend on the product and project scope. We refine the artwork with you until approval. Payment is due after final approval and before production."
+    },
+    "form": {
+      "success": "Your idea is in The Lab. We will follow up by email.",
+      "name": "Name",
+      "email": "Email",
+      "product": "What do you want to make?",
+      "idea": "Tell us about your idea",
+      "references": "Have reference images? Send this brief first, then reply to our email with the files—or start in Instagram DMs."
+    },
+    "products": {
+      "shirt": "Shirt",
+      "hoodie": "Hoodie",
+      "mug": "Mug",
+      "bag": "Bag",
+      "other": "Something else"
+    }
+  },
   "recipient": {
     "form": {
       "checkbox": "I want to send this as a gift",
