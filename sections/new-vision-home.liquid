@@ -16,7 +16,16 @@
 <section class="cz-home section-{{ section.id }}" aria-label="Creative Zoo homepage">
   <div class="cz-hero">
     <div class="cz-hero__media">
-      {%- if hero_image != blank -%}
+      {%- if section.settings.use_campaign_hero -%}
+        <img
+          src="{{ 'cz-home-hero-logo-hoodie-v1.jpg' | asset_url }}"
+          width="1536"
+          height="864"
+          loading="eager"
+          fetchpriority="high"
+          alt="{{ section.settings.hero_alt | escape }}"
+        >
+      {%- elsif hero_image != blank -%}
         {{ hero_image | image_url: width: 2400 | image_tag: widths: '900, 1400, 1800, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.hero_alt }}
       {%- else -%}
         {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -114,7 +123,7 @@
 {
   "name": "New Vision homepage",
   "settings": [
-    {"type":"image_picker","id":"hero_image","label":"Hero image"},{"type":"text","id":"hero_alt","label":"Hero image alt text","default":"Creative Zoo golf apparel campaign"},{"type":"text","id":"hero_eyebrow","label":"Hero eyebrow","default":"Welcome to Creative Zoo"},{"type":"textarea","id":"hero_heading","label":"Hero heading","default":"Creativity\ncannot be\ncaged."},{"type":"text","id":"hero_text","label":"Hero text","default":"Made for the ones who were never meant to blend in."},{"type":"text","id":"primary_label","label":"Primary button","default":"Shop the Zoo"},{"type":"url","id":"primary_link","label":"Primary link"},{"type":"text","id":"secondary_label","label":"Secondary button","default":"Make Something"},{"type":"url","id":"secondary_link","label":"Secondary link"},
+    {"type":"checkbox","id":"use_campaign_hero","label":"Use Creative Zoo hoodie campaign hero","default":true},{"type":"image_picker","id":"hero_image","label":"Alternate hero image"},{"type":"text","id":"hero_alt","label":"Hero image alt text","default":"Creative Zoo model wearing a black logo hoodie outdoors"},{"type":"text","id":"hero_eyebrow","label":"Hero eyebrow","default":"Welcome to Creative Zoo"},{"type":"textarea","id":"hero_heading","label":"Hero heading","default":"Creativity\ncannot be\ncaged."},{"type":"text","id":"hero_text","label":"Hero text","default":"Made for the ones who were never meant to blend in."},{"type":"text","id":"primary_label","label":"Primary button","default":"Shop the Zoo"},{"type":"url","id":"primary_link","label":"Primary link"},{"type":"text","id":"secondary_label","label":"Secondary button","default":"Make Something"},{"type":"url","id":"secondary_link","label":"Secondary link"},
     {"type":"text","id":"products_heading","label":"Products heading","default":"New in the Zoo"},{"type":"text","id":"products_text","label":"Products subtitle","default":"Fresh gear. Same instinct."},{"type":"collection","id":"collection","label":"Featured collection"},{"type":"text","id":"products_link_label","label":"Products link label","default":"View all products"},
     {"type":"textarea","id":"philosophy_heading","label":"Philosophy heading","default":"Ascend\nthe ordinary."},{"type":"textarea","id":"philosophy_text","label":"Philosophy text","default":"Creative Zoo exists for the ones who see the world differently. The creators, the misfits, the dreamers, the grinders — the ones who refuse to be caged."},{"type":"text","id":"philosophy_label","label":"Philosophy button","default":"Our story"},{"type":"url","id":"philosophy_link","label":"Philosophy link"},{"type":"textarea","id":"quote","label":"Quote","default":"Sometimes your greatest strength is the part the world told you to hide."},
     {"type":"text","id":"categories_heading","label":"Categories heading","default":"Shop by instinct"},{"type":"text","id":"categories_text","label":"Categories subtitle","default":"Different styles. Same mindset."},
