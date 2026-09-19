@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "lab": {
+      "type": "cz-lab-page",
+      "settings": {
+        "eyebrow": "THE CREATIVE ZOO LAB",
+        "heading": "YOUR IDEA.\nMADE WILD.",
+        "intro": "Bring us the idea that does not exist yet. We will help shape it into something made for you.",
+        "side_note": "GOOD PEOPLE. WILD IDEAS.",
+        "instagram_label": "START IN INSTAGRAM DMS",
+        "instagram_url": "https://ig.me/m/creativzoo",
+        "email_label": "REQUEST BY EMAIL",
+        "process_eyebrow": "HOW IT WORKS",
+        "process_heading": "FROM IDEA TO REALITY.",
+        "form_eyebrow": "THE OTHER WAY IN",
+        "form_heading": "SEND THE BRIEF.",
+        "form_copy": "Not on Instagram? Tell us what you want to make and we will follow up by email to discuss the product, design, quote, and timing.",
+        "submit_label": "SEND MY IDEA",
+        "drops_eyebrow": "WANT TO SHOP INSTEAD?",
+        "drops_heading": "CUSTOM DROPS",
+        "drops_copy": "Finished designs born in The Lab and released into the wild.",
+        "drops_label": "SHOP CUSTOM DROPS",
+        "drops_link": "shopify://collections/custom"
+      }
+    }
+  },
+  "order": ["lab"]
+}
