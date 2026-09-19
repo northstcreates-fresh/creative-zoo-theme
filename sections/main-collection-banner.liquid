@@ -1,5 +1,5 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-{% unless collection.handle == 'headwear' or collection.handle == 'apparel' %}
+{% unless collection.handle == 'headwear' or collection.handle == 'apparel' or collection.handle == 'classics' %}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}

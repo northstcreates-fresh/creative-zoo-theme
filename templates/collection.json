@@ -18,6 +18,15 @@
         "note": "GOOD PEOPLE. WILD IDEAS."
       }
     },
+    "classics-hero": {
+      "type": "cz-classics-hero",
+      "settings": {
+        "eyebrow": "THE CREATIVE ZOO ORIGINALS",
+        "copy": "<p>Core marks. Timeless instincts. The pieces that started the story.</p>",
+        "button_label": "SHOP CLASSICS",
+        "note": "THE ORIGINALS."
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "settings": {
@@ -46,6 +55,7 @@
   "order": [
     "headwear-hero",
     "apparel-hero",
+    "classics-hero",
     "banner",
     "product-grid"
   ]
