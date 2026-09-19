@@ -40,13 +40,13 @@
                           <li><a href="{{ routes.collections_url }}/classics" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Classics</a></li>
                           <li><a href="{{ routes.collections_url }}/headwear" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Headwear</a></li>
                           <li><a href="{{ routes.collections_url }}/apparel" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Apparel</a></li>
-                          <li><a href="{{ routes.collections_url }}/custom" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Customs</a></li>
+                          <li><a href="{{ routes.collections_url }}/custom" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">Custom Drops</a></li>
                         </ul>
                       </div>
                     </div>
                   </details>
                 </li>
-                <li><a href="{{ section.settings.customs_link | default: '/pages/customs' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Customs</a></li>
+                <li><a href="{{ section.settings.customs_link | default: '/pages/customs' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">The Lab</a></li>
                 <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">About</a></li>
               {%- else -%}
               {%- for link in section.settings.menu.links -%}
