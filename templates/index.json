@@ -1,141 +1,22 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "new_vision_home": {
       "type": "new-vision-home",
       "blocks": {
-        "classics": {
-          "type": "category",
-          "settings": {
-            "title": "Classics",
-            "caption": "The originals.",
-            "link": "shopify://collections/classics"
-          }
-        },
-        "headwear": {
-          "type": "category",
-          "settings": {
-            "title": "Headwear",
-            "caption": "Top off the ordinary.",
-            "link": "/collections/all"
-          }
-        },
-        "apparel": {
-          "type": "category",
-          "settings": {
-            "title": "Apparel",
-            "caption": "Wear your instinct.",
-            "link": "/collections/all"
-          }
-        },
-        "customs": {
-          "type": "category",
-          "settings": {
-            "title": "Customs",
-            "caption": "Your idea. Our instinct.",
-            "link": "#custom-lab"
-          }
-        },
-        "social_1": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        },
-        "social_2": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        },
-        "social_3": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        },
-        "social_4": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        },
-        "social_5": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        },
-        "social_6": {
-          "type": "social",
-          "settings": {
-            "alt": "Creative Zoo community",
-            "link": ""
-          }
-        }
+        "classics": {"type":"category","settings":{"title":"Classics","caption":"The originals.","link":"/collections/all"}},
+        "headwear": {"type":"category","settings":{"title":"Headwear","caption":"Top off the ordinary.","link":"/collections/all"}},
+        "apparel": {"type":"category","settings":{"title":"Apparel","caption":"Wear your instinct.","link":"/collections/all"}},
+        "customs": {"type":"category","settings":{"title":"Customs","caption":"Your idea. Our instinct.","link":"#custom-lab"}},
+        "social_1": {"type":"social","settings":{"alt":"Creative Zoo community"}},
+        "social_2": {"type":"social","settings":{"alt":"Creative Zoo community"}},
+        "social_3": {"type":"social","settings":{"alt":"Creative Zoo community"}},
+        "social_4": {"type":"social","settings":{"alt":"Creative Zoo community"}},
+        "social_5": {"type":"social","settings":{"alt":"Creative Zoo community"}},
+        "social_6": {"type":"social","settings":{"alt":"Creative Zoo community"}}
       },
-      "block_order": [
-        "classics",
-        "headwear",
-        "apparel",
-        "customs",
-        "social_1",
-        "social_2",
-        "social_3",
-        "social_4",
-        "social_5",
-        "social_6"
-      ],
-      "settings": {
-        "hero_image": "shopify://shop_images/IMG_1241.jpg",
-        "hero_alt": "Creative Zoo golf apparel campaign",
-        "hero_eyebrow": "Welcome to Creative Zoo",
-        "hero_heading": "Creativity\ncannot be\ncaged.",
-        "hero_text": "Made for the ones who were never meant to blend in.",
-        "primary_label": "Shop the Zoo",
-        "primary_link": "/collections/all",
-        "secondary_label": "Make Something",
-        "secondary_link": "#custom-lab",
-        "products_heading": "New in the Zoo",
-        "products_text": "Fresh gear. Same instinct.",
-        "collection": "all",
-        "products_link_label": "View all products",
-        "philosophy_heading": "Ascend\nthe ordinary.",
-        "philosophy_text": "Creative Zoo exists for the ones who see the world differently. The creators, the misfits, the dreamers, the grinders — the ones who refuse to be caged.",
-        "philosophy_label": "Our story",
-        "philosophy_link": "/pages/about",
-        "quote": "Sometimes your greatest strength is the part the world told you to hide.",
-        "categories_heading": "Shop by instinct",
-        "categories_text": "Different styles. Same mindset.",
-        "lab_image": "shopify://shop_images/Unapologetic_Lion_2.png",
-        "lab_alt": "Original Creative Zoo custom artwork",
-        "lab_heading": "You think it.\nWe make it wild.",
-        "lab_text": "Got an idea that doesn't exist yet? Good. Tell us what you're imagining. Creative Zoo will turn it into something you can actually wear.",
-        "lab_primary_label": "Start a custom",
-        "lab_primary_link": "/pages/contact",
-        "lab_secondary_label": "Explore the archive",
-        "lab_secondary_link": "/collections/all",
-        "social_heading": "Spotted in the wild",
-        "social_text": "Real people. Real moments. Same Zoo.",
-        "social_label": "Join the Zoo on Instagram",
-        "social_link": "https://www.instagram.com/"
-      }
+      "block_order":["classics","headwear","apparel","customs","social_1","social_2","social_3","social_4","social_5","social_6"],
+      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image":"shopify://shop_images/Unapologetic_Lion_2.png","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
     }
   },
-  "order": [
-    "new_vision_home"
-  ]
+  "order":["new_vision_home"]
 }
