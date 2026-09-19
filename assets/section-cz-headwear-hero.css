@@ -18,6 +18,10 @@ body:has(.cz-headwear-hero) .header__active-menu-item {
   color: rgb(255, 255, 255);
 }
 
+body:has(.cz-headwear-hero) .header__heading-logo {
+  filter: invert(1);
+}
+
 .cz-headwear-hero {
   position: relative;
   display: grid;
@@ -69,15 +73,16 @@ body:has(.cz-headwear-hero) .header__active-menu-item {
 .cz-headwear-hero__eyebrow { font-size: 1.2rem; }
 
 .cz-headwear-hero__title {
-  max-width: 7ch;
+  max-width: none;
   margin: 1.2rem 0 1.4rem;
   color: #fff;
   font-family: var(--font-heading-family);
-  font-size: clamp(6.8rem, 11vw, 15rem);
+  font-size: clamp(6.2rem, 8.5vw, 12rem);
   font-weight: 900;
   letter-spacing: -.055em;
   line-height: .78;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .cz-headwear-hero__copy {
@@ -108,7 +113,11 @@ body:has(.cz-headwear-hero) .header__active-menu-item {
     background: linear-gradient(0deg, rgba(2, 4, 3, .94) 0%, rgba(2, 4, 3, .32) 70%, rgba(2, 4, 3, .18));
   }
   .cz-headwear-hero__content { padding-top: 12rem; padding-bottom: 5rem; }
-  .cz-headwear-hero__title { font-size: clamp(5.5rem, 19vw, 8.5rem); }
+  .cz-headwear-hero__title {
+    max-width: 7ch;
+    font-size: clamp(5.2rem, 17vw, 7.5rem);
+    white-space: normal;
+  }
   .cz-headwear-hero__copy { max-width: 31rem; }
   .cz-headwear-hero__note { display: none; }
 }
