@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 
-<div{% if collection.handle == 'headwear' %} id="HeadwearProductGrid"{% endif %} class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+<div{% if collection.handle == 'headwear' %} id="HeadwearProductGrid"{% elsif collection.handle == 'apparel' %} id="ApparelProductGrid"{% endif %} class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
