@@ -15,7 +15,7 @@
         "social_6": {"type":"social","settings":{"alt":"Creative Zoo community"}}
       },
       "block_order":["classics","headwear","apparel","customs","social_1","social_2","social_3","social_4","social_5","social_6"],
-      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","lab_image":"shopify://shop_images/Unapologetic_Lion_2.png","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
+      "settings": {"hero_image":"shopify://shop_images/IMG_1241.jpg","hero_height":680,"hero_position_x":50,"hero_position_y":20,"hero_heading_size":62,"hero_text_width":11,"lab_image":"shopify://shop_images/Unapologetic_Lion_2.png","collection":"all","primary_link":"/collections/all","secondary_link":"#custom-lab","philosophy_link":"/pages/about","lab_primary_link":"/pages/contact","lab_secondary_link":"/collections/all","social_link":"https://www.instagram.com/"}
     }
   },
   "order":["new_vision_home"]
