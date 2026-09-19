@@ -22,10 +22,10 @@
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- if section.settings.use_new_vision_menu -%}
-                <li><a href="{{ section.settings.shop_link | default: routes.all_products_collection_url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
                 <li><a href="{{ routes.root_url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Home</a></li>
-                <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">About</a></li>
+                <li><a href="{{ section.settings.shop_link | default: routes.all_products_collection_url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
                 <li><a href="{{ section.settings.customs_link | default: '/pages/customs' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Customs</a></li>
+                <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">About</a></li>
               {%- else -%}
               {%- for link in section.settings.menu.links -%}
                 <li>
