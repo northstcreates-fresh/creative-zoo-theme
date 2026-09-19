@@ -58,6 +58,15 @@
     text-transform: uppercase;
   }
 
+  .nv-header-menu .header__submenu {
+    min-width: 22rem;
+  }
+
+  .nv-header-menu .header__submenu .header__menu-item {
+    color: rgb(var(--color-foreground));
+    font-weight: 600;
+  }
+
   .nv-header-logo {
     display: block;
     width: clamp(15rem, 16vw, 22rem);
@@ -203,8 +212,28 @@
     {%- if section.settings.use_new_vision_menu -%}
       <nav class="nv-header-menu small-hide" aria-label="Primary navigation">
         <ul class="list-menu list-menu--inline" role="list">
-          <li><a href="{{ routes.root_url }}" class="header__menu-item list-menu__item link link--text focus-inset">Home</a></li>
-          <li><a href="{{ section.settings.shop_link | default: routes.all_products_collection_url }}" class="header__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
+          <li>
+            <header-menu>
+              <details id="Details-HeaderMenu-NewVisionShop">
+                <summary id="HeaderMenu-NewVisionShop" class="header__menu-item list-menu__item link focus-inset">
+                  <span>Shop</span>
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </summary>
+                <ul
+                  id="HeaderMenu-MenuList-NewVisionShop"
+                  class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                  role="list"
+                  tabindex="-1"
+                >
+                  <li><a href="{{ routes.all_products_collection_url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Shop all</a></li>
+                  <li><a href="{{ routes.collections_url }}/classics" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Classics</a></li>
+                  <li><a href="{{ routes.collections_url }}/headwear" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Headwear</a></li>
+                  <li><a href="{{ routes.collections_url }}/apparel" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Apparel</a></li>
+                  <li><a href="{{ routes.collections_url }}/custom" class="header__menu-item list-menu__item link link--text focus-inset caption-large">Customs</a></li>
+                </ul>
+              </details>
+            </header-menu>
+          </li>
           <li><a href="{{ section.settings.customs_link | default: '/pages/customs' }}" class="header__menu-item list-menu__item link link--text focus-inset">Customs</a></li>
           <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="header__menu-item list-menu__item link link--text focus-inset">About</a></li>
         </ul>
