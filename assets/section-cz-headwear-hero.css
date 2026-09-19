@@ -1,0 +1,118 @@
+body:has(.cz-headwear-hero) .section-header {
+  position: relative;
+  z-index: 5;
+  margin-bottom: calc(-1 * var(--cz-headwear-header-height, 9rem));
+}
+
+body:has(.cz-headwear-hero) .header-wrapper {
+  background: linear-gradient(180deg, rgba(3, 6, 5, .9), rgba(3, 6, 5, .58));
+  border-color: rgba(255, 255, 255, .2);
+  color: rgb(255, 255, 255);
+  backdrop-filter: blur(7px);
+}
+
+body:has(.cz-headwear-hero) .header__heading-logo,
+body:has(.cz-headwear-hero) .header__icon,
+body:has(.cz-headwear-hero) .header__menu-item,
+body:has(.cz-headwear-hero) .header__active-menu-item {
+  color: rgb(255, 255, 255);
+}
+
+.cz-headwear-hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(56rem, 70vw, 82rem);
+  overflow: hidden;
+  color: #fff;
+  background: #07100c;
+  isolation: isolate;
+}
+
+.cz-headwear-hero__media,
+.cz-headwear-hero__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.cz-headwear-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 56% center;
+}
+
+.cz-headwear-hero__shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(2, 4, 3, .91) 0%, rgba(2, 4, 3, .65) 34%, rgba(2, 4, 3, .08) 65%),
+    linear-gradient(0deg, rgba(2, 4, 3, .58), transparent 42%);
+}
+
+.cz-headwear-hero__content {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  width: 100%;
+  padding-top: 15rem;
+  padding-bottom: clamp(6rem, 10vw, 11rem);
+}
+
+.cz-headwear-hero__eyebrow,
+.cz-headwear-hero__note {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  letter-spacing: .22em;
+  line-height: 1.2;
+}
+
+.cz-headwear-hero__eyebrow { font-size: 1.2rem; }
+
+.cz-headwear-hero__title {
+  max-width: 7ch;
+  margin: 1.2rem 0 1.4rem;
+  color: #fff;
+  font-family: var(--font-heading-family);
+  font-size: clamp(6.8rem, 11vw, 15rem);
+  font-weight: 900;
+  letter-spacing: -.055em;
+  line-height: .78;
+  text-transform: uppercase;
+}
+
+.cz-headwear-hero__copy {
+  max-width: 42rem;
+  font-size: clamp(1.5rem, 1.4vw, 1.9rem);
+  line-height: 1.45;
+}
+
+.cz-headwear-hero__button { margin-top: 2.4rem; gap: 1.4rem; }
+
+.cz-headwear-hero__note {
+  position: absolute;
+  z-index: 2;
+  right: 3.5rem;
+  bottom: 4rem;
+  max-width: 18rem;
+  font-size: 1rem;
+  text-align: right;
+}
+
+#HeadwearProductGrid { scroll-margin-top: 10rem; }
+
+@media screen and (max-width: 749px) {
+  body:has(.cz-headwear-hero) .section-header { --cz-headwear-header-height: 7rem; }
+  .cz-headwear-hero { min-height: 68rem; }
+  .cz-headwear-hero__media img { object-position: 63% center; }
+  .cz-headwear-hero__shade {
+    background: linear-gradient(0deg, rgba(2, 4, 3, .94) 0%, rgba(2, 4, 3, .32) 70%, rgba(2, 4, 3, .18));
+  }
+  .cz-headwear-hero__content { padding-top: 12rem; padding-bottom: 5rem; }
+  .cz-headwear-hero__title { font-size: clamp(5.5rem, 19vw, 8.5rem); }
+  .cz-headwear-hero__copy { max-width: 31rem; }
+  .cz-headwear-hero__note { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
