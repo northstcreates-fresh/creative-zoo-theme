@@ -18,7 +18,8 @@ body:has(.cz-headwear-hero) .header__active-menu-item {
   color: rgb(255, 255, 255);
 }
 
-body:has(.cz-headwear-hero) .header__heading-logo {
+body:has(.cz-headwear-hero) .header__heading-logo,
+body:has(.cz-headwear-hero) .nv-header-logo {
   filter: invert(1);
 }
 
