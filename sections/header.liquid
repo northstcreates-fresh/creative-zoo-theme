@@ -182,10 +182,10 @@
     {%- if section.settings.use_new_vision_menu -%}
       <nav class="nv-header-menu small-hide" aria-label="Primary navigation">
         <ul class="list-menu list-menu--inline" role="list">
-          <li><a href="{{ section.settings.shop_link | default: routes.all_products_collection_url }}" class="header__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
           <li><a href="{{ routes.root_url }}" class="header__menu-item list-menu__item link link--text focus-inset">Home</a></li>
-          <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="header__menu-item list-menu__item link link--text focus-inset">About</a></li>
+          <li><a href="{{ section.settings.shop_link | default: routes.all_products_collection_url }}" class="header__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
           <li><a href="{{ section.settings.customs_link | default: '/pages/customs' }}" class="header__menu-item list-menu__item link link--text focus-inset">Customs</a></li>
+          <li><a href="{{ section.settings.about_link | default: '/pages/about' }}" class="header__menu-item list-menu__item link link--text focus-inset">About</a></li>
         </ul>
       </nav>
     {%- else -%}
