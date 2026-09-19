@@ -14,20 +14,20 @@
       "settings": {
         "eyebrow": "",
         "heading": "The Wildest Thing You Can Be Is Yourself.",
-        "text": "",
-        "image_alt": "",
-        "video": "shopify://files/videos/Creative Zoo Header ArtDesignGOlf.mp4",
+        "text": "<p>Creative Zoo is a living ecosystem of apparel, stories, music, and imagination for people who refuse to hide what makes them different.</p>",
+        "image": "shopify://shop_images/IMG_1241.jpg",
+        "image_alt": "Creative Zoo apparel worn as an expression of individuality",
         "media_fit": "cover",
-        "media_position": "center center",
+        "media_position": "right center",
         "mobile_media_position": "center center",
         "video_autoplay": true,
         "video_muted": true,
         "video_loop": true,
         "show_sound_control": true,
-        "button_label": "Enter The Habitat",
+        "button_label": "Explore The Habitat",
         "button_link": "/pages/the-habitat",
-        "secondary_button_label": "Explore the Community",
-        "secondary_button_link": "/pages/community",
+        "secondary_button_label": "Meet The Instincts",
+        "secondary_button_link": "/pages/instincts",
         "frosted_cta_style": true,
         "mode": "dark",
         "background_color": "",
@@ -100,7 +100,8 @@
             "kicker": "Read",
             "title": "Stories",
             "text": "<p>Explore the ideas that shape the Zoo.</p>",
-            "image_alt": "",
+            "image": "shopify://shop_images/Unapologetic_Lion_2.png",
+            "image_alt": "Unapologetic Lion from the Creative Zoo story world",
             "button_label": "Explore Stories",
             "button_link": "/pages/stories"
           }
@@ -111,7 +112,8 @@
             "kicker": "Discover",
             "title": "Manga",
             "text": "<p>Discover the world behind the creatures.</p>",
-            "image_alt": "",
+            "image": "shopify://shop_images/Relentless_Wolf.png",
+            "image_alt": "Relentless Wolf from the Creative Zoo character world",
             "button_label": "Explore Manga",
             "button_link": "/pages/manga"
           }
@@ -122,7 +124,8 @@
             "kicker": "Listen",
             "title": "Music",
             "text": "<p>Listen to the soundtrack of creativity.</p>",
-            "image_alt": "",
+            "image": "shopify://shop_images/Wonder_Bunny.png",
+            "image_alt": "Wonder Bunny from the Creative Zoo music world",
             "button_label": "Explore Music",
             "button_link": "/pages/music"
           }
@@ -156,6 +159,106 @@
         "columns_desktop": 4,
         "padding_top": 72,
         "padding_bottom": 72
+      }
+    },
+    "featured_apparel": {
+      "type": "cz-featured-apparel",
+      "blocks": {
+        "classics": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/classics",
+            "kicker": "Core uniform",
+            "fallback_title": "Creative Zoo Classics",
+            "fallback_text": "<p>Everyday pieces designed for instinct, individuality, and movement.</p>",
+            "link_override": "",
+            "fallback_link": "/collections/classics",
+            "image_alt": "Creative Zoo classic apparel",
+            "button_label": "Shop Classics"
+          }
+        },
+        "golf": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/cz-golf",
+            "kicker": "On course",
+            "fallback_title": "Creative Zoo Golf",
+            "fallback_text": "<p>Performance-minded pieces for bringing your own energy to the course.</p>",
+            "link_override": "",
+            "fallback_link": "/collections/cz-golf",
+            "image_alt": "Creative Zoo golf apparel",
+            "button_label": "Shop Golf"
+          }
+        },
+        "instincts": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify://collections/focus-panda",
+            "kicker": "Find your nature",
+            "fallback_title": "Instincts",
+            "fallback_text": "<p>Wear the qualities that move you: focus, wonder, courage, and relentless energy.</p>",
+            "link_override": "/pages/instincts",
+            "fallback_link": "/pages/instincts",
+            "image": "shopify://shop_images/Focus_Panda.png",
+            "image_alt": "Focus Panda from the Creative Zoo Instincts collection",
+            "button_label": "Meet The Instincts"
+          }
+        }
+      },
+      "block_order": [
+        "classics",
+        "golf",
+        "instincts"
+      ],
+      "settings": {
+        "eyebrow": "Wear Your Nature",
+        "heading": "Made for the ones who move differently.",
+        "text": "<p>Explore the pieces and symbols that bring the Creative Zoo ecosystem into the world.</p>",
+        "button_label": "Shop All Apparel",
+        "button_link": "/pages/apparel",
+        "mode": "light",
+        "background_color": "#ffffff",
+        "text_color": "#111111",
+        "card_color": "#f8f7f4",
+        "accent_color": "#c9a24d",
+        "button_color": "#111111",
+        "button_text_color": "#f8f7f4",
+        "texture_enabled": false,
+        "texture_style": "fabric",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "featured_story": {
+      "type": "cz-featured-story",
+      "settings": {
+        "eyebrow": "Inside The Zoo",
+        "heading": "What instinct guides you?",
+        "text": "<p>Every creature carries a different way of moving through the world. Meet the identities, symbols, and stories behind Creative Zoo.</p>",
+        "image": "shopify://shop_images/Unapologetic_Lion_2.png",
+        "image_alt": "Unapologetic Lion from the Creative Zoo Instincts story",
+        "media_fit": "contain",
+        "media_position": "center center",
+        "mobile_media_position": "center center",
+        "media_height": 44,
+        "mobile_media_height": 36,
+        "video_autoplay": true,
+        "video_muted": true,
+        "video_loop": true,
+        "button_label": "Discover Your Instinct",
+        "button_link": "/pages/instincts",
+        "mode": "dark",
+        "background_color": "#111111",
+        "text_color": "#f8f7f4",
+        "accent_color": "#c9a24d",
+        "button_color": "#c9a24d",
+        "button_text_color": "#111111",
+        "texture_enabled": true,
+        "texture_style": "sketch",
+        "texture_opacity": 3,
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "community": {
@@ -218,6 +321,8 @@
     "hero",
     "manifesto_preview",
     "habitat_cards",
+    "featured_apparel",
+    "featured_story",
     "community",
     "newsletter"
   ]
