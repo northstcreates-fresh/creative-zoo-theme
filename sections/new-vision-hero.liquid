@@ -1,0 +1,76 @@
+{%- liquid
+  assign hero_image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: hero_image
+-%}
+
+<section class="nv-hero section-{{ section.id }}">
+  <picture class="nv-hero__media" aria-hidden="true">
+    {%- if mobile_image != blank -%}
+      <source media="(max-width: 749px)" srcset="{{ mobile_image | image_url: width: 550 }} 550w, {{ mobile_image | image_url: width: 750 }} 750w, {{ mobile_image | image_url: width: 950 }} 950w" sizes="100vw" width="{{ mobile_image.width }}" height="{{ mobile_image.height }}">
+    {%- endif -%}
+    {%- if hero_image != blank -%}
+      {{ hero_image | image_url: width: 2400 | image_tag: widths: '800, 1200, 1600, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', preload: true, alt: section.settings.image_alt }}
+    {%- else -%}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </picture>
+  <div class="nv-hero__veil"></div>
+  <div class="page-width nv-hero__content">
+    {%- if section.settings.eyebrow != blank -%}<p class="nv-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h1>{{ section.settings.heading | escape }}</h1>{%- endif -%}
+    {%- if section.settings.text != blank -%}<div class="nv-hero__copy rte">{{ section.settings.text }}</div>{%- endif -%}
+    <div class="nv-hero__actions">
+      {%- if section.settings.primary_label != blank -%}<a class="nv-button nv-button--light" {% if section.settings.primary_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.primary_link }}"{% endif %}>{{ section.settings.primary_label | escape }}</a>{%- endif -%}
+      {%- if section.settings.secondary_label != blank -%}<a class="nv-button nv-button--outline" {% if section.settings.secondary_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.secondary_link }}"{% endif %}>{{ section.settings.secondary_label | escape }}</a>{%- endif -%}
+    </div>
+  </div>
+  <p class="nv-hero__marker" aria-hidden="true">New Vision / Creative Zoo</p>
+</section>
+
+{% stylesheet %}
+  .nv-hero { position: relative; isolation: isolate; display: flex; align-items: end; min-height: min(88rem, 92svh); overflow: hidden; background: #111111; color: #f8f7f4; }
+  .nv-hero__media, .nv-hero__veil { position: absolute; inset: 0; }
+  .nv-hero__media { z-index: -2; }
+  .nv-hero__media img, .nv-hero__media svg { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 70% center; }
+  .nv-hero__veil { z-index: -1; background: linear-gradient(90deg, rgba(17,17,17,.92) 0%, rgba(17,17,17,.64) 45%, rgba(17,17,17,.12) 100%), linear-gradient(0deg, rgba(17,17,17,.72) 0%, transparent 45%); }
+  .nv-hero__content { width: 100%; padding-block: clamp(10rem,16vw,18rem) clamp(7rem,9vw,11rem); }
+  .nv-eyebrow { margin: 0 0 2rem; color: #d3ad55; font-size: 1.2rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .nv-hero h1 { max-width: 10ch; margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(6rem,10vw,13rem); font-weight: 700; letter-spacing: -.055em; line-height: .82; text-wrap: balance; }
+  .nv-hero__copy { max-width: 57rem; margin-top: 3rem; color: rgba(248,247,244,.82); font-size: clamp(1.7rem,1.7vw,2.2rem); line-height: 1.5; }
+  .nv-hero__actions { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 3.6rem; }
+  .nv-button { display: inline-flex; align-items: center; justify-content: center; min-height: 5.2rem; padding: 1.4rem 2.8rem; border: 1px solid #f8f7f4; color: #111111; font-size: 1.3rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: background-color 180ms ease,color 180ms ease,transform 180ms ease; }
+  .nv-button--light { background: #f8f7f4; }
+  .nv-button--outline { background: rgba(17,17,17,.12); color: #f8f7f4; backdrop-filter: blur(8px); }
+  .nv-button:hover, .nv-button:focus-visible { background: #d3ad55; border-color: #d3ad55; color: #111111; transform: translateY(-.2rem); }
+  .nv-button:focus-visible { outline: 2px solid #f8f7f4; outline-offset: 3px; }
+  .nv-hero__marker { position: absolute; right: 2.4rem; bottom: 2.4rem; margin: 0; color: rgba(248,247,244,.66); font-size: 1rem; letter-spacing: .15em; text-transform: uppercase; writing-mode: vertical-rl; }
+  @media screen and (max-width: 749px) {
+    .nv-hero { min-height: 76rem; }
+    .nv-hero__media img, .nv-hero__media svg { object-position: 58% center; }
+    .nv-hero__veil { background: linear-gradient(0deg, rgba(17,17,17,.96) 0%, rgba(17,17,17,.6) 58%, rgba(17,17,17,.14) 100%); }
+    .nv-hero__content { padding-block: 12rem 7rem; }
+    .nv-hero h1 { max-width: 9ch; font-size: clamp(5.8rem,18vw,8.4rem); }
+    .nv-hero__actions { align-items: stretch; flex-direction: column; max-width: 34rem; }
+    .nv-hero__marker { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .nv-button { transition: none; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "New Vision hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Creative Zoo / New Vision" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Stay Wild." },
+    { "type": "richtext", "id": "text", "label": "Body text", "default": "<p>A creative ecosystem for people who refuse to hide what makes them different.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Explore apparel" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Enter the habitat" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" }
+  ],
+  "presets": [{ "name": "New Vision hero" }]
+}
+{% endschema %}

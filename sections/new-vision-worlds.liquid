@@ -1,0 +1,84 @@
+<section id="the-habitat" class="nv-worlds color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width nv-worlds__inner">
+    <header class="nv-worlds__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="nv-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      </div>
+      {%- if section.settings.text != blank -%}<div class="nv-worlds__intro rte">{{ section.settings.text }}</div>{%- endif -%}
+    </header>
+    <div class="nv-worlds__grid">
+      {%- for block in section.blocks -%}
+        <article class="nv-world" {{ block.shopify_attributes }}>
+          <a class="nv-world__media" {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1400 | image_tag: widths: '450, 700, 900, 1200, 1400', sizes: '(min-width: 990px) 25vw, (min-width: 600px) 50vw, 100vw', loading: 'lazy', alt: block.settings.image_alt }}
+            {%- else -%}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+            <span class="nv-world__index" aria-hidden="true">0{{ forloop.index }}</span>
+          </a>
+          <div class="nv-world__body">
+            {%- if block.settings.kicker != blank -%}<p class="nv-world__kicker">{{ block.settings.kicker | escape }}</p>{%- endif -%}
+            {%- if block.settings.title != blank -%}<h3>{{ block.settings.title | escape }}</h3>{%- endif -%}
+            {%- if block.settings.text != blank -%}<div class="rte">{{ block.settings.text }}</div>{%- endif -%}
+            {%- if block.settings.link_label != blank -%}<a class="nv-world__link" {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label | escape }} <span aria-hidden="true">↗</span></a>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .nv-worlds { padding-block: clamp(7rem,10vw,13rem); }
+  .nv-worlds__header { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(28rem,.75fr); gap: clamp(3rem,7vw,10rem); align-items: end; margin-bottom: clamp(5rem,7vw,9rem); }
+  .nv-worlds__header h2 { max-width: 11ch; margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(5rem,8vw,10rem); font-weight: 700; letter-spacing: -.05em; line-height: .86; text-wrap: balance; }
+  .nv-worlds__intro { color: rgba(var(--color-foreground),.7); font-size: clamp(1.7rem,1.6vw,2.1rem); line-height: 1.55; }
+  .nv-worlds__grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid rgba(var(--color-foreground),.22); border-left: 1px solid rgba(var(--color-foreground),.22); }
+  .nv-world { min-width: 0; border-right: 1px solid rgba(var(--color-foreground),.22); border-bottom: 1px solid rgba(var(--color-foreground),.22); background: rgb(var(--color-background)); }
+  .nv-world__media { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 5; background: rgba(var(--color-foreground),.06); }
+  .nv-world__media img, .nv-world__media svg { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 600ms cubic-bezier(.2,.7,0,1); }
+  .nv-world:hover .nv-world__media img, .nv-world:focus-within .nv-world__media img { transform: scale(1.04); }
+  .nv-world__index { position: absolute; top: 1.6rem; right: 1.6rem; display: grid; place-items: center; width: 4rem; height: 4rem; border-radius: 50%; background: #111111; color: #f8f7f4; font-size: 1.1rem; font-weight: 700; letter-spacing: .06em; }
+  .nv-world__body { padding: clamp(2.2rem,2.6vw,3.4rem); }
+  .nv-world__kicker { margin: 0 0 1.2rem; color: #a47d28; font-size: 1.1rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .nv-world h3 { margin: 0; color: currentColor; font-family: var(--font-heading-family); font-size: clamp(3.2rem,3.5vw,5.2rem); letter-spacing: -.035em; line-height: .94; }
+  .nv-world__body .rte { min-height: 7rem; margin-top: 1.6rem; color: rgba(var(--color-foreground),.68); line-height: 1.5; }
+  .nv-world__link { display: inline-flex; gap: .8rem; margin-top: 2.6rem; color: currentColor; font-size: 1.2rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+  .nv-world__link:hover { text-decoration: underline; text-underline-offset: .4rem; }
+  .nv-world__link:focus-visible { outline: 2px solid currentColor; outline-offset: .5rem; }
+  @media screen and (max-width: 1100px) { .nv-worlds__grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media screen and (max-width: 749px) {
+    .nv-worlds__header { grid-template-columns: 1fr; gap: 2.4rem; }
+    .nv-worlds__header h2 { font-size: clamp(5rem,16vw,7.4rem); }
+    .nv-worlds__grid { grid-template-columns: 1fr; }
+    .nv-world__media { aspect-ratio: 5 / 4; }
+    .nv-world__body .rte { min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .nv-world__media img { transition: none; } .nv-world:hover .nv-world__media img, .nv-world:focus-within .nv-world__media img { transform: none; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "New Vision worlds",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Explore the habitat" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One world. Many instincts." },
+    { "type": "richtext", "id": "text", "label": "Body text", "default": "<p>Creative Zoo moves through apparel, stories, manga, and music—each with its own energy, all connected by the instinct to create.</p>" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "blocks": [
+    { "type": "world", "name": "World", "settings": [
+      { "type": "text", "id": "kicker", "label": "Kicker", "default": "Discover" },
+      { "type": "text", "id": "title", "label": "Title", "default": "World" },
+      { "type": "richtext", "id": "text", "label": "Description", "default": "<p>Introduce this part of the Creative Zoo ecosystem.</p>" },
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "image_alt", "label": "Image alt text" },
+      { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ] }
+  ],
+  "presets": [{ "name": "New Vision worlds", "blocks": [{ "type": "world" }, { "type": "world" }, { "type": "world" }, { "type": "world" }] }]
+}
+{% endschema %}
