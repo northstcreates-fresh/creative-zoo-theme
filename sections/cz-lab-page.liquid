@@ -1,0 +1,129 @@
+<section class="cz-lab-page color-{{ section.settings.color_scheme }} gradient">
+  <div class="cz-lab-page__hero">
+    <div class="page-width cz-lab-page__hero-inner">
+      <div class="cz-lab-page__hero-copy">
+        <p class="cz-lab-page__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        <h1>{{ section.settings.heading | escape | newline_to_br }}</h1>
+        <p>{{ section.settings.intro | escape }}</p>
+        <div class="cz-lab-page__actions">
+          <a class="button button--primary" href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">
+            {{ section.settings.instagram_label | escape }} <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button--secondary" href="#LabRequest-{{ section.id }}">
+            {{ section.settings.email_label | escape }} <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+      <div class="cz-lab-page__manifesto" aria-hidden="true">
+        <span>{{ section.settings.side_note | escape }}</span>
+        <strong>01—04</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-width cz-lab-page__process" aria-labelledby="LabProcess-{{ section.id }}">
+    <header>
+      <p class="cz-lab-page__eyebrow">{{ section.settings.process_eyebrow | escape }}</p>
+      <h2 id="LabProcess-{{ section.id }}">{{ section.settings.process_heading | escape }}</h2>
+    </header>
+    <ol>
+      <li><span>01</span><h3>{{ 'cz_lab.process.idea_title' | t }}</h3><p>{{ 'cz_lab.process.idea_copy' | t }}</p></li>
+      <li><span>02</span><h3>{{ 'cz_lab.process.product_title' | t }}</h3><p>{{ 'cz_lab.process.product_copy' | t }}</p></li>
+      <li><span>03</span><h3>{{ 'cz_lab.process.refine_title' | t }}</h3><p>{{ 'cz_lab.process.refine_copy' | t }}</p></li>
+      <li><span>04</span><h3>{{ 'cz_lab.process.make_title' | t }}</h3><p>{{ 'cz_lab.process.make_copy' | t }}</p></li>
+    </ol>
+  </div>
+
+  <div class="cz-lab-page__request" id="LabRequest-{{ section.id }}">
+    <div class="page-width cz-lab-page__request-grid">
+      <div class="cz-lab-page__request-copy">
+        <p class="cz-lab-page__eyebrow">{{ section.settings.form_eyebrow | escape }}</p>
+        <h2>{{ section.settings.form_heading | escape }}</h2>
+        <p>{{ section.settings.form_copy | escape }}</p>
+        <div class="cz-lab-page__policy">
+          <strong>{{ 'cz_lab.policy.title' | t }}</strong>
+          <p>{{ 'cz_lab.policy.copy' | t }}</p>
+        </div>
+      </div>
+
+      {%- form 'contact', id: 'CzLabContact', class: 'cz-lab-page__form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {{ 'cz_lab.form.success' | t }}
+          </p>
+        {%- endif -%}
+        {{ form.errors | default_errors }}
+        <input type="hidden" name="contact[request_type]" value="Creative Zoo custom request">
+        <div class="cz-lab-page__field-grid">
+          <div class="field">
+            <input class="field__input" autocomplete="name" type="text" id="LabName-{{ section.id }}" name="contact[name]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'cz_lab.form.name' | t }}">
+            <label class="field__label" for="LabName-{{ section.id }}">{{ 'cz_lab.form.name' | t }}</label>
+          </div>
+          <div class="field field--with-error">
+            <input class="field__input" autocomplete="email" type="email" id="LabEmail-{{ section.id }}" name="contact[email]" spellcheck="false" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true" required placeholder="{{ 'cz_lab.form.email' | t }}">
+            <label class="field__label" for="LabEmail-{{ section.id }}">{{ 'cz_lab.form.email' | t }} <span aria-hidden="true">*</span></label>
+          </div>
+        </div>
+        <div class="cz-lab-page__select-wrap">
+          <label for="LabProduct-{{ section.id }}">{{ 'cz_lab.form.product' | t }}</label>
+          <select id="LabProduct-{{ section.id }}" name="contact[product_type]">
+            <option value="Shirt">{{ 'cz_lab.products.shirt' | t }}</option>
+            <option value="Hoodie">{{ 'cz_lab.products.hoodie' | t }}</option>
+            <option value="Mug">{{ 'cz_lab.products.mug' | t }}</option>
+            <option value="Bag">{{ 'cz_lab.products.bag' | t }}</option>
+            <option value="Other">{{ 'cz_lab.products.other' | t }}</option>
+          </select>
+        </div>
+        <div class="field">
+          <textarea rows="7" id="LabMessage-{{ section.id }}" class="text-area field__input" name="contact[body]" placeholder="{{ 'cz_lab.form.idea' | t }}" required>{{ form.body }}</textarea>
+          <label class="form__label field__label" for="LabMessage-{{ section.id }}">{{ 'cz_lab.form.idea' | t }} <span aria-hidden="true">*</span></label>
+        </div>
+        <p class="cz-lab-page__form-note">{{ 'cz_lab.form.references' | t }}</p>
+        <button type="submit" class="button button--primary">{{ section.settings.submit_label | escape }} <span aria-hidden="true">→</span></button>
+      {%- endform -%}
+    </div>
+  </div>
+
+  <aside class="cz-lab-page__drops">
+    <div class="page-width">
+      <p class="cz-lab-page__eyebrow">{{ section.settings.drops_eyebrow | escape }}</p>
+      <h2>{{ section.settings.drops_heading | escape }}</h2>
+      <p>{{ section.settings.drops_copy | escape }}</p>
+      <a class="button button--secondary" href="{{ section.settings.drops_link }}">{{ section.settings.drops_label | escape }} <span aria-hidden="true">→</span></a>
+    </div>
+  </aside>
+</section>
+
+{% stylesheet %}
+  .cz-lab-page{background:#f2f0e9;color:#090a0a}.cz-lab-page *{box-sizing:border-box}.cz-lab-page__hero{position:relative;min-height:64rem;display:flex;align-items:end;overflow:hidden;background:radial-gradient(circle at 78% 22%,rgba(0,220,232,.27),transparent 24%),linear-gradient(128deg,#050606 0 54%,#151819 54% 100%);color:#fff}.cz-lab-page__hero:before,.cz-lab-page__hero:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.16);transform:rotate(-10deg)}.cz-lab-page__hero:before{width:46rem;height:64rem;right:8%;top:-12rem}.cz-lab-page__hero:after{width:28rem;height:42rem;right:24%;top:11rem}.cz-lab-page__hero-inner{position:relative;z-index:1;width:100%;display:flex;justify-content:space-between;align-items:end;padding-top:13rem;padding-bottom:8rem}.cz-lab-page__hero-copy{max-width:78rem}.cz-lab-page__eyebrow{margin:0 0 1.4rem;font-family:var(--font-heading-family);font-size:1.15rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}.cz-lab-page h1,.cz-lab-page h2,.cz-lab-page h3{font-family:var(--font-heading-family);font-weight:900;text-transform:uppercase}.cz-lab-page h1{max-width:8ch;margin:0;font-size:clamp(6.4rem,10vw,15rem);letter-spacing:-.065em;line-height:.75}.cz-lab-page__hero-copy>p:not(.cz-lab-page__eyebrow){max-width:58rem;margin:2.4rem 0 0;font-size:clamp(1.6rem,1.6vw,2.2rem);line-height:1.45}.cz-lab-page__actions{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:3rem}.cz-lab-page__actions .button{gap:1.4rem}.cz-lab-page__manifesto{display:flex;flex-direction:column;align-items:end;gap:1.2rem;max-width:18rem;text-align:right;font-family:var(--font-heading-family);font-size:1.1rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.cz-lab-page__manifesto strong{color:#00dce8}.cz-lab-page__process{padding-top:7rem;padding-bottom:8rem}.cz-lab-page__process header{display:flex;align-items:end;justify-content:space-between;gap:2rem;border-bottom:1px solid #a9a8a2;padding-bottom:2rem}.cz-lab-page__process h2,.cz-lab-page__request h2,.cz-lab-page__drops h2{margin:0;font-size:clamp(4rem,6vw,8rem);letter-spacing:-.05em;line-height:.85}.cz-lab-page__process ol{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;margin:0;padding:0}.cz-lab-page__process li{min-height:27rem;padding:2.5rem 2rem;border-right:1px solid #a9a8a2}.cz-lab-page__process li:first-child{border-left:1px solid #a9a8a2}.cz-lab-page__process li>span{display:block;color:#008d97;font:700 1.2rem var(--font-heading-family);letter-spacing:.18em}.cz-lab-page__process h3{margin:7rem 0 1rem;font-size:2.4rem}.cz-lab-page__process li p{max-width:25rem;margin:0;font-size:1.35rem;line-height:1.55}.cz-lab-page__request{padding:8rem 0;background:#080909;color:#fff}.cz-lab-page__request-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:8rem}.cz-lab-page__request-copy>p:not(.cz-lab-page__eyebrow){max-width:48rem;font-size:1.7rem;line-height:1.55}.cz-lab-page__policy{max-width:48rem;margin-top:4rem;padding:2.2rem;border-left:.4rem solid #00dce8;background:#171919}.cz-lab-page__policy strong{font-family:var(--font-heading-family);letter-spacing:.12em;text-transform:uppercase}.cz-lab-page__policy p{margin:.8rem 0 0;line-height:1.55}.cz-lab-page__form{padding:3rem;background:#f2f0e9;color:#090a0a}.cz-lab-page__field-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.cz-lab-page__select-wrap{margin:1.8rem 0}.cz-lab-page__select-wrap label{display:block;margin-bottom:.8rem;font-weight:700}.cz-lab-page__select-wrap select{width:100%;min-height:5rem;padding:0 1.5rem;border:1px solid rgba(18,18,18,.55);background:#fff;color:#090a0a;font:inherit}.cz-lab-page__form-note{margin:1.2rem 0 2rem;font-size:1.2rem;line-height:1.45}.cz-lab-page__form .button{width:100%;gap:1.4rem}.cz-lab-page__drops{padding:7rem 0;background:#00dce8;color:#071013}.cz-lab-page__drops .page-width{display:grid;grid-template-columns:1fr 1.4fr 1fr auto;align-items:end;gap:3rem}.cz-lab-page__drops p:not(.cz-lab-page__eyebrow){margin:0;font-size:1.45rem;line-height:1.5}.cz-lab-page__drops .button{white-space:nowrap}
+  @media(max-width:989px){.cz-lab-page__process ol{grid-template-columns:repeat(2,1fr)}.cz-lab-page__process li:nth-child(3){border-left:1px solid #a9a8a2}.cz-lab-page__request-grid{grid-template-columns:1fr;gap:4rem}.cz-lab-page__drops .page-width{grid-template-columns:1fr 1fr}.cz-lab-page__drops .cz-lab-page__eyebrow{grid-column:1/-1}}
+  @media(max-width:749px){.cz-lab-page__hero{min-height:70rem}.cz-lab-page__hero-inner{padding-top:12rem;padding-bottom:5rem}.cz-lab-page h1{font-size:clamp(5.8rem,19vw,8.5rem)}.cz-lab-page__manifesto{display:none}.cz-lab-page__actions{flex-direction:column}.cz-lab-page__process header{display:block}.cz-lab-page__process ol{grid-template-columns:1fr}.cz-lab-page__process li,.cz-lab-page__process li:nth-child(3){min-height:auto;border-left:1px solid #a9a8a2;border-bottom:1px solid #a9a8a2}.cz-lab-page__process h3{margin-top:3rem}.cz-lab-page__field-grid{grid-template-columns:1fr}.cz-lab-page__form{padding:2rem}.cz-lab-page__drops .page-width{grid-template-columns:1fr;align-items:start}.cz-lab-page__drops .cz-lab-page__eyebrow{grid-column:auto}}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "The Lab page",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "eyebrow", "label": "Hero eyebrow", "default": "THE CREATIVE ZOO LAB" },
+    { "type": "textarea", "id": "heading", "label": "Hero heading", "default": "YOUR IDEA.\nMADE WILD." },
+    { "type": "textarea", "id": "intro", "label": "Hero introduction", "default": "Bring us the idea that does not exist yet. We will help shape it into something made for you." },
+    { "type": "text", "id": "side_note", "label": "Hero side note", "default": "GOOD PEOPLE. WILD IDEAS." },
+    { "type": "text", "id": "instagram_label", "label": "Instagram button", "default": "START IN INSTAGRAM DMS" },
+    { "type": "text", "id": "instagram_url", "label": "Instagram DM URL", "default": "https://ig.me/m/creativzoo" },
+    { "type": "text", "id": "email_label", "label": "Form button", "default": "REQUEST BY EMAIL" },
+    { "type": "text", "id": "process_eyebrow", "label": "Process eyebrow", "default": "HOW IT WORKS" },
+    { "type": "text", "id": "process_heading", "label": "Process heading", "default": "FROM IDEA TO REALITY." },
+    { "type": "text", "id": "form_eyebrow", "label": "Form eyebrow", "default": "THE OTHER WAY IN" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "SEND THE BRIEF." },
+    { "type": "textarea", "id": "form_copy", "label": "Form introduction", "default": "Not on Instagram? Tell us what you want to make and we will follow up by email to discuss the product, design, quote, and timing." },
+    { "type": "text", "id": "submit_label", "label": "Submit button", "default": "SEND MY IDEA" },
+    { "type": "text", "id": "drops_eyebrow", "label": "Drops eyebrow", "default": "WANT TO SHOP INSTEAD?" },
+    { "type": "text", "id": "drops_heading", "label": "Drops heading", "default": "CUSTOM DROPS" },
+    { "type": "textarea", "id": "drops_copy", "label": "Drops copy", "default": "Finished designs born in The Lab and released into the wild." },
+    { "type": "text", "id": "drops_label", "label": "Drops button", "default": "SHOP CUSTOM DROPS" },
+    { "type": "url", "id": "drops_link", "label": "Custom Drops collection" }
+  ],
+  "presets": [{ "name": "The Lab page" }]
+}
+{% endschema %}
