@@ -46,6 +46,10 @@ body:has(.cz-headwear-hero) .nv-header-logo {
   object-position: 56% center;
 }
 
+.cz-apparel-hero .cz-headwear-hero__media img {
+  object-position: 56% 18%;
+}
+
 .cz-headwear-hero__shade {
   z-index: 1;
   background:
@@ -110,6 +114,7 @@ body:has(.cz-headwear-hero) .nv-header-logo {
   body:has(.cz-headwear-hero) .section-header { --cz-headwear-header-height: 7rem; }
   .cz-headwear-hero { min-height: 68rem; }
   .cz-headwear-hero__media img { object-position: 63% center; }
+  .cz-apparel-hero .cz-headwear-hero__media img { object-position: 63% 18%; }
   .cz-headwear-hero__shade {
     background: linear-gradient(0deg, rgba(2, 4, 3, .94) 0%, rgba(2, 4, 3, .32) 70%, rgba(2, 4, 3, .18));
   }
