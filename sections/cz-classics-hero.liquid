@@ -26,7 +26,12 @@
       <span aria-hidden="true">→</span>
     </a>
   </div>
-  <p class="cz-headwear-hero__note" aria-hidden="true">{{ section.settings.note | escape }}</p>
+  {%- assign classics_note_words = section.settings.note | split: ' ' -%}
+  <p class="cz-headwear-hero__note" aria-hidden="true">
+    {%- for word in classics_note_words -%}
+      {%- if forloop.last -%}<span>{{ word | escape }}</span>{%- else -%}{{ word | escape }} {% endif -%}
+    {%- endfor -%}
+  </p>
 </section>
 {% endif %}
 
@@ -39,7 +44,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE CREATIVE ZOO ORIGINALS" },
     { "type": "richtext", "id": "copy", "label": "Description", "default": "<p>Core marks. Timeless instincts. The pieces that started the story.</p>" },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "SHOP CLASSICS" },
-    { "type": "text", "id": "note", "label": "Side note", "default": "THE ORIGINALS." },
+    { "type": "text", "id": "note", "label": "Side note", "default": "WHERE THE WILD BEGAN." },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
   ],
   "presets": [{ "name": "Classics hero" }]

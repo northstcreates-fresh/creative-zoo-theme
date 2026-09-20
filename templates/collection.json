@@ -3,7 +3,7 @@
     "headwear-hero": {
       "type": "cz-headwear-hero",
       "settings": {
-        "eyebrow": "TOP OFF THE ORDINARY",
+        "eyebrow": "CROWN YOUR INSTINCT",
         "copy": "<p>Performance-built headwear for people who refuse to blend in.</p>",
         "button_label": "SHOP HEADWEAR",
         "note": "BUILT FOR THE WILD."
@@ -24,7 +24,7 @@
         "eyebrow": "THE CREATIVE ZOO ORIGINALS",
         "copy": "<p>Core marks. Timeless instincts. The pieces that started the story.</p>",
         "button_label": "SHOP CLASSICS",
-        "note": "THE ORIGINALS."
+        "note": "WHERE THE WILD BEGAN."
       }
     },
     "custom-drops-hero": {

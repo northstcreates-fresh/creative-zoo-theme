@@ -83,6 +83,12 @@ body:has(.cz-headwear-hero) .nv-header-logo {
 
 .cz-headwear-hero__eyebrow { font-size: 1.2rem; }
 
+.cz-classics-hero .cz-headwear-hero__eyebrow,
+.cz-headwear-hero:not(.cz-apparel-hero):not(.cz-classics-hero):not(.cz-custom-drops-hero) .cz-headwear-hero__eyebrow,
+.cz-headwear-hero__note span {
+  color: #00dce8;
+}
+
 .cz-headwear-hero__title {
   max-width: none;
   margin: 1.2rem 0 1.4rem;

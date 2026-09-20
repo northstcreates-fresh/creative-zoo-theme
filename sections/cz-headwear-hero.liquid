@@ -30,7 +30,12 @@
       <span aria-hidden="true">→</span>
     </a>
   </div>
-  <p class="cz-headwear-hero__note" aria-hidden="true">{{ section.settings.note | escape }}</p>
+  {%- assign headwear_note_words = section.settings.note | split: ' ' -%}
+  <p class="cz-headwear-hero__note" aria-hidden="true">
+    {%- for word in headwear_note_words -%}
+      {%- if forloop.last -%}<span>{{ word | escape }}</span>{%- else -%}{{ word | escape }} {% endif -%}
+    {%- endfor -%}
+  </p>
 </section>
 {% endif %}
 
@@ -40,7 +45,7 @@
   "tag": "section",
   "class": "cz-headwear-hero-section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "TOP OFF THE ORDINARY" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CROWN YOUR INSTINCT" },
     { "type": "richtext", "id": "copy", "label": "Description", "default": "<p>Performance-built headwear for people who refuse to blend in.</p>" },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "SHOP HEADWEAR" },
     { "type": "text", "id": "note", "label": "Side note", "default": "CREATIVITY CANNOT BE CAGED." },
