@@ -162,14 +162,27 @@ body:has(.cz-headwear-hero) .nv-header-logo {
   .cz-headwear-hero__shade {
     background: linear-gradient(0deg, rgba(2, 4, 3, .94) 0%, rgba(2, 4, 3, .32) 70%, rgba(2, 4, 3, .18));
   }
-  .cz-headwear-hero__content { padding-top: 12rem; padding-bottom: 5rem; }
+  .cz-headwear-hero__content { padding-top: 12rem; padding-bottom: 8rem; }
   .cz-headwear-hero__title {
-    max-width: 7ch;
-    font-size: clamp(5.2rem, 17vw, 7.5rem);
-    white-space: normal;
+    max-width: 100%;
+    font-size: min(16vw, 6.4rem);
+    line-height: .84;
+    white-space: nowrap;
   }
   .cz-headwear-hero__copy { max-width: 31rem; }
-  .cz-headwear-hero__note { display: none; }
+  .cz-headwear-hero__note {
+    display: block;
+    right: 2rem;
+    bottom: 2.2rem;
+    left: 2rem;
+    max-width: none;
+    overflow: hidden;
+    font-size: clamp(.72rem, 2.35vw, .9rem);
+    letter-spacing: .16em;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
