@@ -5,10 +5,10 @@ body:has(.cz-headwear-hero) .section-header {
 }
 
 body:has(.cz-headwear-hero) .header-wrapper {
-  background: linear-gradient(180deg, rgba(3, 6, 5, .9), rgba(3, 6, 5, .58));
+  background: linear-gradient(180deg, rgba(3, 6, 5, .7), rgba(3, 6, 5, .24));
   border-color: rgba(255, 255, 255, .2);
   color: rgb(255, 255, 255);
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(5px);
 }
 
 body:has(.cz-headwear-hero) .header__heading-logo,
@@ -103,6 +103,21 @@ body:has(.cz-headwear-hero) .nv-header-logo {
 }
 
 .cz-headwear-hero__button { margin-top: 2.4rem; gap: 1.4rem; }
+
+.cz-headwear-hero__button.button--primary {
+  --color-button: 0, 220, 232;
+  --color-button-text: 7, 16, 19;
+  border-color: #00dce8;
+  background: #00dce8;
+  color: #071013;
+}
+
+.cz-headwear-hero__button.button--primary:hover,
+.cz-headwear-hero__button.button--primary:focus-visible {
+  border-color: #4df3fb;
+  background: #4df3fb;
+  color: #071013;
+}
 
 .cz-headwear-hero__note {
   position: absolute;

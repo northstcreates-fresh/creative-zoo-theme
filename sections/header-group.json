@@ -23,7 +23,7 @@
       "type": "header",
       "settings": {
         "color_scheme": "scheme-1",
-        "logo_position": "middle-left",
+        "logo_position": "middle-center",
         "menu": "main-menu",
         "use_new_vision_menu": true,
         "shop_link": "shopify://collections/all",
