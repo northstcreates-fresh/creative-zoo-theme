@@ -32,9 +32,11 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
 .cz-about__manifesto-media { min-height: 60rem; overflow: hidden; }
 .cz-about__manifesto-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); }
 .cz-about__manifesto-copy { align-self: center; padding: clamp(6rem, 8vw, 13rem); }
-.cz-about__manifesto-copy h2 { max-width: 8ch; margin: 0 0 3rem; font-size: clamp(6rem, 8vw, 11rem); }
+.cz-about__manifesto-copy h2 { max-width: 10ch; margin: 0 0 3rem; color: #fff; font-size: clamp(6rem, 7vw, 10rem); }
+.cz-about__manifesto-copy h2 span { display: inline-block; white-space: nowrap; }
 .cz-about__manifesto-copy .rte { max-width: 58rem; font-size: clamp(1.6rem, 1.4vw, 2rem); line-height: 1.62; }
-.cz-about__manifesto-callout { margin: 4rem 0 0; padding-left: 2rem; border-left: .4rem solid #00dce8; color: #00dce8; font-family: var(--font-heading-family); font-size: clamp(1.8rem, 2vw, 2.8rem); font-weight: 900; letter-spacing: .05em; }
+.cz-about__manifesto-callout { margin: 4rem 0 0; padding-left: 2rem; border-left: .4rem solid #00dce8; color: #fff; font-family: var(--font-heading-family); font-size: clamp(1.8rem, 2vw, 2.8rem); font-weight: 900; letter-spacing: .05em; }
+.cz-about__manifesto-callout span { color: #ff4655; }
 .cz-about__maker { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(5rem, 9vw, 13rem); align-items: center; padding-top: clamp(8rem, 12vw, 16rem); padding-bottom: clamp(8rem, 12vw, 16rem); }
 .cz-about__maker-copy .rte { max-width: 58rem; margin-top: 3rem; font-size: clamp(1.6rem, 1.45vw, 2rem); line-height: 1.65; }
 .cz-about__maker-media { position: relative; transform: rotate(1.5deg); background: #fff; padding: 1.4rem 1.4rem 6rem; box-shadow: 0 2rem 5rem rgba(0, 0, 0, .2); }

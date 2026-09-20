@@ -47,9 +47,21 @@
     </div>
     <div class="cz-about__manifesto-copy">
       <p class="cz-about__kicker">{{ section.settings.manifesto_kicker | escape }}</p>
-      <h2>{{ section.settings.manifesto_heading | escape }}</h2>
+      {%- liquid
+        assign manifesto_heading = section.settings.manifesto_heading | escape
+        assign manifesto_heading = manifesto_heading | replace: 'THE ORDINARY.', '<span>THE ORDINARY.</span>'
+      -%}
+      <h2>{{ manifesto_heading }}</h2>
       <div class="rte">{{ section.settings.manifesto_copy }}</div>
-      <p class="cz-about__manifesto-callout">{{ section.settings.manifesto_callout | escape }}</p>
+      {%- liquid
+        assign manifesto_callout = section.settings.manifesto_callout
+        if manifesto_callout == 'CREATE OUTSIDE THE BOX THEY GAVE YOU.'
+          assign manifesto_callout = 'ESCAPE THE BOX THEY PUT YOU IN. BE A CREATIVE.'
+        endif
+        assign manifesto_callout = manifesto_callout | escape
+        assign manifesto_callout = manifesto_callout | replace: 'BE A CREATIVE.', '<span>BE A CREATIVE.</span>'
+      -%}
+      <p class="cz-about__manifesto-callout">{{ manifesto_callout }}</p>
     </div>
   </div>
 
@@ -108,7 +120,7 @@
     { "type": "text", "id": "manifesto_kicker", "label": "Kicker", "default": "THE PHILOSOPHY" },
     { "type": "text", "id": "manifesto_heading", "label": "Heading", "default": "ASCEND THE ORDINARY." },
     { "type": "richtext", "id": "manifesto_copy", "label": "Copy", "default": "<p>The world is good at putting people into boxes: job titles, expectations, labels, what you are supposed to be good at, what you are supposed to care about, and what you are supposed to become.</p><p>Those labels belong to the people who created them. You do not have to subscribe.</p><p>Ascending the ordinary is not about being better than everyone else. It is about refusing to let someone else’s definition of you become your definition of yourself.</p>" },
-    { "type": "text", "id": "manifesto_callout", "label": "Callout", "default": "CREATE OUTSIDE THE BOX THEY GAVE YOU." },
+    { "type": "text", "id": "manifesto_callout", "label": "Callout", "default": "ESCAPE THE BOX THEY PUT YOU IN. BE A CREATIVE." },
 
     { "type": "header", "content": "The maker" },
     { "type": "image_picker", "id": "maker_image", "label": "Maker or process image" },
