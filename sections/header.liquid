@@ -73,9 +73,37 @@
     height: auto;
   }
 
+  body:has(.nv-header-overlay) .section-header {
+    position: relative;
+    z-index: 5;
+    margin-bottom: -9rem;
+  }
+
+  .nv-header-overlay {
+    background: linear-gradient(180deg, rgba(3, 6, 5, .7), rgba(3, 6, 5, .24));
+    border-color: rgba(255, 255, 255, .2);
+    color: rgb(255, 255, 255);
+    backdrop-filter: blur(5px);
+  }
+
+  .nv-header-overlay .header__menu-item,
+  .nv-header-overlay .header__icon,
+  .nv-header-overlay .header__active-menu-item {
+    color: rgb(255, 255, 255);
+  }
+
+  .nv-header-overlay .nv-header-logo,
+  .nv-header-overlay .header__heading-logo {
+    filter: invert(1);
+  }
+
   @media screen and (max-width: 749px) {
     .nv-header-logo {
       width: clamp(12rem, 42vw, 16rem);
+    }
+
+    body:has(.nv-header-overlay) .section-header {
+      margin-bottom: -7rem;
     }
   }
 
@@ -140,13 +168,28 @@
 
 {% liquid
   assign header_tag = 'div'
+  assign use_hero_header = false
 
   if section.settings.sticky_header_type != 'none'
     assign header_tag = 'sticky-header'
   endif
+
+  if request.page_type == 'index'
+    assign use_hero_header = true
+  elsif page.handle == 'customs'
+    assign use_hero_header = true
+  elsif collection.handle == 'classics'
+    assign use_hero_header = true
+  elsif collection.handle == 'headwear'
+    assign use_hero_header = true
+  elsif collection.handle == 'apparel'
+    assign use_hero_header = true
+  elsif collection.handle == 'custom'
+    assign use_hero_header = true
+  endif
 %}
 
-<{{ header_tag }} {% if header_tag == 'sticky-header' %}data-sticky-type="{{ section.settings.sticky_header_type }}"{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{{ header_tag }} {% if header_tag == 'sticky-header' %}data-sticky-type="{{ section.settings.sticky_header_type }}"{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if use_hero_header %} nv-header-overlay{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
