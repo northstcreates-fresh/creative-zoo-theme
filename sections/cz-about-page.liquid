@@ -84,7 +84,11 @@
   <div class="cz-about__closing">
     <div class="page-width">
       <p class="cz-about__closing-kicker">{{ section.settings.closing_kicker | escape }}</p>
-      <h2>{{ section.settings.closing_heading | escape }}</h2>
+      <h2 class="cz-about__closing-heading">
+        <span>{{ section.settings.closing_heading | escape }}</span>
+        <span>{{ section.settings.closing_heading_second | escape }}</span>
+        <span class="cz-about__closing-emphasis">{{ section.settings.closing_heading_emphasis | escape }}</span>
+      </h2>
       <div class="cz-about__closing-actions">
         <a class="button button--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">
           {{ section.settings.primary_label | escape }} <span aria-hidden="true">→</span>
@@ -132,7 +136,9 @@
 
     { "type": "header", "content": "Closing" },
     { "type": "text", "id": "closing_kicker", "label": "Kicker", "default": "BE A CREATIVE. ESCAPE THE ZOO." },
-    { "type": "text", "id": "closing_heading", "label": "Heading", "default": "CREATIVITY CANNOT BE CAGED." },
+    { "type": "text", "id": "closing_heading", "label": "Heading line 1", "default": "THE WILDEST THING" },
+    { "type": "text", "id": "closing_heading_second", "label": "Heading line 2", "default": "YOU CAN BE IS" },
+    { "type": "text", "id": "closing_heading_emphasis", "label": "Heading emphasis", "default": "YOURSELF." },
     { "type": "text", "id": "primary_label", "label": "Primary button", "default": "SHOP THE ZOO" },
     { "type": "url", "id": "primary_link", "label": "Primary link" },
     { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "ENTER THE LAB" },
