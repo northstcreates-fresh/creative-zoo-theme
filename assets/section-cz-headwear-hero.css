@@ -52,7 +52,8 @@ body:has(.cz-headwear-hero) .nv-header-logo {
 }
 
 .cz-custom-drops-hero .cz-headwear-hero__media img {
-  object-position: 50% center;
+  object-position: 50% 18%;
+  transform: translateY(3rem);
 }
 
 .cz-headwear-hero__shade {
@@ -126,7 +127,10 @@ body:has(.cz-headwear-hero) .nv-header-logo {
     object-position: 63% 18%;
     transform: translateY(4rem);
   }
-  .cz-custom-drops-hero .cz-headwear-hero__media img { object-position: 66% center; }
+  .cz-custom-drops-hero .cz-headwear-hero__media img {
+    object-position: 66% 16%;
+    transform: translateY(2rem);
+  }
   .cz-headwear-hero__shade {
     background: linear-gradient(0deg, rgba(2, 4, 3, .94) 0%, rgba(2, 4, 3, .32) 70%, rgba(2, 4, 3, .18));
   }
