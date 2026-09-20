@@ -1,0 +1,49 @@
+{% if collection.handle == 'custom' %}
+{{ 'section-cz-headwear-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="cz-headwear-hero cz-custom-drops-hero color-{{ section.settings.color_scheme }} gradient" aria-labelledby="CzCustomDropsTitle-{{ section.id }}">
+  <div class="cz-headwear-hero__media" aria-hidden="true">
+    <img
+      src="{{ 'cz-custom-drops-hero-v1.jpg' | asset_url }}"
+      alt=""
+      width="1672"
+      height="941"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+  <div class="cz-headwear-hero__shade"></div>
+  <div class="cz-headwear-hero__content page-width">
+    {% if section.settings.eyebrow != blank %}
+      <p class="cz-headwear-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {% endif %}
+    <h1 id="CzCustomDropsTitle-{{ section.id }}" class="cz-headwear-hero__title">{{ collection.title | escape }}</h1>
+    {% if section.settings.copy != blank %}
+      <div class="cz-headwear-hero__copy rte">{{ section.settings.copy }}</div>
+    {% elsif collection.description != blank %}
+      <div class="cz-headwear-hero__copy rte">{{ collection.description }}</div>
+    {% endif %}
+    <a class="cz-headwear-hero__button button button--primary" href="#CustomDropsProductGrid">
+      {{ section.settings.button_label | escape }}
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+  <p class="cz-headwear-hero__note" aria-hidden="true">{{ section.settings.note | escape }}</p>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom Drops hero",
+  "tag": "section",
+  "class": "cz-custom-drops-hero-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "BORN IN THE LAB" },
+    { "type": "richtext", "id": "copy", "label": "Description", "default": "<p>Finished designs born from wild ideas and released in limited drops.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "SHOP CUSTOM DROPS" },
+    { "type": "text", "id": "note", "label": "Side note", "default": "REQUESTED BY YOU. RELEASED BY THE ZOO." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [{ "name": "Custom Drops hero" }]
+}
+{% endschema %}
