@@ -137,6 +137,11 @@ body:has(.cz-headwear-hero) .nv-header-logo {
   text-align: right;
 }
 
+.cz-custom-drops-hero .cz-headwear-hero__note {
+  max-width: none;
+  white-space: nowrap;
+}
+
 #HeadwearProductGrid,
 #ApparelProductGrid,
 #ClassicsProductGrid,
