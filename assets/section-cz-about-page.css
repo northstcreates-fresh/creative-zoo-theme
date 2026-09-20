@@ -12,6 +12,7 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
 .cz-about__hero { position: relative; display: grid; min-height: min(88rem, 92vh); overflow: hidden; color: #fff; }
 .cz-about__hero-media,
 .cz-about__hero-shade { position: absolute; inset: 0; }
+.cz-about__hero-media { top: clamp(4rem, 5vw, 7rem); background: #030505; }
 .cz-about__hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 58% center; }
 .cz-about__hero-shade { background: linear-gradient(90deg, rgba(3, 6, 7, .94) 0%, rgba(3, 6, 7, .74) 39%, rgba(3, 6, 7, .15) 72%), linear-gradient(0deg, rgba(3, 6, 7, .58), transparent 45%); }
 .cz-about__hero-content { position: relative; z-index: 1; align-self: end; width: 100%; padding-top: 16rem; padding-bottom: clamp(7rem, 10vw, 12rem); }
@@ -56,7 +57,8 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
 @media screen and (max-width: 749px) {
   body:has(.cz-about) .section-header { margin-bottom: -7rem; }
   .cz-about__hero { min-height: 72rem; }
-  .cz-about__hero-media img { object-position: 66% center; }
+  .cz-about__hero-media { top: 5rem; }
+  .cz-about__hero-media img { object-position: 70% center; }
   .cz-about__hero-shade { background: linear-gradient(0deg, rgba(3, 6, 7, .96) 0%, rgba(3, 6, 7, .28) 78%); }
   .cz-about__hero-content { padding-top: 14rem; padding-bottom: 6rem; }
   .cz-about__hero-title { font-size: clamp(5rem, 16vw, 7.2rem); }
