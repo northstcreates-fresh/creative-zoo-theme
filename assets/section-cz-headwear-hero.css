@@ -110,6 +110,15 @@ body:has(.cz-headwear-hero) .nv-header-logo {
   line-height: 1.45;
 }
 
+.cz-custom-drops-hero .cz-headwear-hero__copy {
+  display: inline-block;
+  padding: .8rem 1rem;
+  border-left: .2rem solid rgba(0, 220, 232, .75);
+  background: rgba(3, 5, 5, .56);
+  color: #d5d7d6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .96);
+}
+
 .cz-headwear-hero__button { margin-top: 2.4rem; gap: 1.4rem; }
 
 .cz-headwear-hero__button.button--primary {
