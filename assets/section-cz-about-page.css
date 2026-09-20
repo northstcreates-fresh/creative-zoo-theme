@@ -18,10 +18,11 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
 .cz-about__eyebrow,
 .cz-about__kicker,
 .cz-about__closing-kicker { margin: 0 0 1.8rem; color: #00dce8; font-family: var(--font-heading-family); font-size: 1.2rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
-.cz-about__hero-title { max-width: 9ch; margin: 0 0 2.4rem; font-size: clamp(6rem, 9vw, 13rem); }
+.cz-about__hero-title { max-width: 9ch; margin: 0 0 2.4rem; color: #fff; font-size: clamp(6rem, 9vw, 13rem); }
 .cz-about__hero-copy { max-width: 56rem; font-size: clamp(1.7rem, 1.65vw, 2.2rem); line-height: 1.5; }
 .cz-about__hero-copy p { margin: 0 0 1rem; }
 .cz-about__hero-note { position: absolute; z-index: 1; right: 3.5rem; bottom: 4rem; margin: 0; font-family: var(--font-heading-family); font-size: 1rem; font-weight: 800; letter-spacing: .2em; text-align: right; }
+.cz-about__hero-note span { color: #00dce8; }
 .cz-about__origin { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(5rem, 9vw, 14rem); padding-top: clamp(8rem, 12vw, 16rem); padding-bottom: clamp(8rem, 12vw, 16rem); }
 .cz-about__origin h2,
 .cz-about__maker h2 { margin: 0; font-size: clamp(5rem, 7vw, 10rem); }

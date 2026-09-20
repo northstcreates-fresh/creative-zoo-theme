@@ -17,7 +17,16 @@
       </h1>
       <div class="cz-about__hero-copy rte">{{ section.settings.hero_copy }}</div>
     </div>
-    <p class="cz-about__hero-note">{{ section.settings.hero_note | escape }}</p>
+    {%- liquid
+      assign hero_note = section.settings.hero_note
+      if hero_note == 'CREATIVE CHAOS. FOUND PEACE.'
+        assign hero_note = 'PEACE WITHIN CREATIVE CHAOS.'
+      endif
+      assign hero_note = hero_note | escape
+      assign hero_note = hero_note | replace: 'CHAOS.', '<span>CHAOS.</span>'
+      assign hero_note = hero_note | replace: 'Chaos', '<span>Chaos</span>'
+    -%}
+    <p class="cz-about__hero-note">{{ hero_note }}</p>
   </div>
 
   <div class="cz-about__origin page-width">
@@ -87,7 +96,7 @@
     { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "UNDERSTAND THE ZOO" },
     { "type": "text", "id": "hero_title", "label": "Heading", "default": "THE ZOO STARTED AS AN ESCAPE." },
     { "type": "richtext", "id": "hero_copy", "label": "Introduction", "default": "<p>Work. Family. Responsibility. Life has a way of pounding away at you until the things that bring you peace start getting pushed aside.</p><p>For me, creating became that peace.</p>" },
-    { "type": "text", "id": "hero_note", "label": "Side note", "default": "CREATIVE CHAOS. FOUND PEACE." },
+    { "type": "text", "id": "hero_note", "label": "Side note", "default": "PEACE WITHIN CREATIVE CHAOS." },
 
     { "type": "header", "content": "Origin story" },
     { "type": "text", "id": "origin_kicker", "label": "Kicker", "default": "HOW IT BEGAN" },
