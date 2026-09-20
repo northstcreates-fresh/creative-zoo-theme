@@ -1,0 +1,122 @@
+{{ 'section-cz-about-page.css' | asset_url | stylesheet_tag }}
+
+<section class="cz-about" aria-labelledby="CzAboutTitle-{{ section.id }}">
+  <div class="cz-about__hero">
+    <div class="cz-about__hero-media" aria-hidden="true">
+      {% if section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw' }}
+      {% else %}
+        <img src="{{ 'cz-home-hero-gritty-black-cap-v3.jpg' | asset_url }}" alt="" width="1792" height="1024" loading="eager" fetchpriority="high">
+      {% endif %}
+    </div>
+    <div class="cz-about__hero-shade"></div>
+    <div class="cz-about__hero-content page-width">
+      <p class="cz-about__eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+      <h1 id="CzAboutTitle-{{ section.id }}" class="cz-about__hero-title">
+        {{ section.settings.hero_title | escape }}
+      </h1>
+      <div class="cz-about__hero-copy rte">{{ section.settings.hero_copy }}</div>
+    </div>
+    <p class="cz-about__hero-note">{{ section.settings.hero_note | escape }}</p>
+  </div>
+
+  <div class="cz-about__origin page-width">
+    <div class="cz-about__origin-heading">
+      <p class="cz-about__kicker">{{ section.settings.origin_kicker | escape }}</p>
+      <h2>{{ section.settings.origin_heading | escape }}</h2>
+    </div>
+    <div class="cz-about__origin-copy rte">{{ section.settings.origin_copy }}</div>
+  </div>
+
+  <div class="cz-about__manifesto">
+    <div class="cz-about__manifesto-media" aria-hidden="true">
+      {% if section.settings.manifesto_image != blank %}
+        {{ section.settings.manifesto_image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1800', sizes: '(max-width: 749px) 100vw, 52vw' }}
+      {% else %}
+        <img src="{{ 'cz-classics-hero-bar-v1.jpg' | asset_url }}" alt="" width="1536" height="1024" loading="lazy">
+      {% endif %}
+    </div>
+    <div class="cz-about__manifesto-copy">
+      <p class="cz-about__kicker">{{ section.settings.manifesto_kicker | escape }}</p>
+      <h2>{{ section.settings.manifesto_heading | escape }}</h2>
+      <div class="rte">{{ section.settings.manifesto_copy }}</div>
+      <p class="cz-about__manifesto-callout">{{ section.settings.manifesto_callout | escape }}</p>
+    </div>
+  </div>
+
+  <div class="cz-about__maker page-width">
+    <div class="cz-about__maker-copy">
+      <p class="cz-about__kicker">{{ section.settings.maker_kicker | escape }}</p>
+      <h2>{{ section.settings.maker_heading | escape }}</h2>
+      <div class="rte">{{ section.settings.maker_copy }}</div>
+    </div>
+    <div class="cz-about__maker-media">
+      {% if section.settings.maker_image != blank %}
+        {{ section.settings.maker_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: section.settings.maker_image_alt, widths: '600, 900, 1200, 1600', sizes: '(max-width: 749px) 100vw, 44vw' }}
+      {% else %}
+        <img src="{{ 'cz-lab-hero-polaroids-v1.jpg' | asset_url }}" alt="{{ section.settings.maker_image_alt | escape }}" width="1792" height="1024" loading="lazy">
+      {% endif %}
+      <span class="cz-about__maker-caption">{{ section.settings.maker_caption | escape }}</span>
+    </div>
+  </div>
+
+  <div class="cz-about__closing">
+    <div class="page-width">
+      <p class="cz-about__closing-kicker">{{ section.settings.closing_kicker | escape }}</p>
+      <h2>{{ section.settings.closing_heading | escape }}</h2>
+      <div class="cz-about__closing-actions">
+        <a class="button button--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.primary_label | escape }} <span aria-hidden="true">→</span>
+        </a>
+        <a class="button button--secondary" href="{{ section.settings.secondary_link | default: '/pages/customs' }}">
+          {{ section.settings.secondary_label | escape }} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Creative Zoo About",
+  "tag": "section",
+  "class": "cz-about-page-section",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "UNDERSTAND THE ZOO" },
+    { "type": "text", "id": "hero_title", "label": "Heading", "default": "THE ZOO STARTED AS AN ESCAPE." },
+    { "type": "richtext", "id": "hero_copy", "label": "Introduction", "default": "<p>Work. Family. Responsibility. Life has a way of pounding away at you until the things that bring you peace start getting pushed aside.</p><p>For me, creating became that peace.</p>" },
+    { "type": "text", "id": "hero_note", "label": "Side note", "default": "CREATIVE CHAOS. FOUND PEACE." },
+
+    { "type": "header", "content": "Origin story" },
+    { "type": "text", "id": "origin_kicker", "label": "Kicker", "default": "HOW IT BEGAN" },
+    { "type": "text", "id": "origin_heading", "label": "Heading", "default": "NO TRAINING. NO MASTER PLAN." },
+    { "type": "richtext", "id": "origin_copy", "label": "Story", "default": "<p>It started with small projects. A shirt. A hoodie. A mug. Glass etching. Something made for someone I cared about. Then another idea. Another project. Another thing I did not know how to do yet.</p><p>There was no design degree and no formal training—just curiosity, trial and error, and the willingness to figure it out.</p><p>It was messy. It was a zoo. Somewhere inside that creative chaos, Creative Zoo was born.</p>" },
+
+    { "type": "header", "content": "Philosophy" },
+    { "type": "image_picker", "id": "manifesto_image", "label": "Philosophy image" },
+    { "type": "text", "id": "manifesto_kicker", "label": "Kicker", "default": "THE PHILOSOPHY" },
+    { "type": "text", "id": "manifesto_heading", "label": "Heading", "default": "ASCEND THE ORDINARY." },
+    { "type": "richtext", "id": "manifesto_copy", "label": "Copy", "default": "<p>The world is good at putting people into boxes: job titles, expectations, labels, what you are supposed to be good at, what you are supposed to care about, and what you are supposed to become.</p><p>Those labels belong to the people who created them. You do not have to subscribe.</p><p>Ascending the ordinary is not about being better than everyone else. It is about refusing to let someone else’s definition of you become your definition of yourself.</p>" },
+    { "type": "text", "id": "manifesto_callout", "label": "Callout", "default": "CREATE OUTSIDE THE BOX THEY GAVE YOU." },
+
+    { "type": "header", "content": "The maker" },
+    { "type": "image_picker", "id": "maker_image", "label": "Maker or process image" },
+    { "type": "text", "id": "maker_image_alt", "label": "Image alt text", "default": "Creative Zoo projects and making process" },
+    { "type": "text", "id": "maker_caption", "label": "Image caption", "default": "ONE IDEA. ONE PROJECT. ONE CHALLENGE AT A TIME." },
+    { "type": "text", "id": "maker_kicker", "label": "Kicker", "default": "BEHIND THE ZOO" },
+    { "type": "text", "id": "maker_heading", "label": "Heading", "default": "ONE PERSON. A LOT OF IDEAS." },
+    { "type": "richtext", "id": "maker_copy", "label": "Copy", "default": "<p>Creative Zoo is still built the same way it started—one idea, one project, and one challenge at a time.</p><p>Some become Creative Zoo originals. Some become one-of-one customs. Some are experiments that lead somewhere completely unexpected.</p><p>That is part of the Zoo.</p>" },
+
+    { "type": "header", "content": "Closing" },
+    { "type": "text", "id": "closing_kicker", "label": "Kicker", "default": "BE A CREATIVE. ESCAPE THE ZOO." },
+    { "type": "text", "id": "closing_heading", "label": "Heading", "default": "CREATIVITY CANNOT BE CAGED." },
+    { "type": "text", "id": "primary_label", "label": "Primary button", "default": "SHOP THE ZOO" },
+    { "type": "url", "id": "primary_link", "label": "Primary link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "ENTER THE LAB" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary link" }
+  ],
+  "presets": [{ "name": "Creative Zoo About" }]
+}
+{% endschema %}

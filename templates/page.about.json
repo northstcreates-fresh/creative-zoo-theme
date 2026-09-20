@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "about": {
+      "type": "cz-about-page",
+      "settings": {}
+    }
+  },
+  "order": ["about"]
+}
