@@ -85,6 +85,7 @@ body:has(.cz-headwear-hero) .nv-header-logo {
 
 .cz-classics-hero .cz-headwear-hero__eyebrow,
 .cz-apparel-hero .cz-headwear-hero__eyebrow,
+.cz-custom-drops-hero .cz-headwear-hero__eyebrow,
 .cz-headwear-hero:not(.cz-apparel-hero):not(.cz-classics-hero):not(.cz-custom-drops-hero) .cz-headwear-hero__eyebrow,
 .cz-headwear-hero__note span {
   color: #00dce8;
