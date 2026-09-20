@@ -29,15 +29,15 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
 .cz-about__maker h2 { margin: 0; font-size: clamp(5rem, 7vw, 10rem); }
 .cz-about__origin-copy { align-self: end; font-size: clamp(1.7rem, 1.6vw, 2.2rem); line-height: 1.65; }
 .cz-about__origin-copy p:first-child::first-letter { float: left; margin: .05em .12em 0 0; color: #00dce8; font-family: var(--font-heading-family); font-size: 5.4em; font-weight: 900; line-height: .72; }
-.cz-about__manifesto { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(40rem, .95fr); min-height: 76rem; background: #080b0c; color: #fff; }
+.cz-about__manifesto { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 76rem; background: #080b0c; color: #fff; }
 .cz-about__manifesto-media { min-height: 60rem; overflow: hidden; }
 .cz-about__manifesto-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; filter: grayscale(1) contrast(1.08); }
-.cz-about__manifesto-copy { align-self: center; padding: clamp(6rem, 8vw, 13rem); }
+.cz-about__manifesto-copy { min-width: 0; align-self: center; padding: clamp(6rem, 7vw, 11rem); }
 .cz-about__manifesto-copy h2 { max-width: 10ch; margin: 0 0 3rem; color: #fff; font-size: clamp(6rem, 7vw, 10rem); }
 .cz-about__manifesto-copy h2 span { display: inline-block; white-space: nowrap; }
 .cz-about__manifesto-copy .rte { max-width: 58rem; font-size: clamp(1.6rem, 1.4vw, 2rem); line-height: 1.62; }
 .cz-about__manifesto-callout { margin: 4rem 0 0; padding-left: 2rem; border-left: .4rem solid #00dce8; color: #fff; font-family: var(--font-heading-family); font-size: clamp(1.8rem, 2vw, 2.8rem); font-weight: 900; letter-spacing: .05em; }
-.cz-about__manifesto-callout span { color: #ff4655; }
+.cz-about__manifesto-callout span { display: block; margin-top: .5rem; color: #ff4655; }
 .cz-about__maker { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(5rem, 9vw, 13rem); align-items: center; padding-top: clamp(8rem, 12vw, 16rem); padding-bottom: clamp(8rem, 12vw, 16rem); }
 .cz-about__maker-copy .rte { max-width: 58rem; margin-top: 3rem; font-size: clamp(1.6rem, 1.45vw, 2rem); line-height: 1.65; }
 .cz-about__maker-media { position: relative; transform: rotate(1.5deg); background: #fff; padding: 1.4rem 1.4rem 6rem; box-shadow: 0 2rem 5rem rgba(0, 0, 0, .2); }
@@ -58,11 +58,21 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
   body:has(.cz-about) .section-header { margin-bottom: -7rem; }
   .cz-about__hero { min-height: 72rem; }
   .cz-about__hero-media { top: 5rem; }
-  .cz-about__hero-media img { object-position: 70% center; }
+  .cz-about__hero-media img { object-position: 84% center; }
   .cz-about__hero-shade { background: linear-gradient(0deg, rgba(3, 6, 7, .96) 0%, rgba(3, 6, 7, .28) 78%); }
-  .cz-about__hero-content { padding-top: 14rem; padding-bottom: 6rem; }
+  .cz-about__hero-content { padding-top: 14rem; padding-bottom: 9rem; }
   .cz-about__hero-title { font-size: clamp(5rem, 16vw, 7.2rem); }
-  .cz-about__hero-note { display: none; }
+  .cz-about__hero-note {
+    right: 2rem;
+    bottom: 2.2rem;
+    left: 2rem;
+    overflow: hidden;
+    font-size: clamp(.72rem, 2.4vw, .9rem);
+    letter-spacing: .16em;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .cz-about__origin,
   .cz-about__maker,
   .cz-about__manifesto { grid-template-columns: 1fr; }
@@ -71,7 +81,8 @@ body:has(.cz-about) .nv-header-logo { filter: invert(1); }
   .cz-about__manifesto-media { min-height: 46rem; }
   .cz-about__manifesto-media img { object-position: center 30%; }
   .cz-about__manifesto-copy { padding: 6rem 2rem 7rem; }
-  .cz-about__manifesto-copy h2 { font-size: clamp(5.6rem, 18vw, 8rem); }
+  .cz-about__manifesto-copy h2 { max-width: 100%; font-size: min(13vw, 6.4rem); }
+  .cz-about__manifesto-copy h2 span { white-space: nowrap; }
   .cz-about__maker-media { order: -1; margin: 0 1rem; }
   .cz-about__closing-actions { align-items: stretch; flex-direction: column; }
   .cz-about__closing .button { width: 100%; }
