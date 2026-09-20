@@ -42,7 +42,7 @@
       {% if section.settings.manifesto_image != blank %}
         {{ section.settings.manifesto_image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1800', sizes: '(max-width: 749px) 100vw, 52vw' }}
       {% else %}
-        <img src="{{ 'cz-classics-hero-bar-v1.jpg' | asset_url }}" alt="" width="1536" height="1024" loading="lazy">
+        <img src="{{ 'cz-about-philosophy-founder-v1.png' | asset_url }}" alt="" width="1536" height="1536" loading="lazy">
       {% endif %}
     </div>
     <div class="cz-about__manifesto-copy">
